@@ -1,0 +1,16 @@
+---
+title: "ADL - Application Development Lab"
+subtitle: "About The Course"
+author: "HRM"
+date: 12 Sept 2025
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+    code-copy: true
+    highlight-style: github
+---
+
+Hi

@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "App Dev Lab by HRM"
+  search: false
+  navbar:
+    style: "floating"
+    pinned: false
+    tools:
+      - icon: youtube
+        href: https://www.youtube.com/@deepinside333hrm
+        target: _blank
+      - icon: house
+        href: https://hrmiitm.github.io
+
+  sidebar:
+      style: "floating"
+      search: false
+      collapse-level: 1
+      contents:
+        - text: "About The Course"
+          href: index.qmd
+        - section: "Week 0"
+          contents:
+            - section: "10 Days Of JS"
+              contents:
+                - text: "Day-1"
+                  href: ./W0/JS/DAY_1.qmd
+                - text: "Day-2" 
+                  href: ./W0/JS/DAY_2.qmd
+            - section: "3 Days to HTML"
+              contents:
+                - text: "Day-1"
+                  href: ./W0/HTML/DAY_1.qmd
+                - text: "Day-2"
+                  href: ./W0/HTML/DAY_2.qmd
+
+
+format:
+  html:
+    theme:
+      # light: morph
+      light: zephyr
+      dark: lux
+      # dark: flatly
+    css: styles.css
+    toc: true
+    toc-location: right
+    smooth-scroll: true
