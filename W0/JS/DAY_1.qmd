@@ -7,8 +7,13 @@ format:
     toc-location: right
     toc-depth: 3
     smooth-scroll: true
+
+    # Code formatting
     code-copy: true
-    highlight-style: github
+    code-line-numbers: true
+    code-overflow: wrap
+    highlight-style: dracula
+
 ---
 
 <details open>
@@ -55,7 +60,7 @@ let value;                   // undefined (declared but not assigned)
 let id = Symbol("id");       // symbol
 let bigNum = 123n;           // bigint
 ```
-**Note:** `typeof age` will return you string `string`
+**Note:** `typeof age` will return you string `number`
 
 
 ### **Reference Types:**
