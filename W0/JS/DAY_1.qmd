@@ -11,7 +11,7 @@ format:
     # Code formatting
     code-copy: true
     code-line-numbers: true
-    code-overflow: wrap
+#     code-overflow: wrap
     highlight-style: dracula
 
 ---
@@ -22,45 +22,108 @@ format:
 
 ## **1. Variables: var/let/const**
 
-| Feature | `var` | `let` | `const` |
-| :-- | :-- | :-- | :-- |
-| **Scope** | Function/Global | Block | Block |
-| **Redeclaration** | ✅ Allowed | ❌ Not allowed | ❌ Not allowed |
-| **Reassignment** | ✅ Allowed | ✅ Allowed | ❌ Not allowed |
-| **Initialization** | Optional | Optional | Required |
-| **Hoisting** | Hoisted as `undefined` | Hoisted but ReferenceError | Hoisted but ReferenceError |
+**let const are Introduced in ES6 (ECMAScript 2015)**
+
+Var --> Function/Global Scope  
+let, const --> Block Scope
+
+**All are hoisted**, but **only var is initialized as `undefined`** at the top of its scope. let and const exist in a `temporal dead zone` until their declaration line is reached.
 
 ```javascript
 // var - avoid using
 var x = 1;
-var x = 2;  // OK - can redeclare
+var x = 2;  // OK - can redeclare/assigned
 
 // let - for variables that change
 let y = 1;
 y = 2;      // OK - can reassign
-// let y = 3;  // Error - cannot redeclare
+// let y = 3;  // Error
 
 // const - for constants
-const z = 1;
-// z = 2;      // Error - cannot reassign
-// const w;    // Error - must initialize
+const z = 1;    // must be initialized
+// z = 2;      // Error 
+// const w;    // Error 
 ```
+
+::: {.callout-tip collapse="true"}
+## Problem with `var`
+
+1. **Function-scoped, not block-scoped**  
+   - Variables declared with `var` are visible outside the block (`if`, `for`, etc.), which often caused bugs.
+
+```javascript
+// Using var
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log("var:", i), 1000);
+}
+// Output: var: 3, var: 3, var: 3   (unexpected!)
+
+// Using let
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => console.log("let:", j), 1000);
+}
+// Output: let: 0, let: 1, let: 2   (expected!)
+```
+
+
+2. **Hoisting with undefined**  
+    - var declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.
+:::
+
+
+::: {.callout-note collapse="true"}
+
+## What Does "Hoisted" Mean in JavaScript?
+
+Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.
+
+```javascript
+console.log(a); // undefined
+var a = 5;
+console.log(a); // 5
+```
+
+```javascript
+console.log(b); // ReferenceError
+let b = 10;
+```
+
+With `let` and `const`, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it's in the **Temporal Dead Zone (TDZ)**
+
+:::
+
+::: {.callout-tip collapse="true"}
+
+## What to use?
+
+Use `const` mostly.
+
+:::
 
 
 ## **2. Data Types**
 
-### **Primitive Types:**
+### **7 Primitive Types:**
 
 ```javascript
 let name = "John";           // string
-let age = 25;                // number
+let age = 25;                // number --> 2^53-1
 let isActive = true;         // boolean
 let data = null;             // null (intentionally empty)
 let value;                   // undefined (declared but not assigned)
 let id = Symbol("id");       // symbol
-let bigNum = 123n;           // bigint
+let bigNum = 123n;           // bigint --> only Integer(till memory)
 ```
-**Note:** `typeof age` will return you string `number`
+
+::: {.callout-tip collapse="true"}
+
+## typeof null; typeof undefined
+
+Type of `null` is `object`, while type of `undefined` is `undefined`.  
+
+`null` type as `object` was a bug / design mistake in the original implementation, but it became part of the language.
+
+:::
 
 
 ### **Reference Types:**
@@ -114,371 +177,51 @@ console.log(a !== b);   // true
 **Rule:** Always use `===` and `!==` to avoid unexpected results.
 
 
-## **5. Control Flow**
 
-### **If-Else Statements:**
+## **5. Type Conversion**
 
-```javascript
-let score = 85;
+1. `Number(x)`  
+        - Booleans true, false --> 1,0  
+        - null --> 0  
+        - undefined, '33abc' --> `Nan`
 
-if (score >= 90) {
-    console.log("A Grade");
-} else if (score >= 80) {
-    console.log("B Grade");
-} else if (score >= 70) {
-    console.log("C Grade");
-} else {
-    console.log("F Grade");
-}
-```
+2. `Boolean(x)`  
+        - 1, 0 --> true, false  
+        - "" --> false  
+        - "0" --> true  
 
+3. `String(x)`
 
-### **Ternary Operator:**
+### String +-*/ Number
 
-```javascript
-let age = 18;
-let status = age >= 18 ? "Adult" : "Minor";
-```
+1. `+` : always do string concat `"5" + 5` or `5 + 5 + "5"` will give 55 and 105.  
+2. `- * / % **` : strings converted to numbers
 
-
-### **Switch Statement:**
+**Note**: booleans are converted to numbers and `null` --> `0` but `undefined` --> `NaN`
 
 ```javascript
-let day = "Monday";
-
-switch(day) {
-    case "Monday":
-        console.log("Start of work week");
-        break;
-    case "Friday":
-        console.log("TGIF!");
-        break;
-    default:
-        console.log("Regular day");
-}
+> null > 0
+false
+> null == 0
+false
+> null >= 0
+true
 ```
 
+On equality, `Type Coercion` happend with relational operators, it change `null` to `0`, causes it to `true`.
 
-## **6. JavaScript vs Python - Key Differences**
+While for loose equality javascript has `special rule that null can be equal to null and undefined only`.
 
-| Feature | JavaScript | Python |
-| :-- | :-- | :-- |
-| **Variable Declaration** | `let name = "John";` | `name = "John"` |
-| **Constants** | `const PI = 3.14;` | `PI = 3.14` (convention) |
-| **Blocks** | `{ }` braces | Indentation |
-| **Equality** | `===` (strict), `==` (loose) | `==` (always strict) |
-| **Arrays/Lists** | `[1, 2, 3]` | `[1, 2, 3]` |
-| **Objects/Dicts** | `{name: "John"}` | `{"name": "John"}` |
-| **Comments** | `// single` `/* multi */` | `# single` `''' multi '''` |
-| **If else** | if --> else if --> else | if --> elif --> if |
-| **Dynamic Typing** | Yes | Yes |
 
 
 
 ## **Key Takeaways:**
 
-1. **Use `const` by default**, `let` when reassignment needed, avoid `var`
-2. **Always use `===` and `!==`** for comparisons
-3. **JavaScript uses braces `{}`**, Python uses indentation
-4. **JavaScript has both loose and strict equality**, Python only has strict
-5. **Both languages are dynamically typed** and case-sensitive
-6. JS uses **"if --> else if --> if"** but python uses **"if --> elif --> else"**
-
-</details>
-
-<details open>
-<summary><h1 style="display: inline;">Code Examples</h1></summary>
-
-
-## **1. Switch Statement - Day of Week**
-
-```javascript
-// DayOfWeek - Switch
-function getDayOfWeek(dayNumber) {
-        switch(dayNumber){
-                case 1: return "Monday";
-                case 2: return "Tuesday";
-                case 3: return "Wednesday";
-                case 4: return "Thursday";
-                case 5: return "Friday";
-                case 6: return "Saturday";
-                case 7: return "Sunday";
-                default: return "Invalid Day Number!";
-        }
-}
-console.log(1, getDayOfWeek(1));
-console.log(4, getDayOfWeek(4));
-console.log(7, getDayOfWeek(7));
-console.log(9, getDayOfWeek(9));
-```
-
-**Output:**
-
-```
-1 Monday
-4 Thursday
-7 Sunday
-9 Invalid Day Number!
-```
-
-
-## **2. If-Else Chain - Grade Calculator**
-
-```javascript
-// Grade - If-Else If
-function grade(m) {
-        var g;
-        if (m>=90) { g="S"; }
-        else if (m>=80) { g="A"; }
-        else if (m>=70) { g="B"; }
-        else if (m>=60) { g="C"; }
-        else if (m>=50) { g="D"; }
-        else if (m>=40) { g="E"; }
-        else { g="U"; }
-        return g;
-}
-// console.log("g", g); // g is not defined
-console.log(95, grade(95));
-console.log(65, grade(65));
-console.log(25, grade(25));
-// console.lgo("g", g); // g is not defined
-```
-
-**Output:**
-
-```
-95 S
-65 C
-25 U
-```
-
-**Key Points:**
-
-- Variable `g` has function scope (using `var`)
-- Variable `g` not accessible outside function (scope limitation)
-
-
-## **3. Ternary Operator - Even/Odd Check**
-
-```javascript
-// EvenOdd - Ternary Operator
-const checkEvenOdd = (num) => {
-        return (num%2==0) ? "Even" : "Odd";
-}
-console.log(1, checkEvenOdd(1));
-console.log(4, checkEvenOdd(4));
-console.log(21, checkEvenOdd(21));
-console.log(98, checkEvenOdd(98));
-/* Arrow Function
- * - Doesn't Have its own this, Arguments, or super
- * - Best For
- *   - Callbacks
- *   - Array Methods (map, filter, reduce)
- *   - when we don't need this
- *   - Arrow Function doesn't create this of its own, it uses this of surroundings.
- */
-```
-
-**Output:**
-
-```
-1 Odd
-4 Even
-21 Odd
-98 Even
-```
-
-**Key Points:**
-
-- Ternary operator: `condition ? valueIfTrue : valueIfFalse`
-- Arrow function syntax: `const func = (param) => { return value; }`
-- Arrow functions don't have their own `this` context
-
-
-## **4. Object Return - Movie Ticket Pricing**
-
-```javascript
-// MovieTicketPrice - JS Object Return
-function mtp(age){
-        let price, category;
-        if (age<12) { price = 100, category = 'Child'; }
-        else if (age<=59) { price = 200; category = "Adult"; }
-        else if (age>=60) { price = 120; category = "Senior"; }
-        return { age:age, price:price, category:category }
-}
-console.log(mtp(4));
-console.log(mtp(14));
-console.log(mtp(40));
-console.log(mtp(85));
-/*
- * JS object support
- * - single quote for string
- */
-```
-
-**Output:**
-
-```
-{ age: 4, price: 100, category: 'Child' }
-{ age: 14, price: 200, category: 'Adult' }
-{ age: 40, price: 200, category: 'Adult' }
-{ age: 85, price: 120, category: 'Senior' }
-```
-
-**Key Points:**
-
-- Functions can return objects with multiple properties
-- JavaScript supports both single and double quotes for strings
-
-
-## **5. Calculator with Switch**
-
-```javascript
-// Calc - Switch
-function calc(a,b,o) {
-        switch(o){
-                case '+':
-                        result = a + b; break;
-                case '-':
-                        result = a - b; break;
-                case '*':
-                        result = a * b; break;
-                case '/':
-                        result = a / b; break;
-                default:
-                        result = null;
-        }
-        return result;
-}
-console.log(4,1,'+', calc(4,1,'+'));
-console.log(4,7,'+', calc(4,7,'*'));
-console.log(result);
-console.log(4,7,'(', calc(4,7,'('));
-```
-
-**Output:**
-
-```
-4 1 + 5
-4 7 + 28
-28
-4 7 ( null
-```
-
-**Key Points:**
-
-- `break` statements prevent fall-through to next case
-- Variable `result` declared without `let/const/var` (becomes global)
-
-
-## **6. Type Checking - Multiple of 7**
-
-```javascript
-// Multiple of 7 - Type Of
-function isMultipleOf7(n) {
-        if ( typeof n != 'number' || isNaN(n) ) { return "Invalid Input"; }
-        if (n % 7 == 0) { return "Yes"; }
-        else { return "No"; }
-}
-console.log(5, isMultipleOf7(5));
-console.log(49, isMultipleOf7(49));
-console.log(70, isMultipleOf7(70));
-console.log("hi", isMultipleOf7("hi"));
-/*
- * != compare values only similar to == (before comparing type coerce is done if needed)
- * !== compare bothe values and its type similar to === ( here type coerce is not done)
- */
-```
-
-**Output:**
-
-```
-5 No
-49 Yes
-70 Yes
-hi Invalid Input
-```
-
-**Key Points:**
-
-- `typeof` operator returns string indicating variable type
-- `isNaN()` checks if value is "Not a Number"
-- `!=` performs type coercion, `!==` does strict comparison
-- Input validation prevents runtime errors
-
-
-## **7. Array Find Method - Age Classification**
-
-```javascript
-// AgeGroup Classify - JS Object Find
-function cag(age) {
-        const ageGroups = [
-                {min:0, max:12, category:"Child"},
-                {min:13, max:19, category:"Teenager"},
-                {min:20, max:59, category:"Adult"},
-                {min:60, max:120, category:"Senior"},
-        ]
-        const group = ageGroups.find(g => (age>=g.min && age<=g.max));
-        return group;
-}
-console.log(8, cag(8));
-console.log(16, cag(16));
-console.log(35, cag(35));
-console.log(70, cag(70));
-```
-
-**Output:**
-
-```
-8 { min: 0, max: 12, category: 'Child' }
-16 { min: 13, max: 19, category: 'Teenager' }
-35 { min: 20, max: 59, category: 'Adult' }
-70 { min: 60, max: 120, category: 'Senior' }
-```
-
-**Key Points:**
-
-- `find()` method returns first element that matches condition
-- Arrow function as callback: `g => (condition)`
-
-
-## **8. Temperature Converter**
-
-```javascript
-// Temp Converter
-function convert(v, f, t) { // value, from, to
-        const units = ['C', 'F', 'K']
-        let celsius;
-        switch (f){
-                case 'C': celsius = v; break;
-                case 'F': celsius = (v-32) * (5/9); break;
-                case 'K': celsius = v - 273.15;
-        }
-        let result;
-        switch (t){
-                case 'C': result = celsius; break;
-                case 'F': result = (celsius * (9/5)) + 32; break;
-                case 'K': result = celsius + 273.15; break;
-        }
-        return result;
-}
-console.log(convert(100, 'C', 'F')); // 212
-console.log(convert(32, 'F', 'C')); // 0
-console.log(convert(273.1, 'K', 'C')); // 0
-```
-
-**Output:**
-
-```
-212
-0
--0.049999999999954525
-```
-
-**Key Points:**
-
-- Two-step conversion: input → Celsius → target unit
-- Floating-point precision issues cause small rounding errors
-
+1. **Use `const` by default**, `let` when reassignment needed, avoid `var`  
+2. **Always use `===` and `!==`** for comparisons  
+3. **JavaScript uses braces `{}`**, Python uses indentation  
+4. **JavaScript has both loose and strict equality**, Python only has strict  
+5. **Both languages are dynamically typed** and case-sensitive  
+6. For `null` on loose equality javascript has `special rule that null can be equal to null and undefined only`.
 
 </details>

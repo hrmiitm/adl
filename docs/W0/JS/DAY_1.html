@@ -72,9 +72,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5ebfb93356a065f54cae2aba6599f7ec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-f57f5123561c36a1cde2371f4f86a50d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-5ebfb93356a065f54cae2aba6599f7ec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9abcedaa66623c4356fc84edb00eef4b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#variables-varletconst" id="toc-variables-varletconst" class="nav-link active" data-scroll-target="#variables-varletconst"><strong>1. Variables: var/let/const</strong></a></li>
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><strong>2. Data Types</strong></a>
   <ul class="collapse">
-  <li><a href="#primitive-types" id="toc-primitive-types" class="nav-link" data-scroll-target="#primitive-types"><strong>Primitive Types:</strong></a></li>
+  <li><a href="#primitive-types" id="toc-primitive-types" class="nav-link" data-scroll-target="#primitive-types"><strong>7 Primitive Types:</strong></a></li>
   <li><a href="#reference-types" id="toc-reference-types" class="nav-link" data-scroll-target="#reference-types"><strong>Reference Types:</strong></a></li>
   </ul></li>
   <li><a href="#variable-naming-rules" id="toc-variable-naming-rules" class="nav-link" data-scroll-target="#variable-naming-rules"><strong>3. Variable Naming Rules</strong></a></li>
@@ -377,22 +377,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#equality-comparison" id="toc-equality-comparison" class="nav-link" data-scroll-target="#equality-comparison"><strong>Equality Comparison:</strong></a></li>
   </ul></li>
-  <li><a href="#control-flow" id="toc-control-flow" class="nav-link" data-scroll-target="#control-flow"><strong>5. Control Flow</strong></a>
+  <li><a href="#type-conversion" id="toc-type-conversion" class="nav-link" data-scroll-target="#type-conversion"><strong>5. Type Conversion</strong></a>
   <ul class="collapse">
-  <li><a href="#if-else-statements" id="toc-if-else-statements" class="nav-link" data-scroll-target="#if-else-statements"><strong>If-Else Statements:</strong></a></li>
-  <li><a href="#ternary-operator" id="toc-ternary-operator" class="nav-link" data-scroll-target="#ternary-operator"><strong>Ternary Operator:</strong></a></li>
-  <li><a href="#switch-statement" id="toc-switch-statement" class="nav-link" data-scroll-target="#switch-statement"><strong>Switch Statement:</strong></a></li>
+  <li><a href="#string---number" id="toc-string---number" class="nav-link" data-scroll-target="#string---number">String +-*/ Number</a></li>
   </ul></li>
-  <li><a href="#javascript-vs-python---key-differences" id="toc-javascript-vs-python---key-differences" class="nav-link" data-scroll-target="#javascript-vs-python---key-differences"><strong>6. JavaScript vs Python - Key Differences</strong></a></li>
   <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways"><strong>Key Takeaways:</strong></a></li>
-  <li><a href="#switch-statement---day-of-week" id="toc-switch-statement---day-of-week" class="nav-link" data-scroll-target="#switch-statement---day-of-week"><strong>1. Switch Statement - Day of Week</strong></a></li>
-  <li><a href="#if-else-chain---grade-calculator" id="toc-if-else-chain---grade-calculator" class="nav-link" data-scroll-target="#if-else-chain---grade-calculator"><strong>2. If-Else Chain - Grade Calculator</strong></a></li>
-  <li><a href="#ternary-operator---evenodd-check" id="toc-ternary-operator---evenodd-check" class="nav-link" data-scroll-target="#ternary-operator---evenodd-check"><strong>3. Ternary Operator - Even/Odd Check</strong></a></li>
-  <li><a href="#object-return---movie-ticket-pricing" id="toc-object-return---movie-ticket-pricing" class="nav-link" data-scroll-target="#object-return---movie-ticket-pricing"><strong>4. Object Return - Movie Ticket Pricing</strong></a></li>
-  <li><a href="#calculator-with-switch" id="toc-calculator-with-switch" class="nav-link" data-scroll-target="#calculator-with-switch"><strong>5. Calculator with Switch</strong></a></li>
-  <li><a href="#type-checking---multiple-of-7" id="toc-type-checking---multiple-of-7" class="nav-link" data-scroll-target="#type-checking---multiple-of-7"><strong>6. Type Checking - Multiple of 7</strong></a></li>
-  <li><a href="#array-find-method---age-classification" id="toc-array-find-method---age-classification" class="nav-link" data-scroll-target="#array-find-method---age-classification"><strong>7. Array Find Method - Age Classification</strong></a></li>
-  <li><a href="#temperature-converter" id="toc-temperature-converter" class="nav-link" data-scroll-target="#temperature-converter"><strong>8. Temperature Converter</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -428,472 +417,213 @@ JavaScript Core Concepts - Quick Notes
 </summary>
 <section id="variables-varletconst" class="level2">
 <h2 class="anchored" data-anchor-id="variables-varletconst"><strong>1. Variables: var/let/const</strong></h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;"><code>var</code></th>
-<th style="text-align: left;"><code>let</code></th>
-<th style="text-align: left;"><code>const</code></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Scope</strong></td>
-<td style="text-align: left;">Function/Global</td>
-<td style="text-align: left;">Block</td>
-<td style="text-align: left;">Block</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Redeclaration</strong></td>
-<td style="text-align: left;">✅ Allowed</td>
-<td style="text-align: left;">❌ Not allowed</td>
-<td style="text-align: left;">❌ Not allowed</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Reassignment</strong></td>
-<td style="text-align: left;">✅ Allowed</td>
-<td style="text-align: left;">✅ Allowed</td>
-<td style="text-align: left;">❌ Not allowed</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Initialization</strong></td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">Optional</td>
-<td style="text-align: left;">Required</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Hoisting</strong></td>
-<td style="text-align: left;">Hoisted as <code>undefined</code></td>
-<td style="text-align: left;">Hoisted but ReferenceError</td>
-<td style="text-align: left;">Hoisted but ReferenceError</td>
-</tr>
-</tbody>
-</table>
+<p><strong>let const are Introduced in ES6 (ECMAScript 2015)</strong></p>
+<p>Var –&gt; Function/Global Scope<br>
+let, const –&gt; Block Scope</p>
+<p><strong>All are hoisted</strong>, but <strong>only var is initialized as <code>undefined</code></strong> at the top of its scope. let and const exist in a <code>temporal dead zone</code> until their declaration line is reached.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// var - avoid using</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// OK - can redeclare</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>  <span class="co">// OK - can redeclare/assigned</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="co">// let - for variables that change</span></span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="kw">let</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a>y <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>      <span class="co">// OK - can reassign</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">// let y = 3;  // Error - cannot redeclare</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">// let y = 3;  // Error</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a></span>
 <span id="cb1-10"><a href="#cb1-10"></a><span class="co">// const - for constants</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">const</span> z <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">// z = 2;      // Error - cannot reassign</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">// const w;    // Error - must initialize</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">const</span> z <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>    <span class="co">// must be initialized</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">// z = 2;      // Error </span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">// const w;    // Error </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problem with <code>var</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Function-scoped, not block-scoped</strong>
+<ul>
+<li>Variables declared with <code>var</code> are visible outside the block (<code>if</code>, <code>for</code>, etc.), which often caused bugs.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">// Using var</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"var:"</span><span class="op">,</span> i)<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">// Output: var: 3, var: 3, var: 3   (unexpected!)</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">// Using let</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> j<span class="op">++</span>) {</span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="pp">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"let:"</span><span class="op">,</span> j)<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">// Output: let: 0, let: 1, let: 2   (expected!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Hoisting with undefined</strong>
+<ul>
+<li>var declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What Does “Hoisted” Mean in JavaScript?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a)<span class="op">;</span> <span class="co">// undefined</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">var</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a)<span class="op">;</span> <span class="co">// 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(b)<span class="op">;</span> <span class="co">// ReferenceError</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">let</span> b <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With <code>let</code> and <code>const</code>, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the <strong>Temporal Dead Zone (TDZ)</strong></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What to use?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <code>const</code> mostly.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types"><strong>2. Data Types</strong></h2>
 <section id="primitive-types" class="level3">
-<h3 class="anchored" data-anchor-id="primitive-types"><strong>Primitive Types:</strong></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">let</span> name <span class="op">=</span> <span class="st">"John"</span><span class="op">;</span>           <span class="co">// string</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">let</span> age <span class="op">=</span> <span class="dv">25</span><span class="op">;</span>                <span class="co">// number</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">let</span> isActive <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>         <span class="co">// boolean</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">let</span> data <span class="op">=</span> <span class="kw">null</span><span class="op">;</span>             <span class="co">// null (intentionally empty)</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">let</span> value<span class="op">;</span>                   <span class="co">// undefined (declared but not assigned)</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">let</span> id <span class="op">=</span> <span class="bu">Symbol</span>(<span class="st">"id"</span>)<span class="op">;</span>       <span class="co">// symbol</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="kw">let</span> bigNum <span class="op">=</span> <span class="dv">123</span>n<span class="op">;</span>           <span class="co">// bigint</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Note:</strong> <code>typeof age</code> will return you string <code>number</code></p>
+<h3 class="anchored" data-anchor-id="primitive-types"><strong>7 Primitive Types:</strong></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">let</span> name <span class="op">=</span> <span class="st">"John"</span><span class="op">;</span>           <span class="co">// string</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">let</span> age <span class="op">=</span> <span class="dv">25</span><span class="op">;</span>                <span class="co">// number --&gt; 2^53-1</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">let</span> isActive <span class="op">=</span> <span class="kw">true</span><span class="op">;</span>         <span class="co">// boolean</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">let</span> data <span class="op">=</span> <span class="kw">null</span><span class="op">;</span>             <span class="co">// null (intentionally empty)</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">let</span> value<span class="op">;</span>                   <span class="co">// undefined (declared but not assigned)</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">let</span> id <span class="op">=</span> <span class="bu">Symbol</span>(<span class="st">"id"</span>)<span class="op">;</span>       <span class="co">// symbol</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">let</span> bigNum <span class="op">=</span> <span class="dv">123</span>n<span class="op">;</span>           <span class="co">// bigint --&gt; only Integer(till memory)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+typeof null; typeof undefined
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Type of <code>null</code> is <code>object</code>, while type of <code>undefined</code> is <code>undefined</code>.</p>
+<p><code>null</code> type as <code>object</code> was a bug / design mistake in the original implementation, but it became part of the language.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="reference-types" class="level3">
 <h3 class="anchored" data-anchor-id="reference-types"><strong>Reference Types:</strong></h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">let</span> person <span class="op">=</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">"John"</span>}<span class="op">;</span> <span class="co">// object</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">let</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span>     <span class="co">// array</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">let</span> greet <span class="op">=</span> <span class="kw">function</span>(){}<span class="op">;</span>    <span class="co">// function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">let</span> person <span class="op">=</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">"John"</span>}<span class="op">;</span> <span class="co">// object</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">let</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span>     <span class="co">// array</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">let</span> greet <span class="op">=</span> <span class="kw">function</span>(){}<span class="op">;</span>    <span class="co">// function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="variable-naming-rules" class="level2">
 <h2 class="anchored" data-anchor-id="variable-naming-rules"><strong>3. Variable Naming Rules</strong></h2>
 <p><strong>✅ Valid:</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">let</span> myName<span class="op">;</span>        <span class="co">// camelCase (preferred)</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">let</span> _private<span class="op">;</span>      <span class="co">// underscore prefix</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">let</span> $element<span class="op">;</span>      <span class="co">// dollar sign</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">let</span> age21<span class="op">;</span>         <span class="co">// numbers (not at start)</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">let</span> firstName<span class="op">;</span>     <span class="co">// descriptive names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">let</span> myName<span class="op">;</span>        <span class="co">// camelCase (preferred)</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">let</span> _private<span class="op">;</span>      <span class="co">// underscore prefix</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="kw">let</span> $element<span class="op">;</span>      <span class="co">// dollar sign</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">let</span> age21<span class="op">;</span>         <span class="co">// numbers (not at start)</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw">let</span> firstName<span class="op">;</span>     <span class="co">// descriptive names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>❌ Invalid:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">let</span> <span class="dv">2</span>name<span class="op">;</span>         <span class="co">// cannot start with number</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">let</span> my<span class="op">-</span>name<span class="op">;</span>       <span class="co">// no hyphens</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">let</span> <span class="kw">class</span><span class="op">;</span>         <span class="co">// reserved keyword</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">let</span> my name<span class="op">;</span>       <span class="co">// no spaces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">let</span> <span class="dv">2</span>name<span class="op">;</span>         <span class="co">// cannot start with number</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">let</span> my<span class="op">-</span>name<span class="op">;</span>       <span class="co">// no hyphens</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">let</span> <span class="kw">class</span><span class="op">;</span>         <span class="co">// reserved keyword</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="kw">let</span> my name<span class="op">;</span>       <span class="co">// no spaces</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="comparison-operators" class="level2">
 <h2 class="anchored" data-anchor-id="comparison-operators"><strong>4. Comparison Operators</strong></h2>
 <section id="equality-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="equality-comparison"><strong>Equality Comparison:</strong></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">let</span> b <span class="op">=</span> <span class="st">"5"</span><span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">// Loose equality (with type coercion)</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">==</span> b)<span class="op">;</span>    <span class="co">// true (converts types)</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">!=</span> b)<span class="op">;</span>    <span class="co">// false</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">// Strict equality (no type coercion)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">===</span> b)<span class="op">;</span>   <span class="co">// false (different types)</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">!==</span> b)<span class="op">;</span>   <span class="co">// true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">let</span> b <span class="op">=</span> <span class="st">"5"</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">// Loose equality (with type coercion)</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">==</span> b)<span class="op">;</span>    <span class="co">// true (converts types)</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">!=</span> b)<span class="op">;</span>    <span class="co">// false</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">// Strict equality (no type coercion)</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">===</span> b)<span class="op">;</span>   <span class="co">// false (different types)</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a <span class="op">!==</span> b)<span class="op">;</span>   <span class="co">// true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Rule:</strong> Always use <code>===</code> and <code>!==</code> to avoid unexpected results.</p>
 </section>
 </section>
-<section id="control-flow" class="level2">
-<h2 class="anchored" data-anchor-id="control-flow"><strong>5. Control Flow</strong></h2>
-<section id="if-else-statements" class="level3">
-<h3 class="anchored" data-anchor-id="if-else-statements"><strong>If-Else Statements:</strong></h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">let</span> score <span class="op">=</span> <span class="dv">85</span><span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">90</span>) {</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"A Grade"</span>)<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>} <span class="cf">else</span> <span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">80</span>) {</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"B Grade"</span>)<span class="op">;</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>} <span class="cf">else</span> <span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">70</span>) {</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"C Grade"</span>)<span class="op">;</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a>} <span class="cf">else</span> {</span>
-<span id="cb7-10"><a href="#cb7-10"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"F Grade"</span>)<span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="type-conversion" class="level2">
+<h2 class="anchored" data-anchor-id="type-conversion"><strong>5. Type Conversion</strong></h2>
+<ol type="1">
+<li><p><code>Number(x)</code><br>
+- Booleans true, false –&gt; 1,0<br>
+- null –&gt; 0<br>
+- undefined, ‘33abc’ –&gt; <code>Nan</code></p></li>
+<li><p><code>Boolean(x)</code><br>
+- 1, 0 –&gt; true, false<br>
+- “” –&gt; false<br>
+- “0” –&gt; true</p></li>
+<li><p><code>String(x)</code></p></li>
+</ol>
+<section id="string---number" class="level3">
+<h3 class="anchored" data-anchor-id="string---number">String +-*/ Number</h3>
+<ol type="1">
+<li><code>+</code> : always do string concat <code>"5" + 5</code> or <code>5 + 5 + "5"</code> will give 55 and 105.<br>
+</li>
+<li><code>- * / % **</code> : strings converted to numbers</li>
+</ol>
+<p><strong>Note</strong>: booleans are converted to numbers and <code>null</code> –&gt; <code>0</code> but <code>undefined</code> –&gt; <code>NaN</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1"></a><span class="op">&gt;</span> <span class="kw">null</span> <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">false</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="op">&gt;</span> <span class="kw">null</span> <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="kw">false</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="op">&gt;</span> <span class="kw">null</span> <span class="op">&gt;=</span> <span class="dv">0</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>On equality, <code>Type Coercion</code> happend with relational operators, it change <code>null</code> to <code>0</code>, causes it to <code>true</code>.</p>
+<p>While for loose equality javascript has <code>special rule that null can be equal to null and undefined only</code>.</p>
 </section>
-<section id="ternary-operator" class="level3">
-<h3 class="anchored" data-anchor-id="ternary-operator"><strong>Ternary Operator:</strong></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">let</span> age <span class="op">=</span> <span class="dv">18</span><span class="op">;</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">let</span> status <span class="op">=</span> age <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">?</span> <span class="st">"Adult"</span> <span class="op">:</span> <span class="st">"Minor"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="switch-statement" class="level3">
-<h3 class="anchored" data-anchor-id="switch-statement"><strong>Switch Statement:</strong></h3>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">let</span> day <span class="op">=</span> <span class="st">"Monday"</span><span class="op">;</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="cf">switch</span>(day) {</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">case</span> <span class="st">"Monday"</span><span class="op">:</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Start of work week"</span>)<span class="op">;</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a>    <span class="cf">case</span> <span class="st">"Friday"</span><span class="op">:</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"TGIF!"</span>)<span class="op">;</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a>        <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a>    <span class="cf">default</span><span class="op">:</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Regular day"</span>)<span class="op">;</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="javascript-vs-python---key-differences" class="level2">
-<h2 class="anchored" data-anchor-id="javascript-vs-python---key-differences"><strong>6. JavaScript vs Python - Key Differences</strong></h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;">JavaScript</th>
-<th style="text-align: left;">Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Variable Declaration</strong></td>
-<td style="text-align: left;"><code>let name = "John";</code></td>
-<td style="text-align: left;"><code>name = "John"</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Constants</strong></td>
-<td style="text-align: left;"><code>const PI = 3.14;</code></td>
-<td style="text-align: left;"><code>PI = 3.14</code> (convention)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Blocks</strong></td>
-<td style="text-align: left;"><code>{ }</code> braces</td>
-<td style="text-align: left;">Indentation</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Equality</strong></td>
-<td style="text-align: left;"><code>===</code> (strict), <code>==</code> (loose)</td>
-<td style="text-align: left;"><code>==</code> (always strict)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Arrays/Lists</strong></td>
-<td style="text-align: left;"><code>[1, 2, 3]</code></td>
-<td style="text-align: left;"><code>[1, 2, 3]</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Objects/Dicts</strong></td>
-<td style="text-align: left;"><code>{name: "John"}</code></td>
-<td style="text-align: left;"><code>{"name": "John"}</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Comments</strong></td>
-<td style="text-align: left;"><code>// single</code> <code>/* multi */</code></td>
-<td style="text-align: left;"><code># single</code> <code>''' multi '''</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>If else</strong></td>
-<td style="text-align: left;">if –&gt; else if –&gt; else</td>
-<td style="text-align: left;">if –&gt; elif –&gt; if</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Dynamic Typing</strong></td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways"><strong>Key Takeaways:</strong></h2>
 <ol type="1">
-<li><strong>Use <code>const</code> by default</strong>, <code>let</code> when reassignment needed, avoid <code>var</code></li>
-<li><strong>Always use <code>===</code> and <code>!==</code></strong> for comparisons</li>
-<li><strong>JavaScript uses braces <code>{}</code></strong>, Python uses indentation</li>
-<li><strong>JavaScript has both loose and strict equality</strong>, Python only has strict</li>
-<li><strong>Both languages are dynamically typed</strong> and case-sensitive</li>
-<li>JS uses <strong>“if –&gt; else if –&gt; if”</strong> but python uses <strong>“if –&gt; elif –&gt; else”</strong></li>
+<li><strong>Use <code>const</code> by default</strong>, <code>let</code> when reassignment needed, avoid <code>var</code><br>
+</li>
+<li><strong>Always use <code>===</code> and <code>!==</code></strong> for comparisons<br>
+</li>
+<li><strong>JavaScript uses braces <code>{}</code></strong>, Python uses indentation<br>
+</li>
+<li><strong>JavaScript has both loose and strict equality</strong>, Python only has strict<br>
+</li>
+<li><strong>Both languages are dynamically typed</strong> and case-sensitive<br>
+</li>
+<li>For <code>null</code> on loose equality javascript has <code>special rule that null can be equal to null and undefined only</code>.</li>
 </ol>
-</section></details>
-<details open="">
-<summary>
-<h1 style="display: inline;">
-Code Examples
-</h1>
-</summary>
-
-<section id="switch-statement---day-of-week" class="level2">
-<h2 class="anchored" data-anchor-id="switch-statement---day-of-week"><strong>1. Switch Statement - Day of Week</strong></h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">// DayOfWeek - Switch</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">function</span> <span class="fu">getDayOfWeek</span>(dayNumber) {</span>
-<span id="cb10-3"><a href="#cb10-3"></a>        <span class="cf">switch</span>(dayNumber){</span>
-<span id="cb10-4"><a href="#cb10-4"></a>                <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Monday"</span><span class="op">;</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>                <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Tuesday"</span><span class="op">;</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>                <span class="cf">case</span> <span class="dv">3</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Wednesday"</span><span class="op">;</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>                <span class="cf">case</span> <span class="dv">4</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Thursday"</span><span class="op">;</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>                <span class="cf">case</span> <span class="dv">5</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Friday"</span><span class="op">;</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a>                <span class="cf">case</span> <span class="dv">6</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Saturday"</span><span class="op">;</span></span>
-<span id="cb10-10"><a href="#cb10-10"></a>                <span class="cf">case</span> <span class="dv">7</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Sunday"</span><span class="op">;</span></span>
-<span id="cb10-11"><a href="#cb10-11"></a>                <span class="cf">default</span><span class="op">:</span> <span class="cf">return</span> <span class="st">"Invalid Day Number!"</span><span class="op">;</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a>        }</span>
-<span id="cb10-13"><a href="#cb10-13"></a>}</span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">1</span><span class="op">,</span> <span class="fu">getDayOfWeek</span>(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">4</span><span class="op">,</span> <span class="fu">getDayOfWeek</span>(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="cb10-16"><a href="#cb10-16"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">7</span><span class="op">,</span> <span class="fu">getDayOfWeek</span>(<span class="dv">7</span>))<span class="op">;</span></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">9</span><span class="op">,</span> <span class="fu">getDayOfWeek</span>(<span class="dv">9</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>1 Monday
-4 Thursday
-7 Sunday
-9 Invalid Day Number!</code></pre>
-</section>
-<section id="if-else-chain---grade-calculator" class="level2">
-<h2 class="anchored" data-anchor-id="if-else-chain---grade-calculator"><strong>2. If-Else Chain - Grade Calculator</strong></h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">// Grade - If-Else If</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">function</span> <span class="fu">grade</span>(m) {</span>
-<span id="cb12-3"><a href="#cb12-3"></a>        <span class="kw">var</span> g<span class="op">;</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>        <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">90</span>) { g<span class="op">=</span><span class="st">"S"</span><span class="op">;</span> }</span>
-<span id="cb12-5"><a href="#cb12-5"></a>        <span class="cf">else</span> <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">80</span>) { g<span class="op">=</span><span class="st">"A"</span><span class="op">;</span> }</span>
-<span id="cb12-6"><a href="#cb12-6"></a>        <span class="cf">else</span> <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">70</span>) { g<span class="op">=</span><span class="st">"B"</span><span class="op">;</span> }</span>
-<span id="cb12-7"><a href="#cb12-7"></a>        <span class="cf">else</span> <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">60</span>) { g<span class="op">=</span><span class="st">"C"</span><span class="op">;</span> }</span>
-<span id="cb12-8"><a href="#cb12-8"></a>        <span class="cf">else</span> <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">50</span>) { g<span class="op">=</span><span class="st">"D"</span><span class="op">;</span> }</span>
-<span id="cb12-9"><a href="#cb12-9"></a>        <span class="cf">else</span> <span class="cf">if</span> (m<span class="op">&gt;=</span><span class="dv">40</span>) { g<span class="op">=</span><span class="st">"E"</span><span class="op">;</span> }</span>
-<span id="cb12-10"><a href="#cb12-10"></a>        <span class="cf">else</span> { g<span class="op">=</span><span class="st">"U"</span><span class="op">;</span> }</span>
-<span id="cb12-11"><a href="#cb12-11"></a>        <span class="cf">return</span> g<span class="op">;</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a>}</span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="co">// console.log("g", g); // g is not defined</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">95</span><span class="op">,</span> <span class="fu">grade</span>(<span class="dv">95</span>))<span class="op">;</span></span>
-<span id="cb12-15"><a href="#cb12-15"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">65</span><span class="op">,</span> <span class="fu">grade</span>(<span class="dv">65</span>))<span class="op">;</span></span>
-<span id="cb12-16"><a href="#cb12-16"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">25</span><span class="op">,</span> <span class="fu">grade</span>(<span class="dv">25</span>))<span class="op">;</span></span>
-<span id="cb12-17"><a href="#cb12-17"></a><span class="co">// console.lgo("g", g); // g is not defined</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>95 S
-65 C
-25 U</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Variable <code>g</code> has function scope (using <code>var</code>)</li>
-<li>Variable <code>g</code> not accessible outside function (scope limitation)</li>
-</ul>
-</section>
-<section id="ternary-operator---evenodd-check" class="level2">
-<h2 class="anchored" data-anchor-id="ternary-operator---evenodd-check"><strong>3. Ternary Operator - Even/Odd Check</strong></h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">// EvenOdd - Ternary Operator</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">const</span> checkEvenOdd <span class="op">=</span> (num) <span class="kw">=&gt;</span> {</span>
-<span id="cb14-3"><a href="#cb14-3"></a>        <span class="cf">return</span> (num<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>) <span class="op">?</span> <span class="st">"Even"</span> <span class="op">:</span> <span class="st">"Odd"</span><span class="op">;</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>}</span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">1</span><span class="op">,</span> <span class="fu">checkEvenOdd</span>(<span class="dv">1</span>))<span class="op">;</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">4</span><span class="op">,</span> <span class="fu">checkEvenOdd</span>(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">21</span><span class="op">,</span> <span class="fu">checkEvenOdd</span>(<span class="dv">21</span>))<span class="op">;</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">98</span><span class="op">,</span> <span class="fu">checkEvenOdd</span>(<span class="dv">98</span>))<span class="op">;</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co">/* Arrow Function</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="co"> * - Doesn't Have its own this, Arguments, or super</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co"> * - Best For</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="co"> *   - Callbacks</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co"> *   - Array Methods (map, filter, reduce)</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a><span class="co"> *   - when we don't need this</span></span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="co"> *   - Arrow Function doesn't create this of its own, it uses this of surroundings.</span></span>
-<span id="cb14-16"><a href="#cb14-16"></a><span class="co"> */</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>1 Odd
-4 Even
-21 Odd
-98 Even</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Ternary operator: <code>condition ? valueIfTrue : valueIfFalse</code></li>
-<li>Arrow function syntax: <code>const func = (param) =&gt; { return value; }</code></li>
-<li>Arrow functions don’t have their own <code>this</code> context</li>
-</ul>
-</section>
-<section id="object-return---movie-ticket-pricing" class="level2">
-<h2 class="anchored" data-anchor-id="object-return---movie-ticket-pricing"><strong>4. Object Return - Movie Ticket Pricing</strong></h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">// MovieTicketPrice - JS Object Return</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">function</span> <span class="fu">mtp</span>(age){</span>
-<span id="cb16-3"><a href="#cb16-3"></a>        <span class="kw">let</span> price<span class="op">,</span> category<span class="op">;</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>        <span class="cf">if</span> (age<span class="op">&lt;</span><span class="dv">12</span>) { price <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> category <span class="op">=</span> <span class="st">'Child'</span><span class="op">;</span> }</span>
-<span id="cb16-5"><a href="#cb16-5"></a>        <span class="cf">else</span> <span class="cf">if</span> (age<span class="op">&lt;=</span><span class="dv">59</span>) { price <span class="op">=</span> <span class="dv">200</span><span class="op">;</span> category <span class="op">=</span> <span class="st">"Adult"</span><span class="op">;</span> }</span>
-<span id="cb16-6"><a href="#cb16-6"></a>        <span class="cf">else</span> <span class="cf">if</span> (age<span class="op">&gt;=</span><span class="dv">60</span>) { price <span class="op">=</span> <span class="dv">120</span><span class="op">;</span> category <span class="op">=</span> <span class="st">"Senior"</span><span class="op">;</span> }</span>
-<span id="cb16-7"><a href="#cb16-7"></a>        <span class="cf">return</span> { <span class="dt">age</span><span class="op">:</span>age<span class="op">,</span> <span class="dt">price</span><span class="op">:</span>price<span class="op">,</span> <span class="dt">category</span><span class="op">:</span>category }</span>
-<span id="cb16-8"><a href="#cb16-8"></a>}</span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">mtp</span>(<span class="dv">4</span>))<span class="op">;</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">mtp</span>(<span class="dv">14</span>))<span class="op">;</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">mtp</span>(<span class="dv">40</span>))<span class="op">;</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">mtp</span>(<span class="dv">85</span>))<span class="op">;</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co">/*</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="co"> * JS object support</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="co"> * - single quote for string</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="co"> */</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>{ age: 4, price: 100, category: 'Child' }
-{ age: 14, price: 200, category: 'Adult' }
-{ age: 40, price: 200, category: 'Adult' }
-{ age: 85, price: 120, category: 'Senior' }</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Functions can return objects with multiple properties</li>
-<li>JavaScript supports both single and double quotes for strings</li>
-</ul>
-</section>
-<section id="calculator-with-switch" class="level2">
-<h2 class="anchored" data-anchor-id="calculator-with-switch"><strong>5. Calculator with Switch</strong></h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">// Calc - Switch</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="kw">function</span> <span class="fu">calc</span>(a<span class="op">,</span>b<span class="op">,</span>o) {</span>
-<span id="cb18-3"><a href="#cb18-3"></a>        <span class="cf">switch</span>(o){</span>
-<span id="cb18-4"><a href="#cb18-4"></a>                <span class="cf">case</span> <span class="st">'+'</span><span class="op">:</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>                        result <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>                <span class="cf">case</span> <span class="st">'-'</span><span class="op">:</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>                        result <span class="op">=</span> a <span class="op">-</span> b<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>                <span class="cf">case</span> <span class="st">'*'</span><span class="op">:</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>                        result <span class="op">=</span> a <span class="op">*</span> b<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>                <span class="cf">case</span> <span class="st">'/'</span><span class="op">:</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>                        result <span class="op">=</span> a <span class="op">/</span> b<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a>                <span class="cf">default</span><span class="op">:</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a>                        result <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a>        }</span>
-<span id="cb18-15"><a href="#cb18-15"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb18-16"><a href="#cb18-16"></a>}</span>
-<span id="cb18-17"><a href="#cb18-17"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="st">'+'</span><span class="op">,</span> <span class="fu">calc</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">1</span><span class="op">,</span><span class="st">'+'</span>))<span class="op">;</span></span>
-<span id="cb18-18"><a href="#cb18-18"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="st">'+'</span><span class="op">,</span> <span class="fu">calc</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="st">'*'</span>))<span class="op">;</span></span>
-<span id="cb18-19"><a href="#cb18-19"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span></span>
-<span id="cb18-20"><a href="#cb18-20"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="st">'('</span><span class="op">,</span> <span class="fu">calc</span>(<span class="dv">4</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="st">'('</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>4 1 + 5
-4 7 + 28
-28
-4 7 ( null</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li><code>break</code> statements prevent fall-through to next case</li>
-<li>Variable <code>result</code> declared without <code>let/const/var</code> (becomes global)</li>
-</ul>
-</section>
-<section id="type-checking---multiple-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="type-checking---multiple-of-7"><strong>6. Type Checking - Multiple of 7</strong></h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">// Multiple of 7 - Type Of</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">function</span> <span class="fu">isMultipleOf7</span>(n) {</span>
-<span id="cb20-3"><a href="#cb20-3"></a>        <span class="cf">if</span> ( <span class="kw">typeof</span> n <span class="op">!=</span> <span class="st">'number'</span> <span class="op">||</span> <span class="pp">isNaN</span>(n) ) { <span class="cf">return</span> <span class="st">"Invalid Input"</span><span class="op">;</span> }</span>
-<span id="cb20-4"><a href="#cb20-4"></a>        <span class="cf">if</span> (n <span class="op">%</span> <span class="dv">7</span> <span class="op">==</span> <span class="dv">0</span>) { <span class="cf">return</span> <span class="st">"Yes"</span><span class="op">;</span> }</span>
-<span id="cb20-5"><a href="#cb20-5"></a>        <span class="cf">else</span> { <span class="cf">return</span> <span class="st">"No"</span><span class="op">;</span> }</span>
-<span id="cb20-6"><a href="#cb20-6"></a>}</span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">5</span><span class="op">,</span> <span class="fu">isMultipleOf7</span>(<span class="dv">5</span>))<span class="op">;</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">49</span><span class="op">,</span> <span class="fu">isMultipleOf7</span>(<span class="dv">49</span>))<span class="op">;</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">70</span><span class="op">,</span> <span class="fu">isMultipleOf7</span>(<span class="dv">70</span>))<span class="op">;</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"hi"</span><span class="op">,</span> <span class="fu">isMultipleOf7</span>(<span class="st">"hi"</span>))<span class="op">;</span></span>
-<span id="cb20-11"><a href="#cb20-11"></a><span class="co">/*</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="co"> * != compare values only similar to == (before comparing type coerce is done if needed)</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a><span class="co"> * !== compare bothe values and its type similar to === ( here type coerce is not done)</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="co"> */</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>5 No
-49 Yes
-70 Yes
-hi Invalid Input</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li><code>typeof</code> operator returns string indicating variable type</li>
-<li><code>isNaN()</code> checks if value is “Not a Number”</li>
-<li><code>!=</code> performs type coercion, <code>!==</code> does strict comparison</li>
-<li>Input validation prevents runtime errors</li>
-</ul>
-</section>
-<section id="array-find-method---age-classification" class="level2">
-<h2 class="anchored" data-anchor-id="array-find-method---age-classification"><strong>7. Array Find Method - Age Classification</strong></h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">// AgeGroup Classify - JS Object Find</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="kw">function</span> <span class="fu">cag</span>(age) {</span>
-<span id="cb22-3"><a href="#cb22-3"></a>        <span class="kw">const</span> ageGroups <span class="op">=</span> [</span>
-<span id="cb22-4"><a href="#cb22-4"></a>                {<span class="dt">min</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">12</span><span class="op">,</span> <span class="dt">category</span><span class="op">:</span><span class="st">"Child"</span>}<span class="op">,</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>                {<span class="dt">min</span><span class="op">:</span><span class="dv">13</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">19</span><span class="op">,</span> <span class="dt">category</span><span class="op">:</span><span class="st">"Teenager"</span>}<span class="op">,</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a>                {<span class="dt">min</span><span class="op">:</span><span class="dv">20</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">59</span><span class="op">,</span> <span class="dt">category</span><span class="op">:</span><span class="st">"Adult"</span>}<span class="op">,</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a>                {<span class="dt">min</span><span class="op">:</span><span class="dv">60</span><span class="op">,</span> <span class="dt">max</span><span class="op">:</span><span class="dv">120</span><span class="op">,</span> <span class="dt">category</span><span class="op">:</span><span class="st">"Senior"</span>}<span class="op">,</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a>        ]</span>
-<span id="cb22-9"><a href="#cb22-9"></a>        <span class="kw">const</span> group <span class="op">=</span> ageGroups<span class="op">.</span><span class="fu">find</span>(g <span class="kw">=&gt;</span> (age<span class="op">&gt;=</span>g<span class="op">.</span><span class="at">min</span> <span class="op">&amp;&amp;</span> age<span class="op">&lt;=</span>g<span class="op">.</span><span class="at">max</span>))<span class="op">;</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a>        <span class="cf">return</span> group<span class="op">;</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a>}</span>
-<span id="cb22-12"><a href="#cb22-12"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">8</span><span class="op">,</span> <span class="fu">cag</span>(<span class="dv">8</span>))<span class="op">;</span></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">16</span><span class="op">,</span> <span class="fu">cag</span>(<span class="dv">16</span>))<span class="op">;</span></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">35</span><span class="op">,</span> <span class="fu">cag</span>(<span class="dv">35</span>))<span class="op">;</span></span>
-<span id="cb22-15"><a href="#cb22-15"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">70</span><span class="op">,</span> <span class="fu">cag</span>(<span class="dv">70</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>8 { min: 0, max: 12, category: 'Child' }
-16 { min: 13, max: 19, category: 'Teenager' }
-35 { min: 20, max: 59, category: 'Adult' }
-70 { min: 60, max: 120, category: 'Senior' }</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li><code>find()</code> method returns first element that matches condition</li>
-<li>Arrow function as callback: <code>g =&gt; (condition)</code></li>
-</ul>
-</section>
-<section id="temperature-converter" class="level2">
-<h2 class="anchored" data-anchor-id="temperature-converter"><strong>8. Temperature Converter</strong></h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">// Temp Converter</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">function</span> <span class="fu">convert</span>(v<span class="op">,</span> f<span class="op">,</span> t) { <span class="co">// value, from, to</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>        <span class="kw">const</span> units <span class="op">=</span> [<span class="st">'C'</span><span class="op">,</span> <span class="st">'F'</span><span class="op">,</span> <span class="st">'K'</span>]</span>
-<span id="cb24-4"><a href="#cb24-4"></a>        <span class="kw">let</span> celsius<span class="op">;</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>        <span class="cf">switch</span> (f){</span>
-<span id="cb24-6"><a href="#cb24-6"></a>                <span class="cf">case</span> <span class="st">'C'</span><span class="op">:</span> celsius <span class="op">=</span> v<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>                <span class="cf">case</span> <span class="st">'F'</span><span class="op">:</span> celsius <span class="op">=</span> (v<span class="op">-</span><span class="dv">32</span>) <span class="op">*</span> (<span class="dv">5</span><span class="op">/</span><span class="dv">9</span>)<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>                <span class="cf">case</span> <span class="st">'K'</span><span class="op">:</span> celsius <span class="op">=</span> v <span class="op">-</span> <span class="fl">273.15</span><span class="op">;</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a>        }</span>
-<span id="cb24-10"><a href="#cb24-10"></a>        <span class="kw">let</span> result<span class="op">;</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>        <span class="cf">switch</span> (t){</span>
-<span id="cb24-12"><a href="#cb24-12"></a>                <span class="cf">case</span> <span class="st">'C'</span><span class="op">:</span> result <span class="op">=</span> celsius<span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>                <span class="cf">case</span> <span class="st">'F'</span><span class="op">:</span> result <span class="op">=</span> (celsius <span class="op">*</span> (<span class="dv">9</span><span class="op">/</span><span class="dv">5</span>)) <span class="op">+</span> <span class="dv">32</span><span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb24-14"><a href="#cb24-14"></a>                <span class="cf">case</span> <span class="st">'K'</span><span class="op">:</span> result <span class="op">=</span> celsius <span class="op">+</span> <span class="fl">273.15</span><span class="op">;</span> <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb24-15"><a href="#cb24-15"></a>        }</span>
-<span id="cb24-16"><a href="#cb24-16"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
-<span id="cb24-17"><a href="#cb24-17"></a>}</span>
-<span id="cb24-18"><a href="#cb24-18"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">convert</span>(<span class="dv">100</span><span class="op">,</span> <span class="st">'C'</span><span class="op">,</span> <span class="st">'F'</span>))<span class="op">;</span> <span class="co">// 212</span></span>
-<span id="cb24-19"><a href="#cb24-19"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">convert</span>(<span class="dv">32</span><span class="op">,</span> <span class="st">'F'</span><span class="op">,</span> <span class="st">'C'</span>))<span class="op">;</span> <span class="co">// 0</span></span>
-<span id="cb24-20"><a href="#cb24-20"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">convert</span>(<span class="fl">273.1</span><span class="op">,</span> <span class="st">'K'</span><span class="op">,</span> <span class="st">'C'</span>))<span class="op">;</span> <span class="co">// 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output:</strong></p>
-<pre><code>212
-0
--0.049999999999954525</code></pre>
-<p><strong>Key Points:</strong></p>
-<ul>
-<li>Two-step conversion: input → Celsius → target unit</li>
-<li>Floating-point precision issues cause small rounding errors</li>
-</ul>
 </section></details>
 
 

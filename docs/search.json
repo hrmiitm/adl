@@ -1,24 +1,26 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "ADL - Application Development Lab",
+    "objectID": "W0/JS/DAY_2.html",
+    "href": "W0/JS/DAY_2.html",
+    "title": "Day-2",
     "section": "",
-    "text": "Hi",
+    "text": "let score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}\n\n\n\n\n\n\n// Basic for loop\nfor (let i = 0; i &lt; 5; i++) {\n    console.log(\"Iteration: \" + i);\n}\n\n// Loop through array\nlet fruits = [\"apple\", \"banana\", \"orange\"];\nfor (let i = 0; i &lt; fruits.length; i++) {\n    console.log(fruits[i]);\n}\n\n\n\nlet count = 0;\nwhile (count &lt; 3) {\n    console.log(\"Count: \" + count);\n    count++;\n}\n\n\n\nlet num = 0;\ndo {\n    console.log(\"Number: \" + num);\n    num++;\n} while (num &lt; 3);\n\n\n\nlet colors = [\"red\", \"green\", \"blue\"];\n\n// Iterate over array values\nfor (let color of colors) {\n    console.log(color);\n}\n\n// Iterate over string characters\nfor (let char of \"Hello\") {\n    console.log(char);\n}\n\n\n\nlet person = {name: \"John\", age: 30, city: \"Delhi\"};\n\n// Iterate over object properties\nfor (let key in person) {\n    console.log(key + \": \" + person[key]);\n}\n\n\n\nlet numbers = [1, 2, 3, 4, 5];\n\nnumbers.forEach(function(num, index) {\n    console.log(`Index ${index}: ${num}`);\n});\n\n// Arrow function version\nnumbers.forEach((num, index) =&gt; {\n    console.log(`Index ${index}: ${num}`);\n});\n\n\n\n\n\n\nfor (let i = 0; i &lt; 10; i++) {\n    if (i === 5) {\n        break; // Exit loop when i equals 5\n    }\n    console.log(i);\n}\n\n\n\nfor (let i = 0; i &lt; 5; i++) {\n    if (i === 2) {\n        continue; // Skip iteration when i equals 2\n    }\n    console.log(i); // Prints 0, 1, 3, 4\n}",
     "crumbs": [
-      "About The Course"
+      "Week 0",
+      "10 Days Of JS",
+      "Day-2"
     ]
   },
   {
-    "objectID": "W0/HTML/DAY_1.html",
-    "href": "W0/HTML/DAY_1.html",
-    "title": "Day-1",
+    "objectID": "W0/JS/DAY_2.html#control-flow",
+    "href": "W0/JS/DAY_2.html#control-flow",
+    "title": "Day-2",
     "section": "",
-    "text": "Hi",
+    "text": "let score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}",
     "crumbs": [
       "Week 0",
-      "3 Days to HTML",
-      "Day-1"
+      "10 Days Of JS",
+      "Day-2"
     ]
   },
   {
@@ -26,7 +28,7 @@
     "href": "W0/JS/DAY_1.html",
     "title": "Day-1",
     "section": "",
-    "text": "Feature\nvar\nlet\nconst\n\n\n\n\nScope\nFunction/Global\nBlock\nBlock\n\n\nRedeclaration\n✅ Allowed\n❌ Not allowed\n❌ Not allowed\n\n\nReassignment\n✅ Allowed\n✅ Allowed\n❌ Not allowed\n\n\nInitialization\nOptional\nOptional\nRequired\n\n\nHoisting\nHoisted as undefined\nHoisted but ReferenceError\nHoisted but ReferenceError\n\n\n\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error - cannot redeclare\n\n// const - for constants\nconst z = 1;\n// z = 2;      // Error - cannot reassign\n// const w;    // Error - must initialize\n\n\n\n\n\nlet name = \"John\";           // string\nlet age = 25;                // number\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint\nNote: typeof age will return you string number\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function\n\n\n\n\n✅ Valid:\nlet myName;        // camelCase (preferred)\nlet _private;      // underscore prefix\nlet $element;      // dollar sign\nlet age21;         // numbers (not at start)\nlet firstName;     // descriptive names\n❌ Invalid:\nlet 2name;         // cannot start with number\nlet my-name;       // no hyphens\nlet class;         // reserved keyword\nlet my name;       // no spaces\n\n\n\n\n\nlet a = 5;\nlet b = \"5\";\n\n// Loose equality (with type coercion)\nconsole.log(a == b);    // true (converts types)\nconsole.log(a != b);    // false\n\n// Strict equality (no type coercion)\nconsole.log(a === b);   // false (different types)\nconsole.log(a !== b);   // true\nRule: Always use === and !== to avoid unexpected results.\n\n\n\n\n\n\nlet score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nJavaScript\nPython\n\n\n\n\nVariable Declaration\nlet name = \"John\";\nname = \"John\"\n\n\nConstants\nconst PI = 3.14;\nPI = 3.14 (convention)\n\n\nBlocks\n{ } braces\nIndentation\n\n\nEquality\n=== (strict), == (loose)\n== (always strict)\n\n\nArrays/Lists\n[1, 2, 3]\n[1, 2, 3]\n\n\nObjects/Dicts\n{name: \"John\"}\n{\"name\": \"John\"}\n\n\nComments\n// single /* multi */\n# single ''' multi '''\n\n\nIf else\nif –&gt; else if –&gt; else\nif –&gt; elif –&gt; if\n\n\nDynamic Typing\nYes\nYes\n\n\n\n\n\n\n\nUse const by default, let when reassignment needed, avoid var\nAlways use === and !== for comparisons\nJavaScript uses braces {}, Python uses indentation\nJavaScript has both loose and strict equality, Python only has strict\nBoth languages are dynamically typed and case-sensitive\nJS uses “if –&gt; else if –&gt; if” but python uses “if –&gt; elif –&gt; else”",
+    "text": "let const are Introduced in ES6 (ECMAScript 2015)\nVar –&gt; Function/Global Scope\nlet, const –&gt; Block Scope\nAll are hoisted, but only var is initialized as undefined at the top of its scope. let and const exist in a temporal dead zone until their declaration line is reached.\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare/assigned\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error\n\n// const - for constants\nconst z = 1;    // must be initialized\n// z = 2;      // Error \n// const w;    // Error \n\n\n\n\n\n\nProblem with var\n\n\n\n\n\n\nFunction-scoped, not block-scoped\n\nVariables declared with var are visible outside the block (if, for, etc.), which often caused bugs.\n\n\n// Using var\nfor (var i = 0; i &lt; 3; i++) {\n  setTimeout(() =&gt; console.log(\"var:\", i), 1000);\n}\n// Output: var: 3, var: 3, var: 3   (unexpected!)\n\n// Using let\nfor (let j = 0; j &lt; 3; j++) {\n  setTimeout(() =&gt; console.log(\"let:\", j), 1000);\n}\n// Output: let: 0, let: 1, let: 2   (expected!)\n\nHoisting with undefined\n\nvar declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.\n\n\n\n\n\n\n\n\n\n\n\nWhat Does “Hoisted” Mean in JavaScript?\n\n\n\n\n\nHoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.\nconsole.log(a); // undefined\nvar a = 5;\nconsole.log(a); // 5\nconsole.log(b); // ReferenceError\nlet b = 10;\nWith let and const, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the Temporal Dead Zone (TDZ)\n\n\n\n\n\n\n\n\n\nWhat to use?\n\n\n\n\n\nUse const mostly.\n\n\n\n\n\n\n\n\nlet name = \"John\";           // string\nlet age = 25;                // number --&gt; 2^53-1\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint --&gt; only Integer(till memory)\n\n\n\n\n\n\ntypeof null; typeof undefined\n\n\n\n\n\nType of null is object, while type of undefined is undefined.\nnull type as object was a bug / design mistake in the original implementation, but it became part of the language.\n\n\n\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function\n\n\n\n\n✅ Valid:\nlet myName;        // camelCase (preferred)\nlet _private;      // underscore prefix\nlet $element;      // dollar sign\nlet age21;         // numbers (not at start)\nlet firstName;     // descriptive names\n❌ Invalid:\nlet 2name;         // cannot start with number\nlet my-name;       // no hyphens\nlet class;         // reserved keyword\nlet my name;       // no spaces\n\n\n\n\n\nlet a = 5;\nlet b = \"5\";\n\n// Loose equality (with type coercion)\nconsole.log(a == b);    // true (converts types)\nconsole.log(a != b);    // false\n\n// Strict equality (no type coercion)\nconsole.log(a === b);   // false (different types)\nconsole.log(a !== b);   // true\nRule: Always use === and !== to avoid unexpected results.\n\n\n\n\n\nNumber(x)\n- Booleans true, false –&gt; 1,0\n- null –&gt; 0\n- undefined, ‘33abc’ –&gt; Nan\nBoolean(x)\n- 1, 0 –&gt; true, false\n- “” –&gt; false\n- “0” –&gt; true\nString(x)\n\n\n\n\n+ : always do string concat \"5\" + 5 or 5 + 5 + \"5\" will give 55 and 105.\n\n- * / % ** : strings converted to numbers\n\nNote: booleans are converted to numbers and null –&gt; 0 but undefined –&gt; NaN\n&gt; null &gt; 0\nfalse\n&gt; null == 0\nfalse\n&gt; null &gt;= 0\ntrue\nOn equality, Type Coercion happend with relational operators, it change null to 0, causes it to true.\nWhile for loose equality javascript has special rule that null can be equal to null and undefined only.\n\n\n\n\n\nUse const by default, let when reassignment needed, avoid var\n\nAlways use === and !== for comparisons\n\nJavaScript uses braces {}, Python uses indentation\n\nJavaScript has both loose and strict equality, Python only has strict\n\nBoth languages are dynamically typed and case-sensitive\n\nFor null on loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -38,7 +40,7 @@
     "href": "W0/JS/DAY_1.html#variables-varletconst",
     "title": "Day-1",
     "section": "",
-    "text": "Feature\nvar\nlet\nconst\n\n\n\n\nScope\nFunction/Global\nBlock\nBlock\n\n\nRedeclaration\n✅ Allowed\n❌ Not allowed\n❌ Not allowed\n\n\nReassignment\n✅ Allowed\n✅ Allowed\n❌ Not allowed\n\n\nInitialization\nOptional\nOptional\nRequired\n\n\nHoisting\nHoisted as undefined\nHoisted but ReferenceError\nHoisted but ReferenceError\n\n\n\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error - cannot redeclare\n\n// const - for constants\nconst z = 1;\n// z = 2;      // Error - cannot reassign\n// const w;    // Error - must initialize",
+    "text": "let const are Introduced in ES6 (ECMAScript 2015)\nVar –&gt; Function/Global Scope\nlet, const –&gt; Block Scope\nAll are hoisted, but only var is initialized as undefined at the top of its scope. let and const exist in a temporal dead zone until their declaration line is reached.\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare/assigned\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error\n\n// const - for constants\nconst z = 1;    // must be initialized\n// z = 2;      // Error \n// const w;    // Error \n\n\n\n\n\n\nProblem with var\n\n\n\n\n\n\nFunction-scoped, not block-scoped\n\nVariables declared with var are visible outside the block (if, for, etc.), which often caused bugs.\n\n\n// Using var\nfor (var i = 0; i &lt; 3; i++) {\n  setTimeout(() =&gt; console.log(\"var:\", i), 1000);\n}\n// Output: var: 3, var: 3, var: 3   (unexpected!)\n\n// Using let\nfor (let j = 0; j &lt; 3; j++) {\n  setTimeout(() =&gt; console.log(\"let:\", j), 1000);\n}\n// Output: let: 0, let: 1, let: 2   (expected!)\n\nHoisting with undefined\n\nvar declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.\n\n\n\n\n\n\n\n\n\n\n\nWhat Does “Hoisted” Mean in JavaScript?\n\n\n\n\n\nHoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.\nconsole.log(a); // undefined\nvar a = 5;\nconsole.log(a); // 5\nconsole.log(b); // ReferenceError\nlet b = 10;\nWith let and const, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the Temporal Dead Zone (TDZ)\n\n\n\n\n\n\n\n\n\nWhat to use?\n\n\n\n\n\nUse const mostly.",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -50,7 +52,7 @@
     "href": "W0/JS/DAY_1.html#data-types",
     "title": "Day-1",
     "section": "",
-    "text": "let name = \"John\";           // string\nlet age = 25;                // number\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint\nNote: typeof age will return you string number\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function",
+    "text": "let name = \"John\";           // string\nlet age = 25;                // number --&gt; 2^53-1\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint --&gt; only Integer(till memory)\n\n\n\n\n\n\ntypeof null; typeof undefined\n\n\n\n\n\nType of null is object, while type of undefined is undefined.\nnull type as object was a bug / design mistake in the original implementation, but it became part of the language.\n\n\n\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -82,23 +84,11 @@
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#control-flow",
-    "href": "W0/JS/DAY_1.html#control-flow",
+    "objectID": "W0/JS/DAY_1.html#type-conversion",
+    "href": "W0/JS/DAY_1.html#type-conversion",
     "title": "Day-1",
     "section": "",
-    "text": "let score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#javascript-vs-python---key-differences",
-    "href": "W0/JS/DAY_1.html#javascript-vs-python---key-differences",
-    "title": "Day-1",
-    "section": "",
-    "text": "Feature\nJavaScript\nPython\n\n\n\n\nVariable Declaration\nlet name = \"John\";\nname = \"John\"\n\n\nConstants\nconst PI = 3.14;\nPI = 3.14 (convention)\n\n\nBlocks\n{ } braces\nIndentation\n\n\nEquality\n=== (strict), == (loose)\n== (always strict)\n\n\nArrays/Lists\n[1, 2, 3]\n[1, 2, 3]\n\n\nObjects/Dicts\n{name: \"John\"}\n{\"name\": \"John\"}\n\n\nComments\n// single /* multi */\n# single ''' multi '''\n\n\nIf else\nif –&gt; else if –&gt; else\nif –&gt; elif –&gt; if\n\n\nDynamic Typing\nYes\nYes",
+    "text": "Number(x)\n- Booleans true, false –&gt; 1,0\n- null –&gt; 0\n- undefined, ‘33abc’ –&gt; Nan\nBoolean(x)\n- 1, 0 –&gt; true, false\n- “” –&gt; false\n- “0” –&gt; true\nString(x)\n\n\n\n\n+ : always do string concat \"5\" + 5 or 5 + 5 + \"5\" will give 55 and 105.\n\n- * / % ** : strings converted to numbers\n\nNote: booleans are converted to numbers and null –&gt; 0 but undefined –&gt; NaN\n&gt; null &gt; 0\nfalse\n&gt; null == 0\nfalse\n&gt; null &gt;= 0\ntrue\nOn equality, Type Coercion happend with relational operators, it change null to 0, causes it to true.\nWhile for loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -110,7 +100,7 @@
     "href": "W0/JS/DAY_1.html#key-takeaways",
     "title": "Day-1",
     "section": "",
-    "text": "Use const by default, let when reassignment needed, avoid var\nAlways use === and !== for comparisons\nJavaScript uses braces {}, Python uses indentation\nJavaScript has both loose and strict equality, Python only has strict\nBoth languages are dynamically typed and case-sensitive\nJS uses “if –&gt; else if –&gt; if” but python uses “if –&gt; elif –&gt; else”",
+    "text": "Use const by default, let when reassignment needed, avoid var\n\nAlways use === and !== for comparisons\n\nJavaScript uses braces {}, Python uses indentation\n\nJavaScript has both loose and strict equality, Python only has strict\n\nBoth languages are dynamically typed and case-sensitive\n\nFor null on loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -118,11 +108,11 @@
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#switch-statement---day-of-week",
-    "href": "W0/JS/DAY_1.html#switch-statement---day-of-week",
+    "objectID": "W0/JS/DAY_1.html#what-does-hoisted-mean-in-javascript",
+    "href": "W0/JS/DAY_1.html#what-does-hoisted-mean-in-javascript",
     "title": "Day-1",
-    "section": "1. Switch Statement - Day of Week",
-    "text": "1. Switch Statement - Day of Week\n// DayOfWeek - Switch\nfunction getDayOfWeek(dayNumber) {\n        switch(dayNumber){\n                case 1: return \"Monday\";\n                case 2: return \"Tuesday\";\n                case 3: return \"Wednesday\";\n                case 4: return \"Thursday\";\n                case 5: return \"Friday\";\n                case 6: return \"Saturday\";\n                case 7: return \"Sunday\";\n                default: return \"Invalid Day Number!\";\n        }\n}\nconsole.log(1, getDayOfWeek(1));\nconsole.log(4, getDayOfWeek(4));\nconsole.log(7, getDayOfWeek(7));\nconsole.log(9, getDayOfWeek(9));\nOutput:\n1 Monday\n4 Thursday\n7 Sunday\n9 Invalid Day Number!",
+    "section": "",
+    "text": "Hoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.\nconsole.log(a); // undefined\nvar a = 5;\nconsole.log(a); // 5\nconsole.log(b); // ReferenceError\nlet b = 10;\nWith let and const, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the Temporal Dead Zone (TDZ)\n:::\n::: {.callout-tip collapse} ## What to use?\nUse const mostly. :::",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
@@ -130,183 +120,63 @@
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#if-else-chain---grade-calculator",
-    "href": "W0/JS/DAY_1.html#if-else-chain---grade-calculator",
-    "title": "Day-1",
-    "section": "2. If-Else Chain - Grade Calculator",
-    "text": "2. If-Else Chain - Grade Calculator\n// Grade - If-Else If\nfunction grade(m) {\n        var g;\n        if (m&gt;=90) { g=\"S\"; }\n        else if (m&gt;=80) { g=\"A\"; }\n        else if (m&gt;=70) { g=\"B\"; }\n        else if (m&gt;=60) { g=\"C\"; }\n        else if (m&gt;=50) { g=\"D\"; }\n        else if (m&gt;=40) { g=\"E\"; }\n        else { g=\"U\"; }\n        return g;\n}\n// console.log(\"g\", g); // g is not defined\nconsole.log(95, grade(95));\nconsole.log(65, grade(65));\nconsole.log(25, grade(25));\n// console.lgo(\"g\", g); // g is not defined\nOutput:\n95 S\n65 C\n25 U\nKey Points:\n\nVariable g has function scope (using var)\nVariable g not accessible outside function (scope limitation)",
+    "objectID": "W0/JS/DAY_2.html#loops",
+    "href": "W0/JS/DAY_2.html#loops",
+    "title": "Day-2",
+    "section": "",
+    "text": "// Basic for loop\nfor (let i = 0; i &lt; 5; i++) {\n    console.log(\"Iteration: \" + i);\n}\n\n// Loop through array\nlet fruits = [\"apple\", \"banana\", \"orange\"];\nfor (let i = 0; i &lt; fruits.length; i++) {\n    console.log(fruits[i]);\n}\n\n\n\nlet count = 0;\nwhile (count &lt; 3) {\n    console.log(\"Count: \" + count);\n    count++;\n}\n\n\n\nlet num = 0;\ndo {\n    console.log(\"Number: \" + num);\n    num++;\n} while (num &lt; 3);\n\n\n\nlet colors = [\"red\", \"green\", \"blue\"];\n\n// Iterate over array values\nfor (let color of colors) {\n    console.log(color);\n}\n\n// Iterate over string characters\nfor (let char of \"Hello\") {\n    console.log(char);\n}\n\n\n\nlet person = {name: \"John\", age: 30, city: \"Delhi\"};\n\n// Iterate over object properties\nfor (let key in person) {\n    console.log(key + \": \" + person[key]);\n}\n\n\n\nlet numbers = [1, 2, 3, 4, 5];\n\nnumbers.forEach(function(num, index) {\n    console.log(`Index ${index}: ${num}`);\n});\n\n// Arrow function version\nnumbers.forEach((num, index) =&gt; {\n    console.log(`Index ${index}: ${num}`);\n});",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
-      "Day-1"
+      "Day-2"
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#ternary-operator---evenodd-check",
-    "href": "W0/JS/DAY_1.html#ternary-operator---evenodd-check",
-    "title": "Day-1",
-    "section": "3. Ternary Operator - Even/Odd Check",
-    "text": "3. Ternary Operator - Even/Odd Check\n// EvenOdd - Ternary Operator\nconst checkEvenOdd = (num) =&gt; {\n        return (num%2==0) ? \"Even\" : \"Odd\";\n}\nconsole.log(1, checkEvenOdd(1));\nconsole.log(4, checkEvenOdd(4));\nconsole.log(21, checkEvenOdd(21));\nconsole.log(98, checkEvenOdd(98));\n/* Arrow Function\n * - Doesn't Have its own this, Arguments, or super\n * - Best For\n *   - Callbacks\n *   - Array Methods (map, filter, reduce)\n *   - when we don't need this\n *   - Arrow Function doesn't create this of its own, it uses this of surroundings.\n */\nOutput:\n1 Odd\n4 Even\n21 Odd\n98 Even\nKey Points:\n\nTernary operator: condition ? valueIfTrue : valueIfFalse\nArrow function syntax: const func = (param) =&gt; { return value; }\nArrow functions don’t have their own this context",
+    "objectID": "W0/JS/DAY_2.html#loop-control",
+    "href": "W0/JS/DAY_2.html#loop-control",
+    "title": "Day-2",
+    "section": "",
+    "text": "for (let i = 0; i &lt; 10; i++) {\n    if (i === 5) {\n        break; // Exit loop when i equals 5\n    }\n    console.log(i);\n}\n\n\n\nfor (let i = 0; i &lt; 5; i++) {\n    if (i === 2) {\n        continue; // Skip iteration when i equals 2\n    }\n    console.log(i); // Prints 0, 1, 3, 4\n}",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
-      "Day-1"
+      "Day-2"
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#object-return---movie-ticket-pricing",
-    "href": "W0/JS/DAY_1.html#object-return---movie-ticket-pricing",
-    "title": "Day-1",
-    "section": "4. Object Return - Movie Ticket Pricing",
-    "text": "4. Object Return - Movie Ticket Pricing\n// MovieTicketPrice - JS Object Return\nfunction mtp(age){\n        let price, category;\n        if (age&lt;12) { price = 100, category = 'Child'; }\n        else if (age&lt;=59) { price = 200; category = \"Adult\"; }\n        else if (age&gt;=60) { price = 120; category = \"Senior\"; }\n        return { age:age, price:price, category:category }\n}\nconsole.log(mtp(4));\nconsole.log(mtp(14));\nconsole.log(mtp(40));\nconsole.log(mtp(85));\n/*\n * JS object support\n * - single quote for string\n */\nOutput:\n{ age: 4, price: 100, category: 'Child' }\n{ age: 14, price: 200, category: 'Adult' }\n{ age: 40, price: 200, category: 'Adult' }\n{ age: 85, price: 120, category: 'Senior' }\nKey Points:\n\nFunctions can return objects with multiple properties\nJavaScript supports both single and double quotes for strings",
+    "objectID": "W0/JS/DAY_2.html#error-handling",
+    "href": "W0/JS/DAY_2.html#error-handling",
+    "title": "Day-2",
+    "section": "4. Error Handling",
+    "text": "4. Error Handling\n\nTry-Catch-Finally:\ntry {\n    let result = riskyOperation();\n    console.log(result);\n} catch (error) {\n    console.log(\"An error occurred: \" + error.message);\n} finally {\n    console.log(\"This always runs\");\n}\n\n\nThrowing Custom Errors:\nfunction divide(a, b) {\n    try {\n        if (b === 0) {\n            throw new Error(\"Division by zero is not allowed\");\n        }\n        return a / b;\n    } catch (error) {\n        console.log(error.message);\n        return null;\n    }\n}",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
-      "Day-1"
+      "Day-2"
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#calculator-with-switch",
-    "href": "W0/JS/DAY_1.html#calculator-with-switch",
-    "title": "Day-1",
-    "section": "5. Calculator with Switch",
-    "text": "5. Calculator with Switch\n// Calc - Switch\nfunction calc(a,b,o) {\n        switch(o){\n                case '+':\n                        result = a + b; break;\n                case '-':\n                        result = a - b; break;\n                case '*':\n                        result = a * b; break;\n                case '/':\n                        result = a / b; break;\n                default:\n                        result = null;\n        }\n        return result;\n}\nconsole.log(4,1,'+', calc(4,1,'+'));\nconsole.log(4,7,'+', calc(4,7,'*'));\nconsole.log(result);\nconsole.log(4,7,'(', calc(4,7,'('));\nOutput:\n4 1 + 5\n4 7 + 28\n28\n4 7 ( null\nKey Points:\n\nbreak statements prevent fall-through to next case\nVariable result declared without let/const/var (becomes global)",
+    "objectID": "W0/JS/DAY_2.html#short-circuit-evaluation-in-javascript",
+    "href": "W0/JS/DAY_2.html#short-circuit-evaluation-in-javascript",
+    "title": "Day-2",
+    "section": "5. Short-Circuit Evaluation in JavaScript",
+    "text": "5. Short-Circuit Evaluation in JavaScript\nShort-circuiting refers to the behavior of logical operators (&&, ||) where JavaScript stops evaluating expressions as soon as the final result can be determined[^1][^2]. This leads to more efficient code execution by avoiding unnecessary computations.\n\nHow Short-Circuiting Works\nJavaScript evaluates logical expressions from left to right and stops as soon as the outcome is clear. The key point is that these operators return the actual operand values, not just true or false.[^1][^2]\n\n\n\n1. AND (&&) Short-Circuiting\nThe && operator returns the first falsy value it encounters, or the last truthy value if all operands are truthy.[^2]\n\nBasic Behavior:\n// If first operand is falsy, it stops and returns that value\nconst result1 = false && \"This won't be evaluated\";\nconsole.log(result1); // Output: false\n\nconst result2 = 0 && \"This won't run either\";\nconsole.log(result2); // Output: 0\n\n// If all operands are truthy, returns the last one\nconst result3 = \"Hello\" && \"World\" && 42;\nconsole.log(result3); // Output: 42\n\n\nPreventing Code Execution:\nlet user = null;\n\n// This prevents error because user is falsy\nuser && console.log(user.name); // Nothing happens, no error\n\nuser = {name: \"John\"};\nuser && console.log(user.name); // Output: \"John\"\n\n\nFunction Calls with &&:\nlet isLoggedIn = false;\n\n// Function only runs if isLoggedIn is true\nisLoggedIn && performExpensiveOperation();\n\nfunction performExpensiveOperation() {\n    console.log(\"This won't run because isLoggedIn is false\");\n}\n\n\n\n\n2. OR (||) Short-Circuiting\nThe || operator returns the first truthy value it encounters, or the last falsy value if all operands are falsy[^2].\n\nBasic Behavior:\n// Returns first truthy value\nconst result1 = \"Hello\" || \"This won't be evaluated\";\nconsole.log(result1); // Output: \"Hello\"\n\nconst result2 = 0 || false || \"Default Value\";\nconsole.log(result2); // Output: \"Default Value\"\n\n// If all are falsy, returns the last falsy value\nconst result3 = false || 0 || null;\nconsole.log(result3); // Output: null\n\n\nDefault Values Pattern:\nfunction greet(name) {\n    name = name || \"Guest\"; // If name is falsy, use \"Guest\"\n    return `Hello, ${name}!`;\n}\n\nconsole.log(greet());        // Output: \"Hello, Guest!\"\nconsole.log(greet(\"Alice\")); // Output: \"Hello, Alice!\"\n\n\n\n\n3. Practical Applications\n\nSafe Property Access:\nconst user = {\n    address: {\n        city: \"New York\",\n        zipCode: \"10001\"\n    }\n};\n\n// Safe way to access nested properties\nconst city = user && user.address && user.address.city;\nconsole.log(city); // Output: \"New York\"\n\n// If user was null, this wouldn't cause an error\nconst nullUser = null;\nconst safeCity = nullUser && nullUser.address && nullUser.address.city;\nconsole.log(safeCity); // Output: null (no error)\n\n\nConfiguration with Defaults:\nfunction createConfig(options) {\n    options = options || {}; // Default to empty object\n    \n    return {\n        theme: options.theme || \"light\",\n        language: options.language || \"en\",\n        timeout: options.timeout || 5000\n    };\n}\n\nconst config1 = createConfig();\nconsole.log(config1); \n// Output: {theme: \"light\", language: \"en\", timeout: 5000}\n\nconst config2 = createConfig({theme: \"dark\", timeout: 3000});\nconsole.log(config2);\n// Output: {theme: \"dark\", language: \"en\", timeout: 3000}\n\n\nConditional Function Execution:\nlet debugMode = true;\n\n// Only log if debug mode is enabled\ndebugMode && console.log(\"Debug: Processing user data...\");\n\n// Multiple conditions\nlet user = {isAdmin: true, isActive: true};\nuser.isAdmin && user.isActive && console.log(\"Admin actions available\");\n\n\nAPI Response Handling:\nfunction processApiResponse(response) {\n    // Check if response exists and has data\n    const data = response && response.data && response.data.items;\n    \n    if (data) {\n        console.log(`Found ${data.length} items`);\n        return data;\n    }\n    \n    return [];\n}\n\n// Safe even if response is undefined or malformed\nconst result = processApiResponse(null); // Returns []\n\n\n\n\n4. Important Notes\n\nFalsy Values in JavaScript:\n// These are all falsy values\nconsole.log(false || \"default\");     // \"default\"\nconsole.log(0 || \"default\");        // \"default\" \nconsole.log(\"\" || \"default\");       // \"default\"\nconsole.log(null || \"default\");     // \"default\"\nconsole.log(undefined || \"default\"); // \"default\"\nconsole.log(NaN || \"default\");      // \"default\"\n\n\nPerformance Benefits:\n// Expensive operation only runs if needed\nconst result = cheapCheck() && expensiveOperation();\n\nfunction cheapCheck() {\n    return Math.random() &gt; 0.5;\n}\n\nfunction expensiveOperation() {\n    console.log(\"This might not run at all!\");\n    // Imagine complex calculations here\n    return \"expensive result\";\n}\n\n\nCommon Gotchas:\n// Be careful with 0 and empty strings\nconst count = 0;\nconst displayCount = count || \"No items\"; // \"No items\" (might not be desired)\n\n// Better approach for numbers\nconst betterDisplay = count !== undefined ? count : \"No items\";\nconsole.log(betterDisplay); // 0",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
-      "Day-1"
+      "Day-2"
     ]
   },
   {
-    "objectID": "W0/JS/DAY_1.html#type-checking---multiple-of-7",
-    "href": "W0/JS/DAY_1.html#type-checking---multiple-of-7",
-    "title": "Day-1",
-    "section": "6. Type Checking - Multiple of 7",
-    "text": "6. Type Checking - Multiple of 7\n// Multiple of 7 - Type Of\nfunction isMultipleOf7(n) {\n        if ( typeof n != 'number' || isNaN(n) ) { return \"Invalid Input\"; }\n        if (n % 7 == 0) { return \"Yes\"; }\n        else { return \"No\"; }\n}\nconsole.log(5, isMultipleOf7(5));\nconsole.log(49, isMultipleOf7(49));\nconsole.log(70, isMultipleOf7(70));\nconsole.log(\"hi\", isMultipleOf7(\"hi\"));\n/*\n * != compare values only similar to == (before comparing type coerce is done if needed)\n * !== compare bothe values and its type similar to === ( here type coerce is not done)\n */\nOutput:\n5 No\n49 Yes\n70 Yes\nhi Invalid Input\nKey Points:\n\ntypeof operator returns string indicating variable type\nisNaN() checks if value is “Not a Number”\n!= performs type coercion, !== does strict comparison\nInput validation prevents runtime errors",
+    "objectID": "W0/JS/DAY_2.html#modern-alternative-nullish-coalescing",
+    "href": "W0/JS/DAY_2.html#modern-alternative-nullish-coalescing",
+    "title": "Day-2",
+    "section": "6. Modern Alternative: Nullish Coalescing (??)",
+    "text": "6. Modern Alternative: Nullish Coalescing (??)\nThe operator only considers null and undefined as “nullish” values - unlike || which treats all falsy values as triggers for the fallback.\nIt was introduced in ES2020 as a more precise alternative to the logicalcal OR (||) operator\nconst config = {\n    count: 0,\n    message: \"\",\n    isEnabled: false\n};\n\n// Using || (might give unexpected results)\nconsole.log(config.count || 10);     // 10 (not desired if 0 is valid)\nconsole.log(config.message || \"Hi\"); // \"Hi\" (not desired if \"\" is valid)\n\n// Using ?? (only for null/undefined)\nconsole.log(config.count ?? 10);     // 0 (preserves 0)\nconsole.log(config.message ?? \"Hi\"); // \"\" (preserves empty string)",
     "crumbs": [
       "Week 0",
       "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#array-find-method---age-classification",
-    "href": "W0/JS/DAY_1.html#array-find-method---age-classification",
-    "title": "Day-1",
-    "section": "7. Array Find Method - Age Classification",
-    "text": "7. Array Find Method - Age Classification\n// AgeGroup Classify - JS Object Find\nfunction cag(age) {\n        const ageGroups = [\n                {min:0, max:12, category:\"Child\"},\n                {min:13, max:19, category:\"Teenager\"},\n                {min:20, max:59, category:\"Adult\"},\n                {min:60, max:120, category:\"Senior\"},\n        ]\n        const group = ageGroups.find(g =&gt; (age&gt;=g.min && age&lt;=g.max));\n        return group;\n}\nconsole.log(8, cag(8));\nconsole.log(16, cag(16));\nconsole.log(35, cag(35));\nconsole.log(70, cag(70));\nOutput:\n8 { min: 0, max: 12, category: 'Child' }\n16 { min: 13, max: 19, category: 'Teenager' }\n35 { min: 20, max: 59, category: 'Adult' }\n70 { min: 60, max: 120, category: 'Senior' }\nKey Points:\n\nfind() method returns first element that matches condition\nArrow function as callback: g =&gt; (condition)",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#temperature-converter",
-    "href": "W0/JS/DAY_1.html#temperature-converter",
-    "title": "Day-1",
-    "section": "8. Temperature Converter",
-    "text": "8. Temperature Converter\n// Temp Converter\nfunction convert(v, f, t) { // value, from, to\n        const units = ['C', 'F', 'K']\n        let celsius;\n        switch (f){\n                case 'C': celsius = v; break;\n                case 'F': celsius = (v-32) * (5/9); break;\n                case 'K': celsius = v - 273.15;\n        }\n        let result;\n        switch (t){\n                case 'C': result = celsius; break;\n                case 'F': result = (celsius * (9/5)) + 32; break;\n                case 'K': result = celsius + 273.15; break;\n        }\n        return result;\n}\nconsole.log(convert(100, 'C', 'F')); // 212\nconsole.log(convert(32, 'F', 'C')); // 0\nconsole.log(convert(273.1, 'K', 'C')); // 0\nOutput:\n212\n0\n-0.049999999999954525\nKey Points:\n\nTwo-step conversion: input → Celsius → target unit\nFloating-point precision issues cause small rounding errors",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-1-switch-statement---day-of-week",
-    "href": "W0/JS/DAY_1.html#code-1-switch-statement---day-of-week",
-    "title": "Day-1",
-    "section": "Code-1: Switch Statement - Day of Week",
-    "text": "Code-1: Switch Statement - Day of Week\n// DayOfWeek - Switch\nfunction getDayOfWeek(dayNumber) {\n        switch(dayNumber){\n                case 1: return \"Monday\";\n                case 2: return \"Tuesday\";\n                case 3: return \"Wednesday\";\n                case 4: return \"Thursday\";\n                case 5: return \"Friday\";\n                case 6: return \"Saturday\";\n                case 7: return \"Sunday\";\n                default: return \"Invalid Day Number!\";\n        }\n}\nconsole.log(1, getDayOfWeek(1));\nconsole.log(4, getDayOfWeek(4));\nconsole.log(7, getDayOfWeek(7));\nconsole.log(9, getDayOfWeek(9));\nOutput:\n1 Monday\n4 Thursday\n7 Sunday\n9 Invalid Day Number!",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-2-if-else-chain---grade-calculator",
-    "href": "W0/JS/DAY_1.html#code-2-if-else-chain---grade-calculator",
-    "title": "Day-1",
-    "section": "Code-2: If-Else Chain - Grade Calculator",
-    "text": "Code-2: If-Else Chain - Grade Calculator\n// Grade - If-Else If\nfunction grade(m) {\n        var g;\n        if (m&gt;=90) { g=\"S\"; }\n        else if (m&gt;=80) { g=\"A\"; }\n        else if (m&gt;=70) { g=\"B\"; }\n        else if (m&gt;=60) { g=\"C\"; }\n        else if (m&gt;=50) { g=\"D\"; }\n        else if (m&gt;=40) { g=\"E\"; }\n        else { g=\"U\"; }\n        return g;\n}\n// console.log(\"g\", g); // g is not defined\nconsole.log(95, grade(95));\nconsole.log(65, grade(65));\nconsole.log(25, grade(25));\n// console.lgo(\"g\", g); // g is not defined\nOutput:\n95 S\n65 C\n25 U\nKey Points:\n\nVariable g has function scope (using var)\nVariable g not accessible outside function (scope limitation)",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-3-ternary-operator---evenodd-check",
-    "href": "W0/JS/DAY_1.html#code-3-ternary-operator---evenodd-check",
-    "title": "Day-1",
-    "section": "Code-3: Ternary Operator - Even/Odd Check",
-    "text": "Code-3: Ternary Operator - Even/Odd Check\n// EvenOdd - Ternary Operator\nconst checkEvenOdd = (num) =&gt; {\n        return (num%2==0) ? \"Even\" : \"Odd\";\n}\nconsole.log(1, checkEvenOdd(1));\nconsole.log(4, checkEvenOdd(4));\nconsole.log(21, checkEvenOdd(21));\nconsole.log(98, checkEvenOdd(98));\n/* Arrow Function\n * - Doesn't Have its own this, Arguments, or super\n * - Best For\n *   - Callbacks\n *   - Array Methods (map, filter, reduce)\n *   - when we don't need this\n *   - Arrow Function doesn't create this of its own, it uses this of surroundings.\n */\nOutput:\n1 Odd\n4 Even\n21 Odd\n98 Even\nKey Points:\n\nTernary operator: condition ? valueIfTrue : valueIfFalse\nArrow function syntax: const func = (param) =&gt; { return value; }\nArrow functions don’t have their own this context",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-4-object-return---movie-ticket-pricing",
-    "href": "W0/JS/DAY_1.html#code-4-object-return---movie-ticket-pricing",
-    "title": "Day-1",
-    "section": "Code-4: Object Return - Movie Ticket Pricing",
-    "text": "Code-4: Object Return - Movie Ticket Pricing\n// MovieTicketPrice - JS Object Return\nfunction mtp(age){\n        let price, category;\n        if (age&lt;12) { price = 100, category = 'Child'; }\n        else if (age&lt;=59) { price = 200; category = \"Adult\"; }\n        else if (age&gt;=60) { price = 120; category = \"Senior\"; }\n        return { age:age, price:price, category:category }\n}\nconsole.log(mtp(4));\nconsole.log(mtp(14));\nconsole.log(mtp(40));\nconsole.log(mtp(85));\n/*\n * JS object support\n * - single quote for string\n */\nOutput:\n{ age: 4, price: 100, category: 'Child' }\n{ age: 14, price: 200, category: 'Adult' }\n{ age: 40, price: 200, category: 'Adult' }\n{ age: 85, price: 120, category: 'Senior' }\nKey Points:\n\nFunctions can return objects with multiple properties\nJavaScript supports both single and double quotes for strings",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-5-calculator-with-switch",
-    "href": "W0/JS/DAY_1.html#code-5-calculator-with-switch",
-    "title": "Day-1",
-    "section": "Code-5: Calculator with Switch",
-    "text": "Code-5: Calculator with Switch\n// Calc - Switch\nfunction calc(a,b,o) {\n        switch(o){\n                case '+':\n                        result = a + b; break;\n                case '-':\n                        result = a - b; break;\n                case '*':\n                        result = a * b; break;\n                case '/':\n                        result = a / b; break;\n                default:\n                        result = null;\n        }\n        return result;\n}\nconsole.log(4,1,'+', calc(4,1,'+'));\nconsole.log(4,7,'+', calc(4,7,'*'));\nconsole.log(result);\nconsole.log(4,7,'(', calc(4,7,'('));\nOutput:\n4 1 + 5\n4 7 + 28\n28\n4 7 ( null\nKey Points:\n\nbreak statements prevent fall-through to next case\nVariable result declared without let/const/var (becomes global)",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-6-type-checking---multiple-of-7",
-    "href": "W0/JS/DAY_1.html#code-6-type-checking---multiple-of-7",
-    "title": "Day-1",
-    "section": "Code-6: Type Checking - Multiple of 7",
-    "text": "Code-6: Type Checking - Multiple of 7\n// Multiple of 7 - Type Of\nfunction isMultipleOf7(n) {\n        if ( typeof n != 'number' || isNaN(n) ) { return \"Invalid Input\"; }\n        if (n % 7 == 0) { return \"Yes\"; }\n        else { return \"No\"; }\n}\nconsole.log(5, isMultipleOf7(5));\nconsole.log(49, isMultipleOf7(49));\nconsole.log(70, isMultipleOf7(70));\nconsole.log(\"hi\", isMultipleOf7(\"hi\"));\n/*\n * != compare values only similar to == (before comparing type coerce is done if needed)\n * !== compare bothe values and its type similar to === ( here type coerce is not done)\n */\nOutput:\n5 No\n49 Yes\n70 Yes\nhi Invalid Input\nKey Points:\n\ntypeof operator returns string indicating variable type\nisNaN() checks if value is “Not a Number”\n!= performs type coercion, !== does strict comparison\nInput validation prevents runtime errors",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-7-array-find-method---age-classification",
-    "href": "W0/JS/DAY_1.html#code-7-array-find-method---age-classification",
-    "title": "Day-1",
-    "section": "Code-7: Array Find Method - Age Classification",
-    "text": "Code-7: Array Find Method - Age Classification\n// AgeGroup Classify - JS Object Find\nfunction cag(age) {\n        const ageGroups = [\n                {min:0, max:12, category:\"Child\"},\n                {min:13, max:19, category:\"Teenager\"},\n                {min:20, max:59, category:\"Adult\"},\n                {min:60, max:120, category:\"Senior\"},\n        ]\n        const group = ageGroups.find(g =&gt; (age&gt;=g.min && age&lt;=g.max));\n        return group;\n}\nconsole.log(8, cag(8));\nconsole.log(16, cag(16));\nconsole.log(35, cag(35));\nconsole.log(70, cag(70));\nOutput:\n8 { min: 0, max: 12, category: 'Child' }\n16 { min: 13, max: 19, category: 'Teenager' }\n35 { min: 20, max: 59, category: 'Adult' }\n70 { min: 60, max: 120, category: 'Senior' }\nKey Points:\n\nfind() method returns first element that matches condition\nArrow function as callback: g =&gt; (condition)",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
-    ]
-  },
-  {
-    "objectID": "W0/JS/DAY_1.html#code-8-temperature-converter",
-    "href": "W0/JS/DAY_1.html#code-8-temperature-converter",
-    "title": "Day-1",
-    "section": "Code-8: Temperature Converter",
-    "text": "Code-8: Temperature Converter\n// Temp Converter\nfunction convert(v, f, t) { // value, from, to\n        const units = ['C', 'F', 'K']\n        let celsius;\n        switch (f){\n                case 'C': celsius = v; break;\n                case 'F': celsius = (v-32) * (5/9); break;\n                case 'K': celsius = v - 273.15;\n        }\n        let result;\n        switch (t){\n                case 'C': result = celsius; break;\n                case 'F': result = (celsius * (9/5)) + 32; break;\n                case 'K': result = celsius + 273.15; break;\n        }\n        return result;\n}\nconsole.log(convert(100, 'C', 'F')); // 212\nconsole.log(convert(32, 'F', 'C')); // 0\nconsole.log(convert(273.1, 'K', 'C')); // 0\nOutput:\n212\n0\n-0.049999999999954525\nKey Points:\n\nTwo-step conversion: input → Celsius → target unit\nFloating-point precision issues cause small rounding errors",
-    "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-1"
+      "Day-2"
     ]
   }
 ]

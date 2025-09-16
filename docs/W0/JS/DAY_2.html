@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>day_2 – App Dev Lab by HRM</title>
+<title>Day-2 – App Dev Lab by HRM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -32,14 +67,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-0629ca95cf9fdcccf96616292c726c1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-84a662b1cd5b232d57a8075ec53c9991.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-0629ca95cf9fdcccf96616292c726c1a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9abcedaa66623c4356fc84edb00eef4b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -326,15 +361,456 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#control-flow" id="toc-control-flow" class="nav-link active" data-scroll-target="#control-flow"><strong>1. Control Flow</strong></a>
+  <ul class="collapse">
+  <li><a href="#if-else-statements" id="toc-if-else-statements" class="nav-link" data-scroll-target="#if-else-statements"><strong>If-Else Statements:</strong></a></li>
+  <li><a href="#ternary-operator" id="toc-ternary-operator" class="nav-link" data-scroll-target="#ternary-operator"><strong>Ternary Operator:</strong></a></li>
+  <li><a href="#switch-statement" id="toc-switch-statement" class="nav-link" data-scroll-target="#switch-statement"><strong>Switch Statement:</strong></a></li>
+  </ul></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><strong>2. Loops</strong></a>
+  <ul class="collapse">
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop"><strong>For Loop:</strong></a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><strong>While Loop:</strong></a></li>
+  <li><a href="#do-while-loop" id="toc-do-while-loop" class="nav-link" data-scroll-target="#do-while-loop"><strong>Do-While Loop:</strong></a></li>
+  <li><a href="#forof-loop" id="toc-forof-loop" class="nav-link" data-scroll-target="#forof-loop"><strong>For…of Loop:</strong></a></li>
+  <li><a href="#forin-loop" id="toc-forin-loop" class="nav-link" data-scroll-target="#forin-loop"><strong>For…in Loop:</strong></a></li>
+  <li><a href="#foreach-method" id="toc-foreach-method" class="nav-link" data-scroll-target="#foreach-method"><strong>forEach Method:</strong></a></li>
+  </ul></li>
+  <li><a href="#loop-control" id="toc-loop-control" class="nav-link" data-scroll-target="#loop-control"><strong>3. Loop Control</strong></a>
+  <ul class="collapse">
+  <li><a href="#break-statement" id="toc-break-statement" class="nav-link" data-scroll-target="#break-statement"><strong>Break Statement:</strong></a></li>
+  <li><a href="#continue-statement" id="toc-continue-statement" class="nav-link" data-scroll-target="#continue-statement"><strong>Continue Statement:</strong></a></li>
+  </ul></li>
+  <li><a href="#error-handling" id="toc-error-handling" class="nav-link" data-scroll-target="#error-handling"><strong>4. Error Handling</strong></a>
+  <ul class="collapse">
+  <li><a href="#try-catch-finally" id="toc-try-catch-finally" class="nav-link" data-scroll-target="#try-catch-finally"><strong>Try-Catch-Finally:</strong></a></li>
+  <li><a href="#throwing-custom-errors" id="toc-throwing-custom-errors" class="nav-link" data-scroll-target="#throwing-custom-errors"><strong>Throwing Custom Errors:</strong></a></li>
+  </ul></li>
+  <li><a href="#short-circuit-evaluation-in-javascript" id="toc-short-circuit-evaluation-in-javascript" class="nav-link" data-scroll-target="#short-circuit-evaluation-in-javascript"><strong>5. Short-Circuit Evaluation in JavaScript</strong></a>
+  <ul class="collapse">
+  <li><a href="#how-short-circuiting-works" id="toc-how-short-circuiting-works" class="nav-link" data-scroll-target="#how-short-circuiting-works"><strong>How Short-Circuiting Works</strong></a></li>
+  <li><a href="#and-short-circuiting" id="toc-and-short-circuiting" class="nav-link" data-scroll-target="#and-short-circuiting"><strong>1. AND (<code>&amp;&amp;</code>) Short-Circuiting</strong></a></li>
+  <li><a href="#or-short-circuiting" id="toc-or-short-circuiting" class="nav-link" data-scroll-target="#or-short-circuiting"><strong>2. OR (<code>||</code>) Short-Circuiting</strong></a></li>
+  <li><a href="#practical-applications" id="toc-practical-applications" class="nav-link" data-scroll-target="#practical-applications"><strong>3. Practical Applications</strong></a></li>
+  <li><a href="#important-notes" id="toc-important-notes" class="nav-link" data-scroll-target="#important-notes"><strong>4. Important Notes</strong></a></li>
+  </ul></li>
+  <li><a href="#modern-alternative-nullish-coalescing" id="toc-modern-alternative-nullish-coalescing" class="nav-link" data-scroll-target="#modern-alternative-nullish-coalescing"><strong>6. Modern Alternative: Nullish Coalescing (<code>??</code>)</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 0</li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_1.html">10 Days Of JS</a></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_2.html">Day-2</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Week 0</li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_1.html">10 Days Of JS</a></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_2.html">Day-2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Day-2</h1>
+<p class="subtitle lead">Loops and Error and Nullish</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Loops
+</h1>
+</summary>
+<section id="control-flow" class="level2">
+<h2 class="anchored" data-anchor-id="control-flow"><strong>1. Control Flow</strong></h2>
+<section id="if-else-statements" class="level3">
+<h3 class="anchored" data-anchor-id="if-else-statements"><strong>If-Else Statements:</strong></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">let</span> score <span class="op">=</span> <span class="dv">85</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">90</span>) {</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"A Grade"</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>} <span class="cf">else</span> <span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">80</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"B Grade"</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>} <span class="cf">else</span> <span class="cf">if</span> (score <span class="op">&gt;=</span> <span class="dv">70</span>) {</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"C Grade"</span>)<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>} <span class="cf">else</span> {</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"F Grade"</span>)<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ternary-operator" class="level3">
+<h3 class="anchored" data-anchor-id="ternary-operator"><strong>Ternary Operator:</strong></h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">let</span> age <span class="op">=</span> <span class="dv">18</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">let</span> status <span class="op">=</span> age <span class="op">&gt;=</span> <span class="dv">18</span> <span class="op">?</span> <span class="st">"Adult"</span> <span class="op">:</span> <span class="st">"Minor"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="switch-statement" class="level3">
+<h3 class="anchored" data-anchor-id="switch-statement"><strong>Switch Statement:</strong></h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">let</span> day <span class="op">=</span> <span class="st">"Monday"</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="cf">switch</span>(day) {</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="cf">case</span> <span class="st">"Monday"</span><span class="op">:</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Start of work week"</span>)<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="cf">case</span> <span class="st">"Friday"</span><span class="op">:</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"TGIF!"</span>)<span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="cf">default</span><span class="op">:</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Regular day"</span>)<span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="loops" class="level2">
+<h2 class="anchored" data-anchor-id="loops"><strong>2. Loops</strong></h2>
+<section id="for-loop" class="level3">
+<h3 class="anchored" data-anchor-id="for-loop"><strong>For Loop:</strong></h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">// Basic for loop</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Iteration: "</span> <span class="op">+</span> i)<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">// Loop through array</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="kw">let</span> fruits <span class="op">=</span> [<span class="st">"apple"</span><span class="op">,</span> <span class="st">"banana"</span><span class="op">,</span> <span class="st">"orange"</span>]<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> fruits<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(fruits[i])<span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="while-loop" class="level3">
+<h3 class="anchored" data-anchor-id="while-loop"><strong>While Loop:</strong></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">let</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="cf">while</span> (count <span class="op">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Count: "</span> <span class="op">+</span> count)<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    count<span class="op">++;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="do-while-loop" class="level3">
+<h3 class="anchored" data-anchor-id="do-while-loop"><strong>Do-While Loop:</strong></h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">let</span> num <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="cf">do</span> {</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Number: "</span> <span class="op">+</span> num)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>    num<span class="op">++;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>} <span class="cf">while</span> (num <span class="op">&lt;</span> <span class="dv">3</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="forof-loop" class="level3">
+<h3 class="anchored" data-anchor-id="forof-loop"><strong>For…of Loop:</strong></h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">let</span> colors <span class="op">=</span> [<span class="st">"red"</span><span class="op">,</span> <span class="st">"green"</span><span class="op">,</span> <span class="st">"blue"</span>]<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">// Iterate over array values</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="cf">for</span> (<span class="kw">let</span> color <span class="kw">of</span> colors) {</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(color)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">// Iterate over string characters</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="cf">for</span> (<span class="kw">let</span> char <span class="kw">of</span> <span class="st">"Hello"</span>) {</span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(char)<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="forin-loop" class="level3">
+<h3 class="anchored" data-anchor-id="forin-loop"><strong>For…in Loop:</strong></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">let</span> person <span class="op">=</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">"John"</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">city</span><span class="op">:</span> <span class="st">"Delhi"</span>}<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">// Iterate over object properties</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="cf">for</span> (<span class="kw">let</span> key <span class="kw">in</span> person) {</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(key <span class="op">+</span> <span class="st">": "</span> <span class="op">+</span> person[key])<span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="foreach-method" class="level3">
+<h3 class="anchored" data-anchor-id="foreach-method"><strong>forEach Method:</strong></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">let</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>numbers<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span>(num<span class="op">,</span> index) {</span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Index </span><span class="sc">${</span>index<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>num<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>})<span class="op">;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">// Arrow function version</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>numbers<span class="op">.</span><span class="fu">forEach</span>((num<span class="op">,</span> index) <span class="kw">=&gt;</span> {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Index </span><span class="sc">${</span>index<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>num<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="loop-control" class="level2">
+<h2 class="anchored" data-anchor-id="loop-control"><strong>3. Loop Control</strong></h2>
+<section id="break-statement" class="level3">
+<h3 class="anchored" data-anchor-id="break-statement"><strong>Break Statement:</strong></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>    <span class="cf">if</span> (i <span class="op">===</span> <span class="dv">5</span>) {</span>
+<span id="cb10-3"><a href="#cb10-3"></a>        <span class="cf">break</span><span class="op">;</span> <span class="co">// Exit loop when i equals 5</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>    }</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="continue-statement" class="level3">
+<h3 class="anchored" data-anchor-id="continue-statement"><strong>Continue Statement:</strong></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="cf">if</span> (i <span class="op">===</span> <span class="dv">2</span>) {</span>
+<span id="cb11-3"><a href="#cb11-3"></a>        <span class="cf">continue</span><span class="op">;</span> <span class="co">// Skip iteration when i equals 2</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>    }</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span> <span class="co">// Prints 0, 1, 3, 4</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section></details>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Errors
+</h1>
+</summary>
+
+
+<section id="error-handling" class="level2">
+<h2 class="anchored" data-anchor-id="error-handling"><strong>4. Error Handling</strong></h2>
+<section id="try-catch-finally" class="level3">
+<h3 class="anchored" data-anchor-id="try-catch-finally"><strong>Try-Catch-Finally:</strong></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">try</span> {</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="kw">let</span> result <span class="op">=</span> <span class="fu">riskyOperation</span>()<span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result)<span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>} <span class="cf">catch</span> (error) {</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"An error occurred: "</span> <span class="op">+</span> error<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>} <span class="cf">finally</span> {</span>
+<span id="cb12-7"><a href="#cb12-7"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"This always runs"</span>)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="throwing-custom-errors" class="level3">
+<h3 class="anchored" data-anchor-id="throwing-custom-errors"><strong>Throwing Custom Errors:</strong></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">function</span> <span class="fu">divide</span>(a<span class="op">,</span> b) {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    <span class="cf">try</span> {</span>
+<span id="cb13-3"><a href="#cb13-3"></a>        <span class="cf">if</span> (b <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb13-4"><a href="#cb13-4"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">"Division by zero is not allowed"</span>)<span class="op">;</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>        }</span>
+<span id="cb13-6"><a href="#cb13-6"></a>        <span class="cf">return</span> a <span class="op">/</span> b<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>    } <span class="cf">catch</span> (error) {</span>
+<span id="cb13-8"><a href="#cb13-8"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(error<span class="op">.</span><span class="at">message</span>)<span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a>    }</span>
+<span id="cb13-11"><a href="#cb13-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section></details>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Short Circuit &amp; Nullish
+</h1>
+</summary>
+
+
+<section id="short-circuit-evaluation-in-javascript" class="level2">
+<h2 class="anchored" data-anchor-id="short-circuit-evaluation-in-javascript"><strong>5. Short-Circuit Evaluation in JavaScript</strong></h2>
+<p><strong>Short-circuiting</strong> refers to the behavior of logical operators (<code>&amp;&amp;</code>, <code>||</code>) where JavaScript stops evaluating expressions as soon as the final result can be determined[^1][^2]. This leads to more efficient code execution by avoiding unnecessary computations.</p>
+<section id="how-short-circuiting-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-short-circuiting-works"><strong>How Short-Circuiting Works</strong></h3>
+<p>JavaScript evaluates logical expressions <strong>from left to right</strong> and stops as soon as the outcome is clear. The key point is that these operators <strong>return the actual operand values</strong>, not just <code>true</code> or <code>false</code>.[^1][^2]</p>
+<hr>
+</section>
+<section id="and-short-circuiting" class="level3">
+<h3 class="anchored" data-anchor-id="and-short-circuiting"><strong>1. AND (<code>&amp;&amp;</code>) Short-Circuiting</strong></h3>
+<p>The <code>&amp;&amp;</code> operator returns the <strong>first falsy value</strong> it encounters, or the <strong>last truthy value</strong> if all operands are truthy.[^2]</p>
+<section id="basic-behavior" class="level4">
+<h4 class="anchored" data-anchor-id="basic-behavior"><strong>Basic Behavior:</strong></h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">// If first operand is falsy, it stops and returns that value</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">const</span> result1 <span class="op">=</span> <span class="kw">false</span> <span class="op">&amp;&amp;</span> <span class="st">"This won't be evaluated"</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result1)<span class="op">;</span> <span class="co">// Output: false</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="kw">const</span> result2 <span class="op">=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> <span class="st">"This won't run either"</span><span class="op">;</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result2)<span class="op">;</span> <span class="co">// Output: 0</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co">// If all operands are truthy, returns the last one</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="kw">const</span> result3 <span class="op">=</span> <span class="st">"Hello"</span> <span class="op">&amp;&amp;</span> <span class="st">"World"</span> <span class="op">&amp;&amp;</span> <span class="dv">42</span><span class="op">;</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result3)<span class="op">;</span> <span class="co">// Output: 42</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preventing-code-execution" class="level4">
+<h4 class="anchored" data-anchor-id="preventing-code-execution"><strong>Preventing Code Execution:</strong></h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">let</span> user <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co">// This prevents error because user is falsy</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>user <span class="op">&amp;&amp;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(user<span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// Nothing happens, no error</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a>user <span class="op">=</span> {<span class="dt">name</span><span class="op">:</span> <span class="st">"John"</span>}<span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a>user <span class="op">&amp;&amp;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(user<span class="op">.</span><span class="at">name</span>)<span class="op">;</span> <span class="co">// Output: "John"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="function-calls-with" class="level4">
+<h4 class="anchored" data-anchor-id="function-calls-with"><strong>Function Calls with &amp;&amp;:</strong></h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">let</span> isLoggedIn <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">// Function only runs if isLoggedIn is true</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>isLoggedIn <span class="op">&amp;&amp;</span> <span class="fu">performExpensiveOperation</span>()<span class="op">;</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="kw">function</span> <span class="fu">performExpensiveOperation</span>() {</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"This won't run because isLoggedIn is false"</span>)<span class="op">;</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="or-short-circuiting" class="level3">
+<h3 class="anchored" data-anchor-id="or-short-circuiting"><strong>2. OR (<code>||</code>) Short-Circuiting</strong></h3>
+<p>The <code>||</code> operator returns the <strong>first truthy value</strong> it encounters, or the <strong>last falsy value</strong> if all operands are falsy[^2].</p>
+<section id="basic-behavior-1" class="level4">
+<h4 class="anchored" data-anchor-id="basic-behavior-1"><strong>Basic Behavior:</strong></h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">// Returns first truthy value</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="kw">const</span> result1 <span class="op">=</span> <span class="st">"Hello"</span> <span class="op">||</span> <span class="st">"This won't be evaluated"</span><span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result1)<span class="op">;</span> <span class="co">// Output: "Hello"</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="kw">const</span> result2 <span class="op">=</span> <span class="dv">0</span> <span class="op">||</span> <span class="kw">false</span> <span class="op">||</span> <span class="st">"Default Value"</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result2)<span class="op">;</span> <span class="co">// Output: "Default Value"</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="co">// If all are falsy, returns the last falsy value</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="kw">const</span> result3 <span class="op">=</span> <span class="kw">false</span> <span class="op">||</span> <span class="dv">0</span> <span class="op">||</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(result3)<span class="op">;</span> <span class="co">// Output: null</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="default-values-pattern" class="level4">
+<h4 class="anchored" data-anchor-id="default-values-pattern"><strong>Default Values Pattern:</strong></h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">function</span> <span class="fu">greet</span>(name) {</span>
+<span id="cb18-2"><a href="#cb18-2"></a>    name <span class="op">=</span> name <span class="op">||</span> <span class="st">"Guest"</span><span class="op">;</span> <span class="co">// If name is falsy, use "Guest"</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>    <span class="cf">return</span> <span class="vs">`Hello, </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">!`</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>}</span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">greet</span>())<span class="op">;</span>        <span class="co">// Output: "Hello, Guest!"</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">greet</span>(<span class="st">"Alice"</span>))<span class="op">;</span> <span class="co">// Output: "Hello, Alice!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="practical-applications" class="level3">
+<h3 class="anchored" data-anchor-id="practical-applications"><strong>3. Practical Applications</strong></h3>
+<section id="safe-property-access" class="level4">
+<h4 class="anchored" data-anchor-id="safe-property-access"><strong>Safe Property Access:</strong></h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">const</span> user <span class="op">=</span> {</span>
+<span id="cb19-2"><a href="#cb19-2"></a>    <span class="dt">address</span><span class="op">:</span> {</span>
+<span id="cb19-3"><a href="#cb19-3"></a>        <span class="dt">city</span><span class="op">:</span> <span class="st">"New York"</span><span class="op">,</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>        <span class="dt">zipCode</span><span class="op">:</span> <span class="st">"10001"</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>    }</span>
+<span id="cb19-6"><a href="#cb19-6"></a>}<span class="op">;</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a></span>
+<span id="cb19-8"><a href="#cb19-8"></a><span class="co">// Safe way to access nested properties</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a><span class="kw">const</span> city <span class="op">=</span> user <span class="op">&amp;&amp;</span> user<span class="op">.</span><span class="at">address</span> <span class="op">&amp;&amp;</span> user<span class="op">.</span><span class="at">address</span><span class="op">.</span><span class="at">city</span><span class="op">;</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(city)<span class="op">;</span> <span class="co">// Output: "New York"</span></span>
+<span id="cb19-11"><a href="#cb19-11"></a></span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="co">// If user was null, this wouldn't cause an error</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a><span class="kw">const</span> nullUser <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a><span class="kw">const</span> safeCity <span class="op">=</span> nullUser <span class="op">&amp;&amp;</span> nullUser<span class="op">.</span><span class="at">address</span> <span class="op">&amp;&amp;</span> nullUser<span class="op">.</span><span class="at">address</span><span class="op">.</span><span class="at">city</span><span class="op">;</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(safeCity)<span class="op">;</span> <span class="co">// Output: null (no error)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="configuration-with-defaults" class="level4">
+<h4 class="anchored" data-anchor-id="configuration-with-defaults"><strong>Configuration with Defaults:</strong></h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">function</span> <span class="fu">createConfig</span>(options) {</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    options <span class="op">=</span> options <span class="op">||</span> {}<span class="op">;</span> <span class="co">// Default to empty object</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>    </span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="cf">return</span> {</span>
+<span id="cb20-5"><a href="#cb20-5"></a>        <span class="dt">theme</span><span class="op">:</span> options<span class="op">.</span><span class="at">theme</span> <span class="op">||</span> <span class="st">"light"</span><span class="op">,</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>        <span class="dt">language</span><span class="op">:</span> options<span class="op">.</span><span class="at">language</span> <span class="op">||</span> <span class="st">"en"</span><span class="op">,</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>        <span class="dt">timeout</span><span class="op">:</span> options<span class="op">.</span><span class="at">timeout</span> <span class="op">||</span> <span class="dv">5000</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a>    }<span class="op">;</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>}</span>
+<span id="cb20-10"><a href="#cb20-10"></a></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="kw">const</span> config1 <span class="op">=</span> <span class="fu">createConfig</span>()<span class="op">;</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config1)<span class="op">;</span> </span>
+<span id="cb20-13"><a href="#cb20-13"></a><span class="co">// Output: {theme: "light", language: "en", timeout: 5000}</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a></span>
+<span id="cb20-15"><a href="#cb20-15"></a><span class="kw">const</span> config2 <span class="op">=</span> <span class="fu">createConfig</span>({<span class="dt">theme</span><span class="op">:</span> <span class="st">"dark"</span><span class="op">,</span> <span class="dt">timeout</span><span class="op">:</span> <span class="dv">3000</span>})<span class="op">;</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config2)<span class="op">;</span></span>
+<span id="cb20-17"><a href="#cb20-17"></a><span class="co">// Output: {theme: "dark", language: "en", timeout: 3000}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conditional-function-execution" class="level4">
+<h4 class="anchored" data-anchor-id="conditional-function-execution"><strong>Conditional Function Execution:</strong></h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">let</span> debugMode <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="co">// Only log if debug mode is enabled</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>debugMode <span class="op">&amp;&amp;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Debug: Processing user data..."</span>)<span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a></span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="co">// Multiple conditions</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="kw">let</span> user <span class="op">=</span> {<span class="dt">isAdmin</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">isActive</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">;</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>user<span class="op">.</span><span class="at">isAdmin</span> <span class="op">&amp;&amp;</span> user<span class="op">.</span><span class="at">isActive</span> <span class="op">&amp;&amp;</span> <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"Admin actions available"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="api-response-handling" class="level4">
+<h4 class="anchored" data-anchor-id="api-response-handling"><strong>API Response Handling:</strong></h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">function</span> <span class="fu">processApiResponse</span>(response) {</span>
+<span id="cb22-2"><a href="#cb22-2"></a>    <span class="co">// Check if response exists and has data</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>    <span class="kw">const</span> data <span class="op">=</span> response <span class="op">&amp;&amp;</span> response<span class="op">.</span><span class="at">data</span> <span class="op">&amp;&amp;</span> response<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="at">items</span><span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>    </span>
+<span id="cb22-5"><a href="#cb22-5"></a>    <span class="cf">if</span> (data) {</span>
+<span id="cb22-6"><a href="#cb22-6"></a>        <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`Found </span><span class="sc">${</span>data<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs"> items`</span>)<span class="op">;</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>        <span class="cf">return</span> data<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>    }</span>
+<span id="cb22-9"><a href="#cb22-9"></a>    </span>
+<span id="cb22-10"><a href="#cb22-10"></a>    <span class="cf">return</span> []<span class="op">;</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>}</span>
+<span id="cb22-12"><a href="#cb22-12"></a></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="co">// Safe even if response is undefined or malformed</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="kw">const</span> result <span class="op">=</span> <span class="fu">processApiResponse</span>(<span class="kw">null</span>)<span class="op">;</span> <span class="co">// Returns []</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="important-notes" class="level3">
+<h3 class="anchored" data-anchor-id="important-notes"><strong>4. Important Notes</strong></h3>
+<section id="falsy-values-in-javascript" class="level4">
+<h4 class="anchored" data-anchor-id="falsy-values-in-javascript"><strong>Falsy Values in JavaScript:</strong></h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">// These are all falsy values</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">false</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span>     <span class="co">// "default"</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="dv">0</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span>        <span class="co">// "default" </span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">""</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span>       <span class="co">// "default"</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">null</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span>     <span class="co">// "default"</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">undefined</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span> <span class="co">// "default"</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">NaN</span> <span class="op">||</span> <span class="st">"default"</span>)<span class="op">;</span>      <span class="co">// "default"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="performance-benefits" class="level4">
+<h4 class="anchored" data-anchor-id="performance-benefits"><strong>Performance Benefits:</strong></h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">// Expensive operation only runs if needed</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">const</span> result <span class="op">=</span> <span class="fu">cheapCheck</span>() <span class="op">&amp;&amp;</span> <span class="fu">expensiveOperation</span>()<span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="kw">function</span> <span class="fu">cheapCheck</span>() {</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">&gt;</span> <span class="fl">0.5</span><span class="op">;</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>}</span>
+<span id="cb24-7"><a href="#cb24-7"></a></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="kw">function</span> <span class="fu">expensiveOperation</span>() {</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"This might not run at all!"</span>)<span class="op">;</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>    <span class="co">// Imagine complex calculations here</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>    <span class="cf">return</span> <span class="st">"expensive result"</span><span class="op">;</span></span>
+<span id="cb24-12"><a href="#cb24-12"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="common-gotchas" class="level4">
+<h4 class="anchored" data-anchor-id="common-gotchas"><strong>Common Gotchas:</strong></h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">// Be careful with 0 and empty strings</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="kw">const</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="kw">const</span> displayCount <span class="op">=</span> count <span class="op">||</span> <span class="st">"No items"</span><span class="op">;</span> <span class="co">// "No items" (might not be desired)</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co">// Better approach for numbers</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="kw">const</span> betterDisplay <span class="op">=</span> count <span class="op">!==</span> <span class="kw">undefined</span> <span class="op">?</span> count <span class="op">:</span> <span class="st">"No items"</span><span class="op">;</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(betterDisplay)<span class="op">;</span> <span class="co">// 0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section></section></section></details>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Nullish
+</h1>
+</summary>
+
+
+
+<section id="modern-alternative-nullish-coalescing" class="level2">
+<h2 class="anchored" data-anchor-id="modern-alternative-nullish-coalescing"><strong>6. Modern Alternative: Nullish Coalescing (<code>??</code>)</strong></h2>
+<p>The operator only considers <code>null</code> and <code>undefined</code> as “nullish” values - unlike || which treats all falsy values as triggers for the fallback.</p>
+<p>It was introduced in <code>ES2020</code> as a more precise alternative to the logicalcal OR (||) operator</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">const</span> config <span class="op">=</span> {</span>
+<span id="cb26-2"><a href="#cb26-2"></a>    <span class="dt">count</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="dt">message</span><span class="op">:</span> <span class="st">""</span><span class="op">,</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="dt">isEnabled</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>}<span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="co">// Using || (might give unexpected results)</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config<span class="op">.</span><span class="at">count</span> <span class="op">||</span> <span class="dv">10</span>)<span class="op">;</span>     <span class="co">// 10 (not desired if 0 is valid)</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config<span class="op">.</span><span class="at">message</span> <span class="op">||</span> <span class="st">"Hi"</span>)<span class="op">;</span> <span class="co">// "Hi" (not desired if "" is valid)</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a></span>
+<span id="cb26-11"><a href="#cb26-11"></a><span class="co">// Using ?? (only for null/undefined)</span></span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config<span class="op">.</span><span class="at">count</span> <span class="op">??</span> <span class="dv">10</span>)<span class="op">;</span>     <span class="co">// 0 (preserves 0)</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(config<span class="op">.</span><span class="at">message</span> <span class="op">??</span> <span class="st">"Hi"</span>)<span class="op">;</span> <span class="co">// "" (preserves empty string)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></details>
 
 
 

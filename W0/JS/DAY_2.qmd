@@ -1,0 +1,477 @@
+---
+title: "Day-2"
+subtitle: "Loops and Error and Nullish"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+
+    # Code formatting
+    code-copy: true
+    code-line-numbers: true
+#     code-overflow: wrap
+    highlight-style: dracula
+
+---
+
+<details open>
+<summary><h1 style="display: inline;">Loops</h1></summary>
+
+## **1. Control Flow**
+
+### **If-Else Statements:**
+
+```javascript
+let score = 85;
+
+if (score >= 90) {
+    console.log("A Grade");
+} else if (score >= 80) {
+    console.log("B Grade");
+} else if (score >= 70) {
+    console.log("C Grade");
+} else {
+    console.log("F Grade");
+}
+```
+
+
+### **Ternary Operator:**
+
+```javascript
+let age = 18;
+let status = age >= 18 ? "Adult" : "Minor";
+```
+
+
+### **Switch Statement:**
+
+```javascript
+let day = "Monday";
+
+switch(day) {
+    case "Monday":
+        console.log("Start of work week");
+        break;
+    case "Friday":
+        console.log("TGIF!");
+        break;
+    default:
+        console.log("Regular day");
+}
+```
+
+
+## **2. Loops**
+
+### **For Loop:**
+
+```javascript
+// Basic for loop
+for (let i = 0; i < 5; i++) {
+    console.log("Iteration: " + i);
+}
+
+// Loop through array
+let fruits = ["apple", "banana", "orange"];
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+```
+
+
+### **While Loop:**
+
+```javascript
+let count = 0;
+while (count < 3) {
+    console.log("Count: " + count);
+    count++;
+}
+```
+
+
+### **Do-While Loop:**
+
+```javascript
+let num = 0;
+do {
+    console.log("Number: " + num);
+    num++;
+} while (num < 3);
+```
+
+
+### **For...of Loop:**
+
+```javascript
+let colors = ["red", "green", "blue"];
+
+// Iterate over array values
+for (let color of colors) {
+    console.log(color);
+}
+
+// Iterate over string characters
+for (let char of "Hello") {
+    console.log(char);
+}
+```
+
+
+### **For...in Loop:**
+
+```javascript
+let person = {name: "John", age: 30, city: "Delhi"};
+
+// Iterate over object properties
+for (let key in person) {
+    console.log(key + ": " + person[key]);
+}
+```
+
+
+### **forEach Method:**
+
+```javascript
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach(function(num, index) {
+    console.log(`Index ${index}: ${num}`);
+});
+
+// Arrow function version
+numbers.forEach((num, index) => {
+    console.log(`Index ${index}: ${num}`);
+});
+```
+
+
+
+## **3. Loop Control**
+
+### **Break Statement:**
+
+```javascript
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break; // Exit loop when i equals 5
+    }
+    console.log(i);
+}
+```
+
+
+### **Continue Statement:**
+
+```javascript
+for (let i = 0; i < 5; i++) {
+    if (i === 2) {
+        continue; // Skip iteration when i equals 2
+    }
+    console.log(i); // Prints 0, 1, 3, 4
+}
+```
+
+
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Errors</h1></summary>
+
+## **4. Error Handling**
+
+### **Try-Catch-Finally:**
+
+```javascript
+try {
+    let result = riskyOperation();
+    console.log(result);
+} catch (error) {
+    console.log("An error occurred: " + error.message);
+} finally {
+    console.log("This always runs");
+}
+```
+
+
+### **Throwing Custom Errors:**
+
+```javascript
+function divide(a, b) {
+    try {
+        if (b === 0) {
+            throw new Error("Division by zero is not allowed");
+        }
+        return a / b;
+    } catch (error) {
+        console.log(error.message);
+        return null;
+    }
+}
+```
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Short Circuit & Nullish</h1></summary>
+
+## **5. Short-Circuit Evaluation in JavaScript**
+
+**Short-circuiting** refers to the behavior of logical operators (`&&`, `||`) where JavaScript stops evaluating expressions as soon as the final result can be determined[^1][^2]. This leads to more efficient code execution by avoiding unnecessary computations.
+
+### **How Short-Circuiting Works**
+
+JavaScript evaluates logical expressions **from left to right** and stops as soon as the outcome is clear. The key point is that these operators **return the actual operand values**, not just `true` or `false`.[^1][^2]
+
+***
+
+### **1. AND (`&&`) Short-Circuiting**
+
+The `&&` operator returns the **first falsy value** it encounters, or the **last truthy value** if all operands are truthy.[^2]
+
+#### **Basic Behavior:**
+
+```javascript
+// If first operand is falsy, it stops and returns that value
+const result1 = false && "This won't be evaluated";
+console.log(result1); // Output: false
+
+const result2 = 0 && "This won't run either";
+console.log(result2); // Output: 0
+
+// If all operands are truthy, returns the last one
+const result3 = "Hello" && "World" && 42;
+console.log(result3); // Output: 42
+```
+
+
+#### **Preventing Code Execution:**
+
+```javascript
+let user = null;
+
+// This prevents error because user is falsy
+user && console.log(user.name); // Nothing happens, no error
+
+user = {name: "John"};
+user && console.log(user.name); // Output: "John"
+```
+
+
+#### **Function Calls with \&\&:**
+
+```javascript
+let isLoggedIn = false;
+
+// Function only runs if isLoggedIn is true
+isLoggedIn && performExpensiveOperation();
+
+function performExpensiveOperation() {
+    console.log("This won't run because isLoggedIn is false");
+}
+```
+
+
+***
+
+### **2. OR (`||`) Short-Circuiting**
+
+The `||` operator returns the **first truthy value** it encounters, or the **last falsy value** if all operands are falsy[^2].
+
+#### **Basic Behavior:**
+
+```javascript
+// Returns first truthy value
+const result1 = "Hello" || "This won't be evaluated";
+console.log(result1); // Output: "Hello"
+
+const result2 = 0 || false || "Default Value";
+console.log(result2); // Output: "Default Value"
+
+// If all are falsy, returns the last falsy value
+const result3 = false || 0 || null;
+console.log(result3); // Output: null
+```
+
+
+#### **Default Values Pattern:**
+
+```javascript
+function greet(name) {
+    name = name || "Guest"; // If name is falsy, use "Guest"
+    return `Hello, ${name}!`;
+}
+
+console.log(greet());        // Output: "Hello, Guest!"
+console.log(greet("Alice")); // Output: "Hello, Alice!"
+```
+
+
+***
+
+### **3. Practical Applications**
+
+#### **Safe Property Access:**
+
+```javascript
+const user = {
+    address: {
+        city: "New York",
+        zipCode: "10001"
+    }
+};
+
+// Safe way to access nested properties
+const city = user && user.address && user.address.city;
+console.log(city); // Output: "New York"
+
+// If user was null, this wouldn't cause an error
+const nullUser = null;
+const safeCity = nullUser && nullUser.address && nullUser.address.city;
+console.log(safeCity); // Output: null (no error)
+```
+
+
+#### **Configuration with Defaults:**
+
+```javascript
+function createConfig(options) {
+    options = options || {}; // Default to empty object
+    
+    return {
+        theme: options.theme || "light",
+        language: options.language || "en",
+        timeout: options.timeout || 5000
+    };
+}
+
+const config1 = createConfig();
+console.log(config1); 
+// Output: {theme: "light", language: "en", timeout: 5000}
+
+const config2 = createConfig({theme: "dark", timeout: 3000});
+console.log(config2);
+// Output: {theme: "dark", language: "en", timeout: 3000}
+```
+
+
+#### **Conditional Function Execution:**
+
+```javascript
+let debugMode = true;
+
+// Only log if debug mode is enabled
+debugMode && console.log("Debug: Processing user data...");
+
+// Multiple conditions
+let user = {isAdmin: true, isActive: true};
+user.isAdmin && user.isActive && console.log("Admin actions available");
+```
+
+
+#### **API Response Handling:**
+
+```javascript
+function processApiResponse(response) {
+    // Check if response exists and has data
+    const data = response && response.data && response.data.items;
+    
+    if (data) {
+        console.log(`Found ${data.length} items`);
+        return data;
+    }
+    
+    return [];
+}
+
+// Safe even if response is undefined or malformed
+const result = processApiResponse(null); // Returns []
+```
+
+
+***
+
+### **4. Important Notes**
+
+#### **Falsy Values in JavaScript:**
+
+```javascript
+// These are all falsy values
+console.log(false || "default");     // "default"
+console.log(0 || "default");        // "default" 
+console.log("" || "default");       // "default"
+console.log(null || "default");     // "default"
+console.log(undefined || "default"); // "default"
+console.log(NaN || "default");      // "default"
+```
+
+
+#### **Performance Benefits:**
+
+```javascript
+// Expensive operation only runs if needed
+const result = cheapCheck() && expensiveOperation();
+
+function cheapCheck() {
+    return Math.random() > 0.5;
+}
+
+function expensiveOperation() {
+    console.log("This might not run at all!");
+    // Imagine complex calculations here
+    return "expensive result";
+}
+```
+
+
+#### **Common Gotchas:**
+
+```javascript
+// Be careful with 0 and empty strings
+const count = 0;
+const displayCount = count || "No items"; // "No items" (might not be desired)
+
+// Better approach for numbers
+const betterDisplay = count !== undefined ? count : "No items";
+console.log(betterDisplay); // 0
+```
+
+
+***
+
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Nullish</h1></summary>
+
+## **6. Modern Alternative: Nullish Coalescing (`??`)**
+
+The operator only considers `null` and `undefined` as "nullish" values - unlike || which treats all falsy values as triggers for the fallback.
+
+It was introduced in `ES2020` as a more precise alternative to the logicalcal OR (||) operator
+
+```javascript
+const config = {
+    count: 0,
+    message: "",
+    isEnabled: false
+};
+
+// Using || (might give unexpected results)
+console.log(config.count || 10);     // 10 (not desired if 0 is valid)
+console.log(config.message || "Hi"); // "Hi" (not desired if "" is valid)
+
+// Using ?? (only for null/undefined)
+console.log(config.count ?? 10);     // 0 (preserves 0)
+console.log(config.message ?? "Hi"); // "" (preserves empty string)
+```
+
+
+
+
+</details>
