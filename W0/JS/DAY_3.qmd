@@ -1,0 +1,167 @@
+---
+title: "Day-3"
+subtitle: "Strings, Numbers and Array"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+
+    # Code formatting
+    code-copy: true
+    code-fold: show
+    code-line-numbers: true
+#     code-overflow: wrap
+    highlight-style: dracula
+
+---
+
+<details open>
+<summary><h1 style="display: inline;">Strings</h1></summary>
+
+## Create String
+
+```javascript
+let a = 'Hritik'        // Single/Double both allowed
+let b = "Roshan"
+let c = `hi ${a} ${b}`  // String Interpolation
+
+let d = new String(c)   // String object wrapper
+
+console.log(typeof a, typeof b, typeof c, typeof d)
+
+/* Output
+string string string object
+*/
+```
+
+## Imp Properties/Methods
+
+```javascript
+let a = "hello world"
+
+console.log(a.length)
+console.log(a.charAt(2))// l
+console.log(a.at(-2))   // Allow -ve index
+console.log(a[-2])      // undefined
+
+console.log(a.slice(-5, 9))
+console.log(a.substring(2, 5))      // NOT ALlowed -veIndex
+console.log(a.includes('ld'))
+console.log(a.replace('ld', '-'))
+
+console.log(a.toUpperCase())
+console.log(a.trim())
+```
+
+**Output**
+
+```
+11
+l
+l
+undefined
+wor
+llo
+true
+hello wor-
+HELLO WORLD
+hello world
+```
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Numbers</h1></summary>
+
+## Number
+
+```javascript
+let a = 105.678               // number
+let b = new Number(105.678)   // object
+
+console.log(a.toFixed(2))       // return string
+console.log(a.toPrecision(2))   // Return String
+
+console.log(Math.round(a, 2))
+console.log(Math.ceil(a))
+console.log(Math.floor(a))
+```
+
+**Output**
+
+```
+105.68
+1.1e+2
+106
+106
+105
+```
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Array</h1></summary>
+
+## Array Create
+
+```javascript
+const arr = [1,2,3, true, "hi"]
+
+console.log(arr.length)
+console.log(arr[3], arr[-2]) // -ve index not work
+
+x = arr.push(50)
+y = arr.pop()
+console.log(x,y,arr, "\n")
+
+console.log(arr.includes('hi'))
+console.log(arr.indexOf('hi'))
+```
+
+**Output**
+
+```
+5
+true undefined
+6 50 [ 1, 2, 3, true, 'hi' ]
+
+true
+4
+```
+
+## Array More
+
+```javascript
+console.log(Array.isArray('Hitesh'))
+console.log(Array.from('Hitesh'))   // Create Array from String
+console.log(Array.from({name: 'hites'}))   // what will happen?
+
+console.log()
+
+console.log(Array.of(100, 200, 300))
+
+console.log()
+const arr = [1,2,3, true, "hi"]
+const arr2 = [7,8,9]
+
+console.log([...arr, ...arr2])
+```
+
+**Output**
+
+```
+false
+[ 'H', 'i', 't', 'e', 's', 'h' ]
+[]
+
+[ 100, 200, 300 ]
+
+[
+  1,    2, 3, true,
+  'hi', 7, 8, 9
+]
+```
+
+</details>

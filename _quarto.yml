@@ -30,6 +30,8 @@ website:
                   href: ./W0/JS/DAY_1.qmd
                 - text: "Day-2" 
                   href: ./W0/JS/DAY_2.qmd
+                - text: "Day-3" 
+                  href: ./W0/JS/DAY_3.qmd
             - section: "3 Days to HTML"
               contents:
                 - text: "Day-1"
