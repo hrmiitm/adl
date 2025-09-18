@@ -1,0 +1,87 @@
+---
+title: "Day-3"
+subtitle: "Strings, Numbers and Array"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+
+    # Code formatting
+    code-copy: true
+    code-fold: show
+    code-line-numbers: true
+#     code-overflow: wrap
+    highlight-style: dracula
+
+---
+
+<details open>
+<summary><h1 style="display: inline;">Strings</h1></summary>
+
+## Create String
+
+```javascript
+
+```
+
+## Imp Properties/Methods
+
+```javascript
+
+```
+
+**Output**
+
+```
+
+```
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Numbers</h1></summary>
+
+## Number
+
+```javascript
+
+```
+
+**Output**
+
+```
+
+```
+
+</details>
+
+<details open>
+<summary><h1 style="display: inline;">Array</h1></summary>
+
+## Array Create
+
+```javascript
+
+```
+
+**Output**
+
+```
+
+```
+
+## Array More
+
+```javascript
+
+```
+
+**Output**
+
+```
+
+```
+
+</details>
