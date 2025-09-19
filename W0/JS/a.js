@@ -1,13 +1,20 @@
-console.log(Array.isArray('Hitesh'))
-console.log(Array.from('Hitesh'))   // Create Array from String
-console.log(Array.from({name: 'hites'}))   // what will happen?
+// Literal syntax
+const mysym = Symbol("k1")
+const user = { name: "John", age: 25, [mysym]: 'v1' };
 
-console.log()
+// Constructor
+const obj = new Object({ city: "Mumbai" });
 
-console.log(Array.of(100, 200, 300))
+console.log(user)
+console.log(user[mysym]) // frequentrly asked question
 
-console.log()
-const arr = [1,2,3, true, "hi"]
-const arr2 = [7,8,9]
+/* Output
+{ name: 'John', age: 25, [Symbol(k1)]: 'v1' }
+v1
+*/
 
-console.log([...arr, ...arr2])
+console.log(Object.keys(user)) // [ 'name', 'age' ]
+console.log(Object.values(user)) // [ 'John', 25 ]
+console.log(Object.entries(user)) // [ [ 'name', 'John' ], [ 'age', 25 ] ]
+
+// Note symbols are not included, they are hidden

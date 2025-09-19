@@ -1,0 +1,219 @@
+---
+title: "Basic DSA"
+subtitle: ""
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+
+    # Code formatting
+    code-copy: true
+    code-fold: show
+    code-line-numbers: true
+#     code-overflow: wrap
+    highlight-style: dracula
+
+---
+
+
+## Linear Data Structures
+
+### Linked Lists
+
+**Structure:** Chain of nodes, each containing data and pointer to next node
+
+**Operations & Time Complexity:**
+
+- **Insertion/Deletion at head:** O(1)  
+- **Access by position:** O(n) - must traverse from head  
+- **Insertion/Deletion at middle/tail:** O(n) - need to find position first  
+
+**Applications:**
+
+- Implementation of stacks/queues, graph adjacency lists, dynamic memory allocation
+
+
+### Stacks (LIFO - Last In First Out)
+
+**Core Operations:**
+
+- **Push:** Add element to top - O(1)  
+- **Pop:** Remove top element - O(1)  
+- **Peek:** View top element - O(1)  
+
+**Applications:** Function call management, undo/redo operations, browser history, expression evaluation
+
+### Queues (FIFO - First In First Out)
+
+**Core Operations:**
+
+- **Enqueue:** Add to rear - O(1)  
+- **Dequeue:** Remove from front - O(1)  
+- **Peek:** View front element - O(1)  
+
+**Applications:** Task scheduling, breadth-first search, message queues, print job management  
+
+## Non-Linear Data Structures
+
+### Binary Search Trees (BST)
+
+**Property:** Left subtree values < node value < right subtree values  
+
+**Time Complexity:**
+
+- **Average case:** O(log n) for search/insert/delete  
+- **Worst case:** O(n) when tree becomes unbalanced  
+
+
+### Heaps
+
+**Types:** Max heap (parent ≥ children) vs Min heap (parent ≤ children)
+**Time Complexity:**
+
+- **Insertion:** O(log n) - bubble up process  
+- **Delete root:** O(log n) - bubble down process  
+- **Peek:** O(1) - root access  
+- **Build heap:** O(n) using bottom-up approach  
+
+**Applications:** Priority queues, heap sort, event scheduling  
+
+### Graphs
+
+**Components:** Vertices (nodes) and edges (connections)  
+
+**Types:**
+
+- **Directed vs Undirected:** One-way vs two-way connections  
+- **Weighted vs Unweighted:** Edges with/without associated costs  
+
+**Representation:**
+
+- **Adjacency Matrix:** 2D array - O(V²) space  
+- **Adjacency List:** Array of lists - O(V + E) space  
+
+
+## Sorting Algorithms
+
+### Time Complexity Comparison
+
+| Algorithm | Best Case | Average Case | Worst Case | Space |
+| :-- | :-- | :-- | :-- | :-- |
+| **Selection Sort** | O(n²) | O(n²) | O(n²) | O(1) |
+| **Insertion Sort** | O(n) | O(n²) | O(n²) | O(1) |
+| **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) |
+| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) |
+| **Heap Sort** | O(n log n) | O(n log n) | O(n log n) | O(1) |
+
+
+### Key Characteristics
+
+- **Merge Sort:** Consistent O(n log n), stable, requires extra space  
+- **Quick Sort:** Fast average case, in-place, pivot selection critical  
+- **Heap Sort:** Guaranteed O(n log n), in-place, not stable  
+
+
+## Searching Algorithms
+
+### Linear Search
+
+- **Time Complexity:** O(n) - checks each element sequentially  
+- **Use Case:** Unsorted data, small datasets  
+
+
+### Binary Search
+
+- **Time Complexity:** O(log n) - halves search space each step  
+- **Requirement:** Sorted data  
+- **Efficiency:** 1 million elements → ~20 steps vs 1 million for linear  
+
+
+## Algorithm Paradigms
+
+### Greedy Algorithms
+
+**Approach:** Make locally optimal choice at each step
+
+**When to Use:** Problems with greedy choice property and optimal substructure
+
+**Examples:** Coin change (with standard denominations), activity selection, Dijkstra's algorithm
+
+**Limitation:** May not always produce global optimum
+
+### Divide and Conquer
+
+**Steps:**
+
+1. **Divide:** Break into smaller subproblems  
+2. **Conquer:** Solve subproblems recursively  
+3. **Combine:** Merge solutions  
+
+**Time Complexity:** Often O(n log n) due to logarithmic division depth
+
+**Examples:** Merge sort, quick sort, binary search
+
+### Dynamic Programming
+
+**Key Properties:**
+
+- **Overlapping Subproblems:** Same subproblems solved multiple times  
+- **Optimal Substructure:** Optimal solution contains optimal subsolutions  
+
+**Approaches:**
+
+- **Memoization (Top-down):** Recursive with caching  
+- **Tabulation (Bottom-up):** Iterative table building  
+
+**Examples:** Fibonacci sequence, 0/1 knapsack, longest common subsequence  
+
+## Graph Algorithms
+
+### Traversal Algorithms
+
+**BFS (Breadth-First Search):**
+
+- **Time Complexity:** O(V + E) for adjacency list  
+- **Applications:** Shortest unweighted path, level-order traversal  
+
+**DFS (Depth-First Search):**
+
+- **Time Complexity:** O(V + E) for adjacency list  
+- **Applications:** Topological sort, cycle detection  
+
+
+### Shortest Path Algorithms
+
+**Dijkstra's Algorithm:**
+
+- **Time Complexity:** O((V + E) log V) with priority queue  
+- **Requirement:** Non-negative edge weights  
+- **Applications:** GPS navigation, network routing  
+
+**Bellman-Ford Algorithm:**
+
+- **Time Complexity:** O(VE)  
+- **Advantage:** Handles negative weights, detects negative cycles  
+- **Trade-off:** Slower than Dijkstra for non-negative weights  
+
+
+### Comparison: Algorithm Paradigms
+
+| Aspect | Greedy | Divide \& Conquer | Dynamic Programming |
+| :-- | :-- | :-- | :-- |
+| **Approach** | Local optimization | Problem splitting | Subproblem memoization |
+| **Optimality** | May not guarantee | Problem-dependent | Guarantees optimal |
+| **Memory** | Low | Moderate | High |
+| **Speed** | Fastest | Moderate | Slower but efficient |
+| **Backtracking** | No | No | Possible |
+
+
+### Real-World Applications
+
+- **Social Networks:** Graph algorithms for friend recommendations  
+- **Databases:** B-trees for indexing, hash tables for quick lookups  
+- **Operating Systems:** Process scheduling using queues/heaps  
+- **Machine Learning:** Tree-based models, graph neural networks  
+- **Web Development:** Efficient data handling, search optimization  
+
+These data structures and algorithms form the foundation of efficient software systems and are essential for technical interviews and competitive programming

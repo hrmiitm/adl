@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="HRM">
-<meta name="dcterms.date" content="2025-09-12">
 
-<title>ADL - Application Development Lab – App Dev Lab by HRM</title>
+<title>Day4 – App Dev Lab by HRM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d329e753491efaeac79c98c4b193a686.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-10e20c7751c121ecb33589c3db960245.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-43dbdec085e2ef7b0f9247a09d8e61a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-10e20c7751c121ecb33589c3db960245.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9abcedaa66623c4356fc84edb00eef4b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -60,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -232,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">App Dev Lab by HRM</span>
     </a>
   </div>
@@ -248,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><strong>About The Course</strong></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Day4</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -262,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>About The Course</strong></span></a>
   </div>
 </li>
@@ -286,19 +319,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-3</span></a>
   </div>
 </li>
@@ -315,13 +348,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/HTML/DAY_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/HTML/DAY_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/HTML/DAY_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/HTML/DAY_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-2</span></a>
   </div>
 </li>
@@ -349,13 +382,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/1_basics/JS_BASICS.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/1_basics/JS_BASICS.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Javascript Intro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/1_basics/BASIC_DSA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/1_basics/BASIC_DSA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DSA Overview</span></a>
   </div>
 </li>
@@ -372,7 +405,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/2_sorting/1_sel_ins.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/2_sorting/1_sel_ins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Selection and Insertion Sort</span></a>
   </div>
 </li>
@@ -385,8 +418,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#create-string" id="toc-create-string" class="nav-link active" data-scroll-target="#create-string">Create String</a></li>
+  <li><a href="#imp-propertiesmethods" id="toc-imp-propertiesmethods" class="nav-link" data-scroll-target="#imp-propertiesmethods">Imp Properties/Methods</a></li>
+  <li><a href="#number" id="toc-number" class="nav-link" data-scroll-target="#number">Number</a></li>
+  <li><a href="#array-create" id="toc-array-create" class="nav-link" data-scroll-target="#array-create">Array Create</a></li>
+  <li><a href="#array-more" id="toc-array-more" class="nav-link" data-scroll-target="#array-more">Array More</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -394,27 +437,15 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ADL - Application Development Lab</h1>
-<p class="subtitle lead">About The Course</p>
+<h1 class="title">Day4</h1>
+<p class="subtitle lead">Strings, Numbers and Array</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>HRM </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 12, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -424,7 +455,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>My Name is Hritik Roshan Maurya.</p>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Strings
+</h1>
+</summary>
+<section id="create-string" class="level2">
+<h2 class="anchored" data-anchor-id="create-string">Create String</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="imp-propertiesmethods" class="level2">
+<h2 class="anchored" data-anchor-id="imp-propertiesmethods">Imp Properties/Methods</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output</strong></p>
+<pre><code></code></pre>
+</section></details>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Numbers
+</h1>
+</summary>
+
+<section id="number" class="level2">
+<h2 class="anchored" data-anchor-id="number">Number</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output</strong></p>
+<pre><code></code></pre>
+</section></details>
+<details open="">
+<summary>
+<h1 style="display: inline;">
+Array
+</h1>
+</summary>
+
+<section id="array-create" class="level2">
+<h2 class="anchored" data-anchor-id="array-create">Array Create</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output</strong></p>
+<pre><code></code></pre>
+</section>
+<section id="array-more" class="level2">
+<h2 class="anchored" data-anchor-id="array-more">Array More</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output</strong></p>
+<pre><code></code></pre>
+</section></details>
+
 
 
 
@@ -846,5 +925,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

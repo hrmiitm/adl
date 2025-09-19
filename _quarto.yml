@@ -20,9 +20,9 @@ website:
       search: false
       collapse-level: 1
       contents:
-        - text: "About The Course"
+        - text: "**About The Course**"
           href: index.qmd
-        - section: "Week 0"
+        - section: "**Week 0**"
           contents:
             - section: "10 Days Of JS"
               contents:
@@ -38,6 +38,19 @@ website:
                   href: ./W0/HTML/DAY_1.qmd
                 - text: "Day-2"
                   href: ./W0/HTML/DAY_2.qmd
+        - section: "**Week 1**"
+          contents:
+            - section: "**1. Basics**"
+              contents:
+                - text: "Javascript Intro"
+                  href: ./W1/1_basics/JS_BASICS.qmd
+                - text: "DSA Overview"
+                  href: ./W1/1_basics/BASIC_DSA.qmd
+            - section: "**2. Sorting Algorithms**"
+              contents:
+                - text: "Selection and Insertion Sort"
+                  href: ./W1/2_sorting/1_sel_ins.qmd
+            
 
 
 format:

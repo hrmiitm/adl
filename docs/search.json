@@ -1,12 +1,132 @@
 [
   {
+    "objectID": "W1/2_sorting/1_sel_ins.html",
+    "href": "W1/2_sorting/1_sel_ins.html",
+    "title": "Selection & Insertion Sort",
+    "section": "",
+    "text": "Selection Sort: Select min element in whole array(unsorted), then place at begining.\nInsertion Sort: Pick first element from unsorted part and place it in corrcet place.\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nSelection sort is preferred when write operations are costly, as it makes only n–1 writes, unlike insertion sort which may make up to n².\nInsertion sort is better for nearly sorted data, where the order (ascending/descending) is known.\n\n\n\n\n\n\n\n\nJavascriptPython\n\n\nlet arr = [3, 6, 9, 7, 2, 3, 1];\nlet n = arr.length;\n\nfor (let i = 0; i &lt; n - 1; i++) {\n    let min_index = i;\n    for (let j = i + 1; j &lt; n; j++) {\n        if (arr[j] &lt; arr[min_index]) {\n            min_index = j;\n        }\n    }\n    [arr[i], arr[min_index]] = [arr[min_index], arr[i]];\n}\n\nconsole.log(arr);  // Output: [1, 2, 3, 3, 6, 7, 9]\n\n\narr = [3, 6, 9, 7, 2, 3, 1]\nn = len(arr) # 7\n\nfor i in range(n):\n\n    # Find min element/index\n    min_index = i\n    for j in range(i+1, n):\n        if arr[j] &lt; arr[min_index]:\n            min_index = j\n\n    # Swap with last element of sorted part\n    (arr[i], arr[min_index]) = (arr[min_index], arr[i])\nprint(arr)  # [1, 2, 3, 3, 6, 7, 9]\n\n\n\n\n\n\n\nJavascriptPython\n\n\nlet arr = [3, 6, 9, 7, 2, 3, 1];\nlet n = arr.length;\n\nfor(let i = 1; i &lt; n; i++) {\n    let key = arr[i];\n    let j = i - 1;\n\n    while(j &gt;= 0 && arr[j] &gt; key) {\n        arr[j + 1] = arr[j];\n        j--;\n    }\n\n    arr[j + 1] = key;\n}\n\nconsole.log(arr);  // Output: [1, 2, 3, 3, 6, 7, 9]\n\n\narr = [3, 6, 9, 7, 2, 3, 1]\nn = len(arr) # 7\n\nfor i in range(n):\n    key = arr[i]\n    j = i-1\n\n    while(j&gt;=0 and arr[j] &gt; key):\n        arr[j+1] = arr[j]\n        j -= 1\n\n    arr[j+1] = key\n\nprint(arr) # [1, 2, 3, 3, 6, 7, 9]\n\n\n\n\n\n\n\n\n\n\nAspect\nSelection Sort\nInsertion Sort\n\n\n\n\nTime Complexity\nO(n²) always\nO(n) in bestcase, worst-O(n²)\n\n\nSpace Complexity\nO(1)\nO(1)\n\n\nStability\nNot stable\nStable\n\n\nAdaptivity\nNot adaptive\nAdaptive\n\n\nSwaps\nO(n) always\n0 to O(n²)",
+    "crumbs": [
+      "**Week 1**",
+      "**2. Sorting Algorithms**",
+      "Selection and Insertion Sort"
+    ]
+  },
+  {
+    "objectID": "W1/2_sorting/1_sel_ins.html#implementation",
+    "href": "W1/2_sorting/1_sel_ins.html#implementation",
+    "title": "Selection & Insertion Sort",
+    "section": "",
+    "text": "JavascriptPython\n\n\nlet arr = [3, 6, 9, 7, 2, 3, 1];\nlet n = arr.length;\n\nfor (let i = 0; i &lt; n - 1; i++) {\n    let min_index = i;\n    for (let j = i + 1; j &lt; n; j++) {\n        if (arr[j] &lt; arr[min_index]) {\n            min_index = j;\n        }\n    }\n    [arr[i], arr[min_index]] = [arr[min_index], arr[i]];\n}\n\nconsole.log(arr);  // Output: [1, 2, 3, 3, 6, 7, 9]\n\n\narr = [3, 6, 9, 7, 2, 3, 1]\nn = len(arr) # 7\n\nfor i in range(n):\n\n    # Find min element/index\n    min_index = i\n    for j in range(i+1, n):\n        if arr[j] &lt; arr[min_index]:\n            min_index = j\n\n    # Swap with last element of sorted part\n    (arr[i], arr[min_index]) = (arr[min_index], arr[i])\nprint(arr)  # [1, 2, 3, 3, 6, 7, 9]\n\n\n\n\n\n\n\nJavascriptPython\n\n\nlet arr = [3, 6, 9, 7, 2, 3, 1];\nlet n = arr.length;\n\nfor(let i = 1; i &lt; n; i++) {\n    let key = arr[i];\n    let j = i - 1;\n\n    while(j &gt;= 0 && arr[j] &gt; key) {\n        arr[j + 1] = arr[j];\n        j--;\n    }\n\n    arr[j + 1] = key;\n}\n\nconsole.log(arr);  // Output: [1, 2, 3, 3, 6, 7, 9]\n\n\narr = [3, 6, 9, 7, 2, 3, 1]\nn = len(arr) # 7\n\nfor i in range(n):\n    key = arr[i]\n    j = i-1\n\n    while(j&gt;=0 and arr[j] &gt; key):\n        arr[j+1] = arr[j]\n        j -= 1\n\n    arr[j+1] = key\n\nprint(arr) # [1, 2, 3, 3, 6, 7, 9]",
+    "crumbs": [
+      "**Week 1**",
+      "**2. Sorting Algorithms**",
+      "Selection and Insertion Sort"
+    ]
+  },
+  {
+    "objectID": "W1/2_sorting/1_sel_ins.html#key-differences",
+    "href": "W1/2_sorting/1_sel_ins.html#key-differences",
+    "title": "Selection & Insertion Sort",
+    "section": "",
+    "text": "Aspect\nSelection Sort\nInsertion Sort\n\n\n\n\nTime Complexity\nO(n²) always\nO(n) in bestcase, worst-O(n²)\n\n\nSpace Complexity\nO(1)\nO(1)\n\n\nStability\nNot stable\nStable\n\n\nAdaptivity\nNot adaptive\nAdaptive\n\n\nSwaps\nO(n) always\n0 to O(n²)",
+    "crumbs": [
+      "**Week 1**",
+      "**2. Sorting Algorithms**",
+      "Selection and Insertion Sort"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html",
+    "href": "W1/1_basics/BASIC_DSA.html",
+    "title": "Basic DSA",
+    "section": "",
+    "text": "Structure: Chain of nodes, each containing data and pointer to next node\nOperations & Time Complexity:\n\nInsertion/Deletion at head: O(1)\n\nAccess by position: O(n) - must traverse from head\n\nInsertion/Deletion at middle/tail: O(n) - need to find position first\n\nApplications:\n\nImplementation of stacks/queues, graph adjacency lists, dynamic memory allocation\n\n\n\n\nCore Operations:\n\nPush: Add element to top - O(1)\n\nPop: Remove top element - O(1)\n\nPeek: View top element - O(1)\n\nApplications: Function call management, undo/redo operations, browser history, expression evaluation\n\n\n\nCore Operations:\n\nEnqueue: Add to rear - O(1)\n\nDequeue: Remove from front - O(1)\n\nPeek: View front element - O(1)\n\nApplications: Task scheduling, breadth-first search, message queues, print job management",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#linear-data-structures",
+    "href": "W1/1_basics/BASIC_DSA.html#linear-data-structures",
+    "title": "Basic DSA",
+    "section": "",
+    "text": "Structure: Chain of nodes, each containing data and pointer to next node\nOperations & Time Complexity:\n\nInsertion/Deletion at head: O(1)\n\nAccess by position: O(n) - must traverse from head\n\nInsertion/Deletion at middle/tail: O(n) - need to find position first\n\nApplications:\n\nImplementation of stacks/queues, graph adjacency lists, dynamic memory allocation\n\n\n\n\nCore Operations:\n\nPush: Add element to top - O(1)\n\nPop: Remove top element - O(1)\n\nPeek: View top element - O(1)\n\nApplications: Function call management, undo/redo operations, browser history, expression evaluation\n\n\n\nCore Operations:\n\nEnqueue: Add to rear - O(1)\n\nDequeue: Remove from front - O(1)\n\nPeek: View front element - O(1)\n\nApplications: Task scheduling, breadth-first search, message queues, print job management",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#non-linear-data-structures",
+    "href": "W1/1_basics/BASIC_DSA.html#non-linear-data-structures",
+    "title": "Basic DSA",
+    "section": "Non-Linear Data Structures",
+    "text": "Non-Linear Data Structures\n\nBinary Search Trees (BST)\nProperty: Left subtree values &lt; node value &lt; right subtree values\nTime Complexity:\n\nAverage case: O(log n) for search/insert/delete\n\nWorst case: O(n) when tree becomes unbalanced\n\n\n\nHeaps\nTypes: Max heap (parent ≥ children) vs Min heap (parent ≤ children) Time Complexity:\n\nInsertion: O(log n) - bubble up process\n\nDelete root: O(log n) - bubble down process\n\nPeek: O(1) - root access\n\nBuild heap: O(n) using bottom-up approach\n\nApplications: Priority queues, heap sort, event scheduling\n\n\nGraphs\nComponents: Vertices (nodes) and edges (connections)\nTypes:\n\nDirected vs Undirected: One-way vs two-way connections\n\nWeighted vs Unweighted: Edges with/without associated costs\n\nRepresentation:\n\nAdjacency Matrix: 2D array - O(V²) space\n\nAdjacency List: Array of lists - O(V + E) space",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#sorting-algorithms",
+    "href": "W1/1_basics/BASIC_DSA.html#sorting-algorithms",
+    "title": "Basic DSA",
+    "section": "Sorting Algorithms",
+    "text": "Sorting Algorithms\n\nTime Complexity Comparison\n\n\n\nAlgorithm\nBest Case\nAverage Case\nWorst Case\nSpace\n\n\n\n\nSelection Sort\nO(n²)\nO(n²)\nO(n²)\nO(1)\n\n\nInsertion Sort\nO(n)\nO(n²)\nO(n²)\nO(1)\n\n\nMerge Sort\nO(n log n)\nO(n log n)\nO(n log n)\nO(n)\n\n\nQuick Sort\nO(n log n)\nO(n log n)\nO(n²)\nO(log n)\n\n\nHeap Sort\nO(n log n)\nO(n log n)\nO(n log n)\nO(1)\n\n\n\n\n\nKey Characteristics\n\nMerge Sort: Consistent O(n log n), stable, requires extra space\n\nQuick Sort: Fast average case, in-place, pivot selection critical\n\nHeap Sort: Guaranteed O(n log n), in-place, not stable",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#searching-algorithms",
+    "href": "W1/1_basics/BASIC_DSA.html#searching-algorithms",
+    "title": "Basic DSA",
+    "section": "Searching Algorithms",
+    "text": "Searching Algorithms\n\nLinear Search\n\nTime Complexity: O(n) - checks each element sequentially\n\nUse Case: Unsorted data, small datasets\n\n\n\nBinary Search\n\nTime Complexity: O(log n) - halves search space each step\n\nRequirement: Sorted data\n\nEfficiency: 1 million elements → ~20 steps vs 1 million for linear",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#algorithm-paradigms",
+    "href": "W1/1_basics/BASIC_DSA.html#algorithm-paradigms",
+    "title": "Basic DSA",
+    "section": "Algorithm Paradigms",
+    "text": "Algorithm Paradigms\n\nGreedy Algorithms\nApproach: Make locally optimal choice at each step\nWhen to Use: Problems with greedy choice property and optimal substructure\nExamples: Coin change (with standard denominations), activity selection, Dijkstra’s algorithm\nLimitation: May not always produce global optimum\n\n\nDivide and Conquer\nSteps:\n\nDivide: Break into smaller subproblems\n\nConquer: Solve subproblems recursively\n\nCombine: Merge solutions\n\nTime Complexity: Often O(n log n) due to logarithmic division depth\nExamples: Merge sort, quick sort, binary search\n\n\nDynamic Programming\nKey Properties:\n\nOverlapping Subproblems: Same subproblems solved multiple times\n\nOptimal Substructure: Optimal solution contains optimal subsolutions\n\nApproaches:\n\nMemoization (Top-down): Recursive with caching\n\nTabulation (Bottom-up): Iterative table building\n\nExamples: Fibonacci sequence, 0/1 knapsack, longest common subsequence",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/BASIC_DSA.html#graph-algorithms",
+    "href": "W1/1_basics/BASIC_DSA.html#graph-algorithms",
+    "title": "Basic DSA",
+    "section": "Graph Algorithms",
+    "text": "Graph Algorithms\n\nTraversal Algorithms\nBFS (Breadth-First Search):\n\nTime Complexity: O(V + E) for adjacency list\n\nApplications: Shortest unweighted path, level-order traversal\n\nDFS (Depth-First Search):\n\nTime Complexity: O(V + E) for adjacency list\n\nApplications: Topological sort, cycle detection\n\n\n\nShortest Path Algorithms\nDijkstra’s Algorithm:\n\nTime Complexity: O((V + E) log V) with priority queue\n\nRequirement: Non-negative edge weights\n\nApplications: GPS navigation, network routing\n\nBellman-Ford Algorithm:\n\nTime Complexity: O(VE)\n\nAdvantage: Handles negative weights, detects negative cycles\n\nTrade-off: Slower than Dijkstra for non-negative weights\n\n\n\nComparison: Algorithm Paradigms\n\n\n\n\n\n\n\n\n\nAspect\nGreedy\nDivide & Conquer\nDynamic Programming\n\n\n\n\nApproach\nLocal optimization\nProblem splitting\nSubproblem memoization\n\n\nOptimality\nMay not guarantee\nProblem-dependent\nGuarantees optimal\n\n\nMemory\nLow\nModerate\nHigh\n\n\nSpeed\nFastest\nModerate\nSlower but efficient\n\n\nBacktracking\nNo\nNo\nPossible\n\n\n\n\n\nReal-World Applications\n\nSocial Networks: Graph algorithms for friend recommendations\n\nDatabases: B-trees for indexing, hash tables for quick lookups\n\nOperating Systems: Process scheduling using queues/heaps\n\nMachine Learning: Tree-based models, graph neural networks\n\nWeb Development: Efficient data handling, search optimization\n\nThese data structures and algorithms form the foundation of efficient software systems and are essential for technical interviews and competitive programming",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "DSA Overview"
+    ]
+  },
+  {
     "objectID": "W0/JS/DAY_3.html",
     "href": "W0/JS/DAY_3.html",
     "title": "Day-3",
     "section": "",
     "text": "let a = 'Hritik'        // Single/Double both allowed\nlet b = \"Roshan\"\nlet c = `hi ${a} ${b}`  // String Interpolation\n\nlet d = new String(c)   // String object wrapper\n\nconsole.log(typeof a, typeof b, typeof c, typeof d)\n\n/* Output\nstring string string object\n*/\n\n\n\nlet a = \"hello world\"\n\nconsole.log(a.length)\nconsole.log(a.charAt(2))// l\nconsole.log(a.at(-2))   // Allow -ve index\nconsole.log(a[-2])      // undefined\n\nconsole.log(a.slice(-5, 9))\nconsole.log(a.substring(2, 5))      // NOT ALlowed -veIndex\nconsole.log(a.includes('ld'))\nconsole.log(a.replace('ld', '-'))\n\nconsole.log(a.toUpperCase())\nconsole.log(a.trim())\nOutput\n11\nl\nl\nundefined\nwor\nllo\ntrue\nhello wor-\nHELLO WORLD\nhello world",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-3"
     ]
@@ -18,7 +138,7 @@
     "section": "",
     "text": "let a = 'Hritik'        // Single/Double both allowed\nlet b = \"Roshan\"\nlet c = `hi ${a} ${b}`  // String Interpolation\n\nlet d = new String(c)   // String object wrapper\n\nconsole.log(typeof a, typeof b, typeof c, typeof d)\n\n/* Output\nstring string string object\n*/",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-3"
     ]
@@ -30,7 +150,7 @@
     "section": "",
     "text": "let a = \"hello world\"\n\nconsole.log(a.length)\nconsole.log(a.charAt(2))// l\nconsole.log(a.at(-2))   // Allow -ve index\nconsole.log(a[-2])      // undefined\n\nconsole.log(a.slice(-5, 9))\nconsole.log(a.substring(2, 5))      // NOT ALlowed -veIndex\nconsole.log(a.includes('ld'))\nconsole.log(a.replace('ld', '-'))\n\nconsole.log(a.toUpperCase())\nconsole.log(a.trim())\nOutput\n11\nl\nl\nundefined\nwor\nllo\ntrue\nhello wor-\nHELLO WORLD\nhello world",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-3"
     ]
@@ -42,7 +162,7 @@
     "section": "Number",
     "text": "Number\nlet a = 105.678               // number\nlet b = new Number(105.678)   // object\n\nconsole.log(a.toFixed(2))       // return string\nconsole.log(a.toPrecision(2))   // Return String\n\nconsole.log(Math.round(a, 2))\nconsole.log(Math.ceil(a))\nconsole.log(Math.floor(a))\nOutput\n105.68\n1.1e+2\n106\n106\n105",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-3"
     ]
@@ -54,7 +174,19 @@
     "section": "Array Create",
     "text": "Array Create\nconst arr = [1,2,3, true, \"hi\"]\n\nconsole.log(arr.length)\nconsole.log(arr[3], arr[-2]) // -ve index not work\n\nx = arr.push(50)\ny = arr.pop()\nconsole.log(x,y,arr, \"\\n\")\n\nconsole.log(arr.includes('hi'))\nconsole.log(arr.indexOf('hi'))\nOutput\n5\ntrue undefined\n6 50 [ 1, 2, 3, true, 'hi' ]\n\ntrue\n4",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
+      "10 Days Of JS",
+      "Day-3"
+    ]
+  },
+  {
+    "objectID": "W0/JS/DAY_3.html#array-more",
+    "href": "W0/JS/DAY_3.html#array-more",
+    "title": "Day-3",
+    "section": "Array More",
+    "text": "Array More\nconsole.log(Array.isArray('Hitesh'))\nconsole.log(Array.from('Hitesh'))   // Create Array from String\nconsole.log(Array.from({name: 'hites'}))   // what will happen?\n\nconsole.log()\n\nconsole.log(Array.of(100, 200, 300))\n\nconsole.log()\nconst arr = [1,2,3, true, \"hi\"]\nconst arr2 = [7,8,9]\n\nconsole.log([...arr, ...arr2])\nOutput\nfalse\n[ 'H', 'i', 't', 'e', 's', 'h' ]\n[]\n\n[ 100, 200, 300 ]\n\n[\n  1,    2, 3, true,\n  'hi', 7, 8, 9\n]",
+    "crumbs": [
+      "**Week 0**",
       "10 Days Of JS",
       "Day-3"
     ]
@@ -66,7 +198,7 @@
     "section": "",
     "text": "let const are Introduced in ES6 (ECMAScript 2015)\nVar –&gt; Function/Global Scope\nlet, const –&gt; Block Scope\nAll are hoisted, but only var is initialized as undefined at the top of its scope. let and const exist in a temporal dead zone until their declaration line is reached.\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare/assigned\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error\n\n// const - for constants\nconst z = 1;    // must be initialized\n// z = 2;      // Error \n// const w;    // Error \n\n\n\n\n\n\nProblem with var\n\n\n\n\n\n\nFunction-scoped, not block-scoped\n\nVariables declared with var are visible outside the block (if, for, etc.), which often caused bugs.\n\n\n// Using var\nfor (var i = 0; i &lt; 3; i++) {\n  setTimeout(() =&gt; console.log(\"var:\", i), 1000);\n}\n// Output: var: 3, var: 3, var: 3   (unexpected!)\n\n// Using let\nfor (let j = 0; j &lt; 3; j++) {\n  setTimeout(() =&gt; console.log(\"let:\", j), 1000);\n}\n// Output: let: 0, let: 1, let: 2   (expected!)\n\nHoisting with undefined\n\nvar declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.\n\n\n\n\n\n\n\n\n\n\n\nWhat Does “Hoisted” Mean in JavaScript?\n\n\n\n\n\nHoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.\nconsole.log(a); // undefined\nvar a = 5;\nconsole.log(a); // 5\nconsole.log(b); // ReferenceError\nlet b = 10;\nWith let and const, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the Temporal Dead Zone (TDZ)\n\n\n\n\n\n\n\n\n\nWhat to use?\n\n\n\n\n\nUse const mostly.\n\n\n\n\n\n\n\n\nlet name = \"John\";           // string\nlet age = 25;                // number --&gt; 2^53-1\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint --&gt; only Integer(till memory)\n\n\n\n\n\n\ntypeof null; typeof undefined\n\n\n\n\n\nType of null is object, while type of undefined is undefined.\nnull type as object was a bug / design mistake in the original implementation, but it became part of the language.\n\n\n\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function\n\n\n\n\n✅ Valid:\nlet myName;        // camelCase (preferred)\nlet _private;      // underscore prefix\nlet $element;      // dollar sign\nlet age21;         // numbers (not at start)\nlet firstName;     // descriptive names\n❌ Invalid:\nlet 2name;         // cannot start with number\nlet my-name;       // no hyphens\nlet class;         // reserved keyword\nlet my name;       // no spaces\n\n\n\n\n\nlet a = 5;\nlet b = \"5\";\n\n// Loose equality (with type coercion)\nconsole.log(a == b);    // true (converts types)\nconsole.log(a != b);    // false\n\n// Strict equality (no type coercion)\nconsole.log(a === b);   // false (different types)\nconsole.log(a !== b);   // true\nRule: Always use === and !== to avoid unexpected results.\n\n\n\n\n\nNumber(x)\n- Booleans true, false –&gt; 1,0\n- null –&gt; 0\n- undefined, ‘33abc’ –&gt; Nan\nBoolean(x)\n- 1, 0 –&gt; true, false\n- “” –&gt; false\n- “0” –&gt; true\nString(x)\n\n\n\n\n+ : always do string concat \"5\" + 5 or 5 + 5 + \"5\" will give 55 and 105.\n\n- * / % ** : strings converted to numbers\n\nNote: booleans are converted to numbers and null –&gt; 0 but undefined –&gt; NaN\n&gt; null &gt; 0\nfalse\n&gt; null == 0\nfalse\n&gt; null &gt;= 0\ntrue\nOn equality, Type Coercion happend with relational operators, it change null to 0, causes it to true.\nWhile for loose equality javascript has special rule that null can be equal to null and undefined only.\n\n\n\n\n\nUse const by default, let when reassignment needed, avoid var\n\nAlways use === and !== for comparisons\n\nJavaScript uses braces {}, Python uses indentation\n\nJavaScript has both loose and strict equality, Python only has strict\n\nBoth languages are dynamically typed and case-sensitive\n\nFor null on loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -78,7 +210,7 @@
     "section": "",
     "text": "let const are Introduced in ES6 (ECMAScript 2015)\nVar –&gt; Function/Global Scope\nlet, const –&gt; Block Scope\nAll are hoisted, but only var is initialized as undefined at the top of its scope. let and const exist in a temporal dead zone until their declaration line is reached.\n// var - avoid using\nvar x = 1;\nvar x = 2;  // OK - can redeclare/assigned\n\n// let - for variables that change\nlet y = 1;\ny = 2;      // OK - can reassign\n// let y = 3;  // Error\n\n// const - for constants\nconst z = 1;    // must be initialized\n// z = 2;      // Error \n// const w;    // Error \n\n\n\n\n\n\nProblem with var\n\n\n\n\n\n\nFunction-scoped, not block-scoped\n\nVariables declared with var are visible outside the block (if, for, etc.), which often caused bugs.\n\n\n// Using var\nfor (var i = 0; i &lt; 3; i++) {\n  setTimeout(() =&gt; console.log(\"var:\", i), 1000);\n}\n// Output: var: 3, var: 3, var: 3   (unexpected!)\n\n// Using let\nfor (let j = 0; j &lt; 3; j++) {\n  setTimeout(() =&gt; console.log(\"let:\", j), 1000);\n}\n// Output: let: 0, let: 1, let: 2   (expected!)\n\nHoisting with undefined\n\nvar declarations are hoisted (moved to the top of scope), but initialized with undefined. This sometimes leads to unexpected behavior.\n\n\n\n\n\n\n\n\n\n\n\nWhat Does “Hoisted” Mean in JavaScript?\n\n\n\n\n\nHoisting is a behavior in JavaScript where variable and function declarations are moved to the top of their scope (either the function or the global scope) before the code runs. This means you can use certain variables or functions before you actually write their declaration in the code.\nconsole.log(a); // undefined\nvar a = 5;\nconsole.log(a); // 5\nconsole.log(b); // ReferenceError\nlet b = 10;\nWith let and const, the variable is hoisted to the top of its block, but not initialized. If you try to use it before its declaration, you get a ReferenceError because it’s in the Temporal Dead Zone (TDZ)\n\n\n\n\n\n\n\n\n\nWhat to use?\n\n\n\n\n\nUse const mostly.",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -90,7 +222,7 @@
     "section": "",
     "text": "let name = \"John\";           // string\nlet age = 25;                // number --&gt; 2^53-1\nlet isActive = true;         // boolean\nlet data = null;             // null (intentionally empty)\nlet value;                   // undefined (declared but not assigned)\nlet id = Symbol(\"id\");       // symbol\nlet bigNum = 123n;           // bigint --&gt; only Integer(till memory)\n\n\n\n\n\n\ntypeof null; typeof undefined\n\n\n\n\n\nType of null is object, while type of undefined is undefined.\nnull type as object was a bug / design mistake in the original implementation, but it became part of the language.\n\n\n\n\n\n\nlet person = {name: \"John\"}; // object\nlet numbers = [1, 2, 3];     // array\nlet greet = function(){};    // function",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -102,7 +234,7 @@
     "section": "",
     "text": "✅ Valid:\nlet myName;        // camelCase (preferred)\nlet _private;      // underscore prefix\nlet $element;      // dollar sign\nlet age21;         // numbers (not at start)\nlet firstName;     // descriptive names\n❌ Invalid:\nlet 2name;         // cannot start with number\nlet my-name;       // no hyphens\nlet class;         // reserved keyword\nlet my name;       // no spaces",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -114,7 +246,7 @@
     "section": "",
     "text": "let a = 5;\nlet b = \"5\";\n\n// Loose equality (with type coercion)\nconsole.log(a == b);    // true (converts types)\nconsole.log(a != b);    // false\n\n// Strict equality (no type coercion)\nconsole.log(a === b);   // false (different types)\nconsole.log(a !== b);   // true\nRule: Always use === and !== to avoid unexpected results.",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -126,7 +258,7 @@
     "section": "",
     "text": "Number(x)\n- Booleans true, false –&gt; 1,0\n- null –&gt; 0\n- undefined, ‘33abc’ –&gt; Nan\nBoolean(x)\n- 1, 0 –&gt; true, false\n- “” –&gt; false\n- “0” –&gt; true\nString(x)\n\n\n\n\n+ : always do string concat \"5\" + 5 or 5 + 5 + \"5\" will give 55 and 105.\n\n- * / % ** : strings converted to numbers\n\nNote: booleans are converted to numbers and null –&gt; 0 but undefined –&gt; NaN\n&gt; null &gt; 0\nfalse\n&gt; null == 0\nfalse\n&gt; null &gt;= 0\ntrue\nOn equality, Type Coercion happend with relational operators, it change null to 0, causes it to true.\nWhile for loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -138,7 +270,7 @@
     "section": "",
     "text": "Use const by default, let when reassignment needed, avoid var\n\nAlways use === and !== for comparisons\n\nJavaScript uses braces {}, Python uses indentation\n\nJavaScript has both loose and strict equality, Python only has strict\n\nBoth languages are dynamically typed and case-sensitive\n\nFor null on loose equality javascript has special rule that null can be equal to null and undefined only.",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-1"
     ]
@@ -148,9 +280,9 @@
     "href": "index.html",
     "title": "ADL - Application Development Lab",
     "section": "",
-    "text": "Hi",
+    "text": "My Name is Hritik Roshan Maurya.",
     "crumbs": [
-      "About The Course"
+      "**About The Course**"
     ]
   },
   {
@@ -160,7 +292,7 @@
     "section": "",
     "text": "let score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}\n\n\n\n\n\n\n// Basic for loop\nfor (let i = 0; i &lt; 5; i++) {\n    console.log(\"Iteration: \" + i);\n}\n\n// Loop through array\nlet fruits = [\"apple\", \"banana\", \"orange\"];\nfor (let i = 0; i &lt; fruits.length; i++) {\n    console.log(fruits[i]);\n}\n\n\n\nlet count = 0;\nwhile (count &lt; 3) {\n    console.log(\"Count: \" + count);\n    count++;\n}\n\n\n\nlet num = 0;\ndo {\n    console.log(\"Number: \" + num);\n    num++;\n} while (num &lt; 3);\n\n\n\nlet colors = [\"red\", \"green\", \"blue\"];\n\n// Iterate over array values\nfor (let color of colors) {\n    console.log(color);\n}\n\n// Iterate over string characters\nfor (let char of \"Hello\") {\n    console.log(char);\n}\n\n\n\nlet person = {name: \"John\", age: 30, city: \"Delhi\"};\n\n// Iterate over object properties\nfor (let key in person) {\n    console.log(key + \": \" + person[key]);\n}\n\n\n\nlet numbers = [1, 2, 3, 4, 5];\n\nnumbers.forEach(function(num, index) {\n    console.log(`Index ${index}: ${num}`);\n});\n\n// Arrow function version\nnumbers.forEach((num, index) =&gt; {\n    console.log(`Index ${index}: ${num}`);\n});\n\n\n\n\n\n\nfor (let i = 0; i &lt; 10; i++) {\n    if (i === 5) {\n        break; // Exit loop when i equals 5\n    }\n    console.log(i);\n}\n\n\n\nfor (let i = 0; i &lt; 5; i++) {\n    if (i === 2) {\n        continue; // Skip iteration when i equals 2\n    }\n    console.log(i); // Prints 0, 1, 3, 4\n}",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -172,7 +304,7 @@
     "section": "",
     "text": "let score = 85;\n\nif (score &gt;= 90) {\n    console.log(\"A Grade\");\n} else if (score &gt;= 80) {\n    console.log(\"B Grade\");\n} else if (score &gt;= 70) {\n    console.log(\"C Grade\");\n} else {\n    console.log(\"F Grade\");\n}\n\n\n\nlet age = 18;\nlet status = age &gt;= 18 ? \"Adult\" : \"Minor\";\n\n\n\nlet day = \"Monday\";\n\nswitch(day) {\n    case \"Monday\":\n        console.log(\"Start of work week\");\n        break;\n    case \"Friday\":\n        console.log(\"TGIF!\");\n        break;\n    default:\n        console.log(\"Regular day\");\n}",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -184,7 +316,7 @@
     "section": "",
     "text": "// Basic for loop\nfor (let i = 0; i &lt; 5; i++) {\n    console.log(\"Iteration: \" + i);\n}\n\n// Loop through array\nlet fruits = [\"apple\", \"banana\", \"orange\"];\nfor (let i = 0; i &lt; fruits.length; i++) {\n    console.log(fruits[i]);\n}\n\n\n\nlet count = 0;\nwhile (count &lt; 3) {\n    console.log(\"Count: \" + count);\n    count++;\n}\n\n\n\nlet num = 0;\ndo {\n    console.log(\"Number: \" + num);\n    num++;\n} while (num &lt; 3);\n\n\n\nlet colors = [\"red\", \"green\", \"blue\"];\n\n// Iterate over array values\nfor (let color of colors) {\n    console.log(color);\n}\n\n// Iterate over string characters\nfor (let char of \"Hello\") {\n    console.log(char);\n}\n\n\n\nlet person = {name: \"John\", age: 30, city: \"Delhi\"};\n\n// Iterate over object properties\nfor (let key in person) {\n    console.log(key + \": \" + person[key]);\n}\n\n\n\nlet numbers = [1, 2, 3, 4, 5];\n\nnumbers.forEach(function(num, index) {\n    console.log(`Index ${index}: ${num}`);\n});\n\n// Arrow function version\nnumbers.forEach((num, index) =&gt; {\n    console.log(`Index ${index}: ${num}`);\n});",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -196,7 +328,7 @@
     "section": "",
     "text": "for (let i = 0; i &lt; 10; i++) {\n    if (i === 5) {\n        break; // Exit loop when i equals 5\n    }\n    console.log(i);\n}\n\n\n\nfor (let i = 0; i &lt; 5; i++) {\n    if (i === 2) {\n        continue; // Skip iteration when i equals 2\n    }\n    console.log(i); // Prints 0, 1, 3, 4\n}",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -208,7 +340,7 @@
     "section": "4. Error Handling",
     "text": "4. Error Handling\n\nTry-Catch-Finally:\ntry {\n    let result = riskyOperation();\n    console.log(result);\n} catch (error) {\n    console.log(\"An error occurred: \" + error.message);\n} finally {\n    console.log(\"This always runs\");\n}\n\n\nThrowing Custom Errors:\nfunction divide(a, b) {\n    try {\n        if (b === 0) {\n            throw new Error(\"Division by zero is not allowed\");\n        }\n        return a / b;\n    } catch (error) {\n        console.log(error.message);\n        return null;\n    }\n}",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -220,7 +352,7 @@
     "section": "5. Short-Circuit Evaluation in JavaScript",
     "text": "5. Short-Circuit Evaluation in JavaScript\nShort-circuiting refers to the behavior of logical operators (&&, ||) where JavaScript stops evaluating expressions as soon as the final result can be determined[^1][^2]. This leads to more efficient code execution by avoiding unnecessary computations.\n\nHow Short-Circuiting Works\nJavaScript evaluates logical expressions from left to right and stops as soon as the outcome is clear. The key point is that these operators return the actual operand values, not just true or false.[^1][^2]\n\n\n\n1. AND (&&) Short-Circuiting\nThe && operator returns the first falsy value it encounters, or the last truthy value if all operands are truthy.[^2]\n\nBasic Behavior:\n// If first operand is falsy, it stops and returns that value\nconst result1 = false && \"This won't be evaluated\";\nconsole.log(result1); // Output: false\n\nconst result2 = 0 && \"This won't run either\";\nconsole.log(result2); // Output: 0\n\n// If all operands are truthy, returns the last one\nconst result3 = \"Hello\" && \"World\" && 42;\nconsole.log(result3); // Output: 42\n\n\nPreventing Code Execution:\nlet user = null;\n\n// This prevents error because user is falsy\nuser && console.log(user.name); // Nothing happens, no error\n\nuser = {name: \"John\"};\nuser && console.log(user.name); // Output: \"John\"\n\n\nFunction Calls with &&:\nlet isLoggedIn = false;\n\n// Function only runs if isLoggedIn is true\nisLoggedIn && performExpensiveOperation();\n\nfunction performExpensiveOperation() {\n    console.log(\"This won't run because isLoggedIn is false\");\n}\n\n\n\n\n2. OR (||) Short-Circuiting\nThe || operator returns the first truthy value it encounters, or the last falsy value if all operands are falsy[^2].\n\nBasic Behavior:\n// Returns first truthy value\nconst result1 = \"Hello\" || \"This won't be evaluated\";\nconsole.log(result1); // Output: \"Hello\"\n\nconst result2 = 0 || false || \"Default Value\";\nconsole.log(result2); // Output: \"Default Value\"\n\n// If all are falsy, returns the last falsy value\nconst result3 = false || 0 || null;\nconsole.log(result3); // Output: null\n\n\nDefault Values Pattern:\nfunction greet(name) {\n    name = name || \"Guest\"; // If name is falsy, use \"Guest\"\n    return `Hello, ${name}!`;\n}\n\nconsole.log(greet());        // Output: \"Hello, Guest!\"\nconsole.log(greet(\"Alice\")); // Output: \"Hello, Alice!\"\n\n\n\n\n3. Practical Applications\n\nSafe Property Access:\nconst user = {\n    address: {\n        city: \"New York\",\n        zipCode: \"10001\"\n    }\n};\n\n// Safe way to access nested properties\nconst city = user && user.address && user.address.city;\nconsole.log(city); // Output: \"New York\"\n\n// If user was null, this wouldn't cause an error\nconst nullUser = null;\nconst safeCity = nullUser && nullUser.address && nullUser.address.city;\nconsole.log(safeCity); // Output: null (no error)\n\n\nConfiguration with Defaults:\nfunction createConfig(options) {\n    options = options || {}; // Default to empty object\n    \n    return {\n        theme: options.theme || \"light\",\n        language: options.language || \"en\",\n        timeout: options.timeout || 5000\n    };\n}\n\nconst config1 = createConfig();\nconsole.log(config1); \n// Output: {theme: \"light\", language: \"en\", timeout: 5000}\n\nconst config2 = createConfig({theme: \"dark\", timeout: 3000});\nconsole.log(config2);\n// Output: {theme: \"dark\", language: \"en\", timeout: 3000}\n\n\nConditional Function Execution:\nlet debugMode = true;\n\n// Only log if debug mode is enabled\ndebugMode && console.log(\"Debug: Processing user data...\");\n\n// Multiple conditions\nlet user = {isAdmin: true, isActive: true};\nuser.isAdmin && user.isActive && console.log(\"Admin actions available\");\n\n\nAPI Response Handling:\nfunction processApiResponse(response) {\n    // Check if response exists and has data\n    const data = response && response.data && response.data.items;\n    \n    if (data) {\n        console.log(`Found ${data.length} items`);\n        return data;\n    }\n    \n    return [];\n}\n\n// Safe even if response is undefined or malformed\nconst result = processApiResponse(null); // Returns []\n\n\n\n\n4. Important Notes\n\nFalsy Values in JavaScript:\n// These are all falsy values\nconsole.log(false || \"default\");     // \"default\"\nconsole.log(0 || \"default\");        // \"default\" \nconsole.log(\"\" || \"default\");       // \"default\"\nconsole.log(null || \"default\");     // \"default\"\nconsole.log(undefined || \"default\"); // \"default\"\nconsole.log(NaN || \"default\");      // \"default\"\n\n\nPerformance Benefits:\n// Expensive operation only runs if needed\nconst result = cheapCheck() && expensiveOperation();\n\nfunction cheapCheck() {\n    return Math.random() &gt; 0.5;\n}\n\nfunction expensiveOperation() {\n    console.log(\"This might not run at all!\");\n    // Imagine complex calculations here\n    return \"expensive result\";\n}\n\n\nCommon Gotchas:\n// Be careful with 0 and empty strings\nconst count = 0;\nconst displayCount = count || \"No items\"; // \"No items\" (might not be desired)\n\n// Better approach for numbers\nconst betterDisplay = count !== undefined ? count : \"No items\";\nconsole.log(betterDisplay); // 0",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
@@ -232,21 +364,140 @@
     "section": "6. Modern Alternative: Nullish Coalescing (??)",
     "text": "6. Modern Alternative: Nullish Coalescing (??)\nThe operator only considers null and undefined as “nullish” values - unlike || which treats all falsy values as triggers for the fallback.\nIt was introduced in ES2020 as a more precise alternative to the logicalcal OR (||) operator\nconst config = {\n    count: 0,\n    message: \"\",\n    isEnabled: false\n};\n\n// Using || (might give unexpected results)\nconsole.log(config.count || 10);     // 10 (not desired if 0 is valid)\nconsole.log(config.message || \"Hi\"); // \"Hi\" (not desired if \"\" is valid)\n\n// Using ?? (only for null/undefined)\nconsole.log(config.count ?? 10);     // 0 (preserves 0)\nconsole.log(config.message ?? \"Hi\"); // \"\" (preserves empty string)",
     "crumbs": [
-      "Week 0",
+      "**Week 0**",
       "10 Days Of JS",
       "Day-2"
     ]
   },
   {
-    "objectID": "W0/JS/DAY_3.html#array-more",
-    "href": "W0/JS/DAY_3.html#array-more",
-    "title": "Day-3",
+    "objectID": "W0/JS/DAY_4.html",
+    "href": "W0/JS/DAY_4.html",
+    "title": "Day4",
+    "section": "",
+    "text": "Output"
+  },
+  {
+    "objectID": "W0/JS/DAY_4.html#imp-propertiesmethods",
+    "href": "W0/JS/DAY_4.html#imp-propertiesmethods",
+    "title": "Day4",
+    "section": "",
+    "text": "Output"
+  },
+  {
+    "objectID": "W0/JS/DAY_4.html#number",
+    "href": "W0/JS/DAY_4.html#number",
+    "title": "Day4",
+    "section": "Number",
+    "text": "Number\n\nOutput"
+  },
+  {
+    "objectID": "W0/JS/DAY_4.html#array-create",
+    "href": "W0/JS/DAY_4.html#array-create",
+    "title": "Day4",
+    "section": "Array Create",
+    "text": "Array Create\n\nOutput"
+  },
+  {
+    "objectID": "W0/JS/DAY_4.html#array-more",
+    "href": "W0/JS/DAY_4.html#array-more",
+    "title": "Day4",
     "section": "Array More",
-    "text": "Array More\nconsole.log(Array.isArray('Hitesh'))\nconsole.log(Array.from('Hitesh'))   // Create Array from String\nconsole.log(Array.from({name: 'hites'}))   // what will happen?\n\nconsole.log()\n\nconsole.log(Array.of(100, 200, 300))\n\nconsole.log()\nconst arr = [1,2,3, true, \"hi\"]\nconst arr2 = [7,8,9]\n\nconsole.log([...arr, ...arr2])\nOutput\nfalse\n[ 'H', 'i', 't', 'e', 's', 'h' ]\n[]\n\n[ 100, 200, 300 ]\n\n[\n  1,    2, 3, true,\n  'hi', 7, 8, 9\n]",
+    "text": "Array More\n\nOutput"
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html",
+    "href": "W1/1_basics/JS_BASICS.html",
+    "title": "Javascript Basics",
+    "section": "",
+    "text": "Time Efficiency\n\nSpace Efficiency\n\n\n\nFocuse on Growth rate wrt input size. Below c,c1,c2 are some +ve constant.\n\nBig O - Upper Bound / Worst Case\n\nf(n) = O(g(n)) if f(n) &lt;= c.g(n) for all n&gt;=n1\n\nBig Omega - Lower Bound\n\nf(n) = Ω(g(n)) if f(n) &gt;= c.g(n) for all n&gt;=n1\n\nBig Theta - Tight Bound\n\nf(n) = Θ(g(n)) if c1.g(n) &lt;= f(n) &lt;= c2.g(n) for all n&gt;=n1",
     "crumbs": [
-      "Week 0",
-      "10 Days Of JS",
-      "Day-3"
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#algorithm-efficiency",
+    "href": "W1/1_basics/JS_BASICS.html#algorithm-efficiency",
+    "title": "Javascript Basics",
+    "section": "",
+    "text": "Time Efficiency\n\nSpace Efficiency\n\n\n\nFocuse on Growth rate wrt input size. Below c,c1,c2 are some +ve constant.\n\nBig O - Upper Bound / Worst Case\n\nf(n) = O(g(n)) if f(n) &lt;= c.g(n) for all n&gt;=n1\n\nBig Omega - Lower Bound\n\nf(n) = Ω(g(n)) if f(n) &gt;= c.g(n) for all n&gt;=n1\n\nBig Theta - Tight Bound\n\nf(n) = Θ(g(n)) if c1.g(n) &lt;= f(n) &lt;= c2.g(n) for all n&gt;=n1",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#array",
+    "href": "W1/1_basics/JS_BASICS.html#array",
+    "title": "Javascript Basics",
+    "section": "Array",
+    "text": "Array\nJavaScript arrays are zero-indexed, mutable, dynamic collections. Arrays indexing in javascript are forgiving in nature.\nlet arr = ['hi', 'how']\n\narr[5] = 'are'\n\nconsole.log(arr)\n\nfor(let i=0; i&lt;=7; i++) {\n    console.log(arr[i])\n}\nOutput\n[ 'hi', 'how', &lt;3 empty items&gt;, 'are' ]\nhi\nhow\nundefined\nundefined\nundefined\nare\nundefined\nundefined\nNote\n\narr.length will give you 6\n\nNot recommended to assign any value like this, it is allowed since they are internally object, but if they are used means index value are getting random then array optimization feature will be turned off.\n\n\nArray Operations\nIn JS arrays has one property ‘length’ i.e. myarr.length return whole number.\nNote\narr = ['hi', 'how', 'are', 'you']\n\narr[-1] will give value undefined\n\narr.at(-1) will give value 'you'\n\narr.slice(1, 3) will give shallow copy of arr as ['how', 'are']\n\narr.splice(1,3, 1,2) will start from index=1 and will delete 3 items and then insert 1 and then 2.\n\narray.splice(start, deleteCount, item1, item2, ...) it modify the original array and return deleted items as array\n\n\n\nFront and Back\nlet arr = ['hi', 'how']\n\n// STACK\nx = arr.push('**')  // [ 'hi', 'how', '**' ]\ny = arr.pop()\n\n// Queue\np = arr.unshift('**') // [ 'hi', 'how', '**' ]\nq = arr.shift()\n\nconsole.log(arr);\nconsole.log(x,y)\nconsole.log(p,q)\nOutput\n[ 'hi', 'how' ]\n3 **\n3 **\n\n\nIterate in array\nlet arr = ['hi', 'how', 'are', 'you']\n\n\nfor(let ele in arr) { console.log(ele) }\n\nfor(let ele of arr) { console.log(ele) }\n\narr.forEach( (ele, index, myarr) =&gt; {console.log(ele, index, myarr)})\nOutput\n0\n1\n2\n3\nhi\nhow\nare\nyou\nhi 0 [ 'hi', 'how', 'are', 'you' ]\nhow 1 [ 'hi', 'how', 'are', 'you' ]\nare 2 [ 'hi', 'how', 'are', 'you' ]\nyou 3 [ 'hi', 'how', 'are', 'you' ]\nNote\n\nfor in give index or key in array/object\n\nKey Value type iterations\nlet arr = ['hi', 'how', 'are', 'you']\nlet myobj = {name: \"hrm\", age: 23}\n\nfor(let [k, v] of arr.entries()) { console.log(`${k}: ${v}`) }\nfor(let [k, v] of Object.entries(arr)) { console.log(`${k}: ${v}`) }\nfor(let [k, v] of Object.entries(myobj)) { console.log(`${k}: ${v}`) }\nOutput\n0: hi\n1: how\n2: are\n3: you\n0: hi\n1: how\n2: are\n3: you\nname: hrm\nage: 23",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#string",
+    "href": "W1/1_basics/JS_BASICS.html#string",
+    "title": "Javascript Basics",
+    "section": "String",
+    "text": "String\nStrings are immutable, while arrays are mutable\nlet mystr = \"hello world\"\nlet st2 = 'hi'\n\nconsole.log(mystr.length)\nconsole.log(mystr[1])\nconsole.log(mystr[-1])\nconsole.log(mystr.at(-1))\nconsole.log(mystr.charAt(-1))\nconsole.log(mystr.toUpperCase())\nconsole.log(mystr + st2)\n\nfor(let ele of st2) {console.log(ele)}\nfor(let [k, v] of Object.entries(st2)) {console.log(`${k}: ${v}`)}\nOutput\n11\ne\nundefined\nd\n\nHELLO WORLD\nhello worldhi\nh\ni\n0: h\n1: i",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#object",
+    "href": "W1/1_basics/JS_BASICS.html#object",
+    "title": "Javascript Basics",
+    "section": "Object",
+    "text": "Object\nObjects are collections of key-value pairs where keys must be strings or symbols.\n\nCreating Objects\n// Literal syntax\nconst mysym = Symbol(\"k1\")\nconst user = { name: \"John\", age: 25, [mysym]: 'v1' };\n\n// Constructor\nconst obj = new Object({ city: \"Mumbai\" });\n\nconsole.log(user)\nconsole.log(user[mysym]) // frequentrly asked question\n\n/* Output\n{ name: 'John', age: 25, [Symbol(k1)]: 'v1' }\nv1\n*/\n\n\nWhen to Use Objects\n\nRecords with known string keys\n\nJSON serialization needed\nProperty access syntax (obj.prop)\n\nWorking with existing APIs",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#map",
+    "href": "W1/1_basics/JS_BASICS.html#map",
+    "title": "Javascript Basics",
+    "section": "Map",
+    "text": "Map\nMaps are collections where keys can be any data type and maintain insertion order.\n\nCreating Maps\n// Empty Map\nconst map = new Map();\n\n// With initial values\nconst fruits = new Map([[\"apple\", 100], [\"banana\", 50]]);\n\n// Using methods\nmap.set(\"name\", \"Alice\");\nmap.set(1, \"numeric key\");\n\n\nEssential Map Methods\n\nset(key, value) - Add/update\n\nget(key) - Retrieve value\n\nhas(key) - Check existence\n\ndelete(key) - Remove pair\n\nsize - Get count\n\n\n\nWhen to Use Maps\n\nNon-string keys needed\n\nFrequent additions/deletions\n\nMaintain insertion order\n\nUnknown runtime size\n\n\n\n\n\n\n\nKey Differences: Map vs Object\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nMap\nObject\n\n\n\n\nKey Types\nAny data type (objects, functions, primitives)\nOnly strings and symbols\n\n\nSize\nmap.size property\nManual calculation required\n\n\nIteration\nDirectly iterable with for...of\nRequires Object.keys() or similar\n\n\nOrder\nMaintains insertion order\nNo guaranteed order\n\n\nPerformance\nBetter for frequent additions/deletions\nBetter for record-like structures\n\n\nJSON Support\nNo direct JSON support\nDirect JSON support\n\n\nDefault Keys\nNo default keys\nInherits prototype properties",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#set",
+    "href": "W1/1_basics/JS_BASICS.html#set",
+    "title": "Javascript Basics",
+    "section": "Set",
+    "text": "Set\nSet is a collection of unique values of any data type - no duplicates are allowed. Each value can only occur once, whether primitive values or object references.\n\nCreating Sets\n// Empty Set\nconst mySet = new Set();\n\n// From array (removes duplicates)\nconst letters = new Set([\"a\", \"b\", \"c\", \"a\"]); // Set {\"a\", \"b\", \"c\"}\n\n// From string (unique characters)\nconst chars = new Set(\"hello\"); // Set {\"h\", \"e\", \"l\", \"o\"}\n\n\nEssential Set Methods\n\n\n\nMethod\nDescription\nExample\n\n\n\n\nadd(value)\nAdds new element\nset.add(\"apple\")\n\n\nhas(value)\nChecks if value exists\nset.has(\"apple\")\n\n\ndelete(value)\nRemoves element\nset.delete(\"apple\")\n\n\nclear()\nRemoves all elements\nset.clear()\n\n\nsize\nReturns number of elements\nset.size",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
+    ]
+  },
+  {
+    "objectID": "W1/1_basics/JS_BASICS.html#iteration-methods",
+    "href": "W1/1_basics/JS_BASICS.html#iteration-methods",
+    "title": "Javascript Basics",
+    "section": "Iteration Methods",
+    "text": "Iteration Methods\nconst mySet = new Set([1, 2, 3]);\n\n// For...of loop\nfor (const value of mySet) {\n  console.log(value);\n}\n\n// forEach method\nmySet.forEach(value =&gt; console.log(value));\n\n// Values iterator\nfor (const value of mySet.values()) {\n  console.log(value);\n}",
+    "crumbs": [
+      "**Week 1**",
+      "**1. Basics**",
+      "Javascript Intro"
     ]
   }
 ]

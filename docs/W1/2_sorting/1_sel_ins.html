@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="HRM">
-<meta name="dcterms.date" content="2025-09-12">
 
-<title>ADL - Application Development Lab – App Dev Lab by HRM</title>
+<title>Selection &amp; Insertion Sort – App Dev Lab by HRM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,26 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d329e753491efaeac79c98c4b193a686.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-59898bd1c6b9d2bb783127feaa000c76.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-10e20c7751c121ecb33589c3db960245.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-43dbdec085e2ef7b0f9247a09d8e61a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-10e20c7751c121ecb33589c3db960245.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ffffa96520c6cf7ec6bfd4297e4347f0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9abcedaa66623c4356fc84edb00eef4b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-d5e0c1151a2c97d362fc4a8b877fbc5b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -60,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -232,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">App Dev Lab by HRM</span>
     </a>
   </div>
@@ -248,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><strong>About The Course</strong></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 1</strong></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html"><strong>2. Sorting Algorithms</strong></a></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html">Selection and Insertion Sort</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -262,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><strong>About The Course</strong></span></a>
   </div>
 </li>
@@ -286,19 +319,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-3</span></a>
   </div>
 </li>
@@ -315,13 +348,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/HTML/DAY_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/HTML/DAY_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W0/HTML/DAY_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W0/HTML/DAY_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-2</span></a>
   </div>
 </li>
@@ -331,13 +364,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Week 1</strong></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
@@ -349,13 +382,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/1_basics/JS_BASICS.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/1_basics/JS_BASICS.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Javascript Intro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/1_basics/BASIC_DSA.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/1_basics/BASIC_DSA.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DSA Overview</span></a>
   </div>
 </li>
@@ -363,16 +396,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>2. Sorting Algorithms</strong></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./W1/2_sorting/1_sel_ins.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/2_sorting/1_sel_ins.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Selection and Insertion Sort</span></a>
   </div>
 </li>
@@ -385,36 +418,43 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#selection-insertion-sort" id="toc-selection-insertion-sort" class="nav-link active" data-scroll-target="#selection-insertion-sort">Selection &amp; Insertion Sort</a>
+  <ul class="collapse">
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a>
+  <ul class="collapse">
+  <li><a href="#selection-sort" id="toc-selection-sort" class="nav-link" data-scroll-target="#selection-sort">Selection Sort</a></li>
+  <li><a href="#insertion-sort" id="toc-insertion-sort" class="nav-link" data-scroll-target="#insertion-sort">Insertion Sort</a></li>
+  </ul></li>
+  <li><a href="#key-differences" id="toc-key-differences" class="nav-link" data-scroll-target="#key-differences">Key Differences</a></li>
+  </ul></li>
+  <li><a href="#interview-questions-answers" id="toc-interview-questions-answers" class="nav-link" data-scroll-target="#interview-questions-answers">Interview Questions &amp; Answers</a>
+  <ul class="collapse">
+  <li><a href="#q1-when-would-you-choose-insertion-sort-over-selection-sort" id="toc-q1-when-would-you-choose-insertion-sort-over-selection-sort" class="nav-link" data-scroll-target="#q1-when-would-you-choose-insertion-sort-over-selection-sort"><strong>Q1</strong>: When would you choose Insertion Sort over Selection Sort?</a></li>
+  <li><a href="#q2-are-these-algorithms-stable" id="toc-q2-are-these-algorithms-stable" class="nav-link" data-scroll-target="#q2-are-these-algorithms-stable"><strong>Q2</strong>: Are these algorithms stable?</a></li>
+  <li><a href="#q3-which-algorithm-makes-fewer-swaps" id="toc-q3-which-algorithm-makes-fewer-swaps" class="nav-link" data-scroll-target="#q3-which-algorithm-makes-fewer-swaps"><strong>Q3</strong>: Which algorithm makes fewer swaps?</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 1</strong></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html"><strong>2. Sorting Algorithms</strong></a></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html">Selection and Insertion Sort</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ADL - Application Development Lab</h1>
-<p class="subtitle lead">About The Course</p>
+<h1 class="title">Selection &amp; Insertion Sort</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>HRM </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 12, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -424,7 +464,183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>My Name is Hritik Roshan Maurya.</p>
+<details closed="">
+<summary>
+<h1 style="display: inline;">
+Selection &amp; Insertion Sort
+</h1>
+</summary>
+<section id="selection-insertion-sort" class="level1">
+<h1>Selection &amp; Insertion Sort</h1>
+<ul>
+<li><strong>Selection Sort</strong>: Select min element in whole array(unsorted), then place at begining.</li>
+<li><strong>Insertion Sort</strong>: Pick first element from unsorted part and place it in corrcet place.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Selection sort is preferred when <code>write operations</code> are costly, as it makes only <code>n–1 writes</code>, unlike insertion sort which may make up to <code>n²</code>.</p>
+<p>Insertion sort is better for <code>nearly sorted data</code>, where the order (ascending/descending) is known.</p>
+</div>
+</div>
+</div>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<section id="selection-sort" class="level3">
+<h3 class="anchored" data-anchor-id="selection-sort">Selection Sort</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Javascript</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">let</span> arr <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">let</span> n <span class="op">=</span> arr<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">let</span> min_index <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> n<span class="op">;</span> j<span class="op">++</span>) {</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">if</span> (arr[j] <span class="op">&lt;</span> arr[min_index]) {</span>
+<span id="cb1-8"><a href="#cb1-8"></a>            min_index <span class="op">=</span> j<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>        }</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    }</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    [arr[i]<span class="op">,</span> arr[min_index]] <span class="op">=</span> [arr[min_index]<span class="op">,</span> arr[i]]<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>}</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr)<span class="op">;</span>  <span class="co">// Output: [1, 2, 3, 3, 6, 7, 9]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>arr <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb2-2"><a href="#cb2-2"></a>n <span class="op">=</span> <span class="bu">len</span>(arr) <span class="co"># 7</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="co"># Find min element/index</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    min_index <span class="op">=</span> i</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i<span class="op">+</span><span class="dv">1</span>, n):</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        <span class="cf">if</span> arr[j] <span class="op">&lt;</span> arr[min_index]:</span>
+<span id="cb2-10"><a href="#cb2-10"></a>            min_index <span class="op">=</span> j</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="co"># Swap with last element of sorted part</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    (arr[i], arr[min_index]) <span class="op">=</span> (arr[min_index], arr[i])</span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="bu">print</span>(arr)  <span class="co"># [1, 2, 3, 3, 6, 7, 9]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="insertion-sort" class="level3">
+<h3 class="anchored" data-anchor-id="insertion-sort">Insertion Sort</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Javascript</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">let</span> arr <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span>]<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">let</span> n <span class="op">=</span> arr<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="kw">let</span> key <span class="op">=</span> arr[i]<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="kw">let</span> j <span class="op">=</span> i <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="cf">while</span>(j <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> arr[j] <span class="op">&gt;</span> key) {</span>
+<span id="cb3-9"><a href="#cb3-9"></a>        arr[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> arr[j]<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>        j<span class="op">--;</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>    }</span>
+<span id="cb3-12"><a href="#cb3-12"></a></span>
+<span id="cb3-13"><a href="#cb3-13"></a>    arr[j <span class="op">+</span> <span class="dv">1</span>] <span class="op">=</span> key<span class="op">;</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>}</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr)<span class="op">;</span>  <span class="co">// Output: [1, 2, 3, 3, 6, 7, 9]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>arr <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>n <span class="op">=</span> <span class="bu">len</span>(arr) <span class="co"># 7</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    key <span class="op">=</span> arr[i]</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    j <span class="op">=</span> i<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    <span class="cf">while</span>(j<span class="op">&gt;=</span><span class="dv">0</span> <span class="kw">and</span> arr[j] <span class="op">&gt;</span> key):</span>
+<span id="cb4-9"><a href="#cb4-9"></a>        arr[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> arr[j]</span>
+<span id="cb4-10"><a href="#cb4-10"></a>        j <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a></span>
+<span id="cb4-12"><a href="#cb4-12"></a>    arr[j<span class="op">+</span><span class="dv">1</span>] <span class="op">=</span> key</span>
+<span id="cb4-13"><a href="#cb4-13"></a></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="bu">print</span>(arr) <span class="co"># [1, 2, 3, 3, 6, 7, 9]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="key-differences" class="level2">
+<h2 class="anchored" data-anchor-id="key-differences">Key Differences</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Aspect</th>
+<th style="text-align: left;">Selection Sort</th>
+<th style="text-align: left;">Insertion Sort</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Time Complexity</strong></td>
+<td style="text-align: left;">O(n²) always</td>
+<td style="text-align: left;">O(n) in bestcase, worst-O(n²)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Space Complexity</strong></td>
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">O(1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Stability</strong></td>
+<td style="text-align: left;">Not stable</td>
+<td style="text-align: left;">Stable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Adaptivity</strong></td>
+<td style="text-align: left;">Not adaptive</td>
+<td style="text-align: left;">Adaptive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Swaps</strong></td>
+<td style="text-align: left;">O(n) always</td>
+<td style="text-align: left;">0 to O(n²)</td>
+</tr>
+</tbody>
+</table>
+</section></section></details>
+<details closed="">
+<summary>
+<h1 style="display: inline;">
+Questions
+</h1>
+</summary>
+
+
+<section id="interview-questions-answers" class="level1">
+<h1>Interview Questions &amp; Answers</h1>
+<section id="q1-when-would-you-choose-insertion-sort-over-selection-sort" class="level3">
+<h3 class="anchored" data-anchor-id="q1-when-would-you-choose-insertion-sort-over-selection-sort"><strong>Q1</strong>: When would you choose Insertion Sort over Selection Sort?</h3>
+<p><strong>Answer:</strong> When data is nearly sorted or small datasets. Insertion sort has O(n) best-case complexity and is adaptive, while Selection sort is always O(n²).</p>
+</section>
+<section id="q2-are-these-algorithms-stable" class="level3">
+<h3 class="anchored" data-anchor-id="q2-are-these-algorithms-stable"><strong>Q2</strong>: Are these algorithms stable?</h3>
+<p><strong>Answer:</strong> Insertion sort is stable (maintains relative order of equal elements). Selection sort is not stable in its basic implementation.</p>
+</section>
+<section id="q3-which-algorithm-makes-fewer-swaps" class="level3">
+<h3 class="anchored" data-anchor-id="q3-which-algorithm-makes-fewer-swaps"><strong>Q3</strong>: Which algorithm makes fewer swaps?</h3>
+<p><strong>Answer:</strong> Selection sort makes exactly n-1 swaps, while insertion sort can make up to O(n²) swaps in worst case.</p>
+</section></section></details>
+
+
 
 
 
@@ -846,5 +1062,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
