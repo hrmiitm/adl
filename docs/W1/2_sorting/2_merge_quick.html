@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Day-3 – App Dev Lab by HRM</title>
+<title>Merge and Quick Sort – App Dev Lab by HRM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,6 +92,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -281,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 0</strong></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_1.html">10 Days Of JS</a></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_3.html">Day-3</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 1</strong></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html"><strong>2. Sorting Algorithms</strong></a></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/2_merge_quick.html">Merge &amp; Quick Sort</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -301,22 +330,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text"><strong>Week 0</strong></span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">10 Days Of JS</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../W0/JS/DAY_1.html" class="sidebar-item-text sidebar-link">
@@ -331,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../W0/JS/DAY_3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day-3</span></a>
   </div>
 </li>
@@ -364,13 +393,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>Week 1</strong></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
@@ -396,13 +425,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text"><strong>2. Sorting Algorithms</strong></span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../W1/2_sorting/1_sel_ins.html" class="sidebar-item-text sidebar-link">
@@ -411,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../W1/2_sorting/2_merge_quick.html" class="sidebar-item-text sidebar-link">
+  <a href="../../W1/2_sorting/2_merge_quick.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Merge &amp; Quick Sort</span></a>
   </div>
 </li>
@@ -429,11 +458,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#create-string" id="toc-create-string" class="nav-link active" data-scroll-target="#create-string">Create String</a></li>
-  <li><a href="#imp-propertiesmethods" id="toc-imp-propertiesmethods" class="nav-link" data-scroll-target="#imp-propertiesmethods">Imp Properties/Methods</a></li>
-  <li><a href="#number" id="toc-number" class="nav-link" data-scroll-target="#number">Number</a></li>
-  <li><a href="#array-create" id="toc-array-create" class="nav-link" data-scroll-target="#array-create">Array Create</a></li>
-  <li><a href="#array-more" id="toc-array-more" class="nav-link" data-scroll-target="#array-more">Array More</a></li>
+  <li><a href="#merge-sort-vs-quick-sort" id="toc-merge-sort-vs-quick-sort" class="nav-link active" data-scroll-target="#merge-sort-vs-quick-sort">Merge Sort vs Quick Sort</a>
+  <ul class="collapse">
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a>
+  <ul class="collapse">
+  <li><a href="#merge-sort" id="toc-merge-sort" class="nav-link" data-scroll-target="#merge-sort">Merge Sort</a></li>
+  <li><a href="#quick-sort" id="toc-quick-sort" class="nav-link" data-scroll-target="#quick-sort">Quick Sort</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#interview-questions-answers" id="toc-interview-questions-answers" class="nav-link" data-scroll-target="#interview-questions-answers">Interview Questions &amp; Answers</a>
+  <ul class="collapse">
+  <li><a href="#q1-merge-sort-why-is-merge-sort-preferred-for-linked-lists" id="toc-q1-merge-sort-why-is-merge-sort-preferred-for-linked-lists" class="nav-link" data-scroll-target="#q1-merge-sort-why-is-merge-sort-preferred-for-linked-lists"><strong>Q1 (Merge Sort):</strong> Why is Merge Sort preferred for linked lists?</a></li>
+  <li><a href="#q2-merge-sort-is-merge-sort-stable" id="toc-q2-merge-sort-is-merge-sort-stable" class="nav-link" data-scroll-target="#q2-merge-sort-is-merge-sort-stable"><strong>Q2 (Merge Sort):</strong> Is Merge Sort stable?</a></li>
+  <li><a href="#q3-merge-sort-can-merge-sort-be-done-in-place" id="toc-q3-merge-sort-can-merge-sort-be-done-in-place" class="nav-link" data-scroll-target="#q3-merge-sort-can-merge-sort-be-done-in-place"><strong>Q3 (Merge Sort):</strong> Can Merge Sort be done in place?</a></li>
+  <li><a href="#q4-quick-sort-why-is-quick-sort-generally-faster-than-merge-sort" id="toc-q4-quick-sort-why-is-quick-sort-generally-faster-than-merge-sort" class="nav-link" data-scroll-target="#q4-quick-sort-why-is-quick-sort-generally-faster-than-merge-sort"><strong>Q4 (Quick Sort):</strong> Why is Quick Sort generally faster than Merge Sort?</a></li>
+  <li><a href="#q5-quick-sort-how-do-you-avoid-worst-case-performance-in-quick-sort" id="toc-q5-quick-sort-how-do-you-avoid-worst-case-performance-in-quick-sort" class="nav-link" data-scroll-target="#q5-quick-sort-how-do-you-avoid-worst-case-performance-in-quick-sort"><strong>Q5 (Quick Sort):</strong> How do you avoid worst-case performance in Quick Sort?</a></li>
+  <li><a href="#q6-quick-sort-is-quick-sort-stable" id="toc-q6-quick-sort-is-quick-sort-stable" class="nav-link" data-scroll-target="#q6-quick-sort-is-quick-sort-stable"><strong>Q6 (Quick Sort):</strong> Is Quick Sort stable?</a></li>
+  <li><a href="#q7-comparison-when-would-you-prefer-merge-sort-over-quick-sort" id="toc-q7-comparison-when-would-you-prefer-merge-sort-over-quick-sort" class="nav-link" data-scroll-target="#q7-comparison-when-would-you-prefer-merge-sort-over-quick-sort"><strong>Q7 (Comparison):</strong> When would you prefer Merge Sort over Quick Sort?</a></li>
+  <li><a href="#q8-comparison-when-would-you-prefer-quick-sort-over-merge-sort" id="toc-q8-comparison-when-would-you-prefer-quick-sort-over-merge-sort" class="nav-link" data-scroll-target="#q8-comparison-when-would-you-prefer-quick-sort-over-merge-sort"><strong>Q8 (Comparison):</strong> When would you prefer Quick Sort over Merge Sort?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -441,10 +484,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 0</strong></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_1.html">10 Days Of JS</a></li><li class="breadcrumb-item"><a href="../../W0/JS/DAY_3.html">Day-3</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Week 1</strong></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/1_sel_ins.html"><strong>2. Sorting Algorithms</strong></a></li><li class="breadcrumb-item"><a href="../../W1/2_sorting/2_merge_quick.html">Merge &amp; Quick Sort</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Day-3</h1>
-<p class="subtitle lead">Strings, Numbers and Array</p>
+<h1 class="title">Merge and Quick Sort</h1>
 </div>
 
 
@@ -461,134 +503,160 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<details open="">
+<details closed="">
 <summary>
 <h1 style="display: inline;">
-Strings
+Merge Sort
 </h1>
 </summary>
-<section id="create-string" class="level2">
-<h2 class="anchored" data-anchor-id="create-string">Create String</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="st">'Hritik'</span>        <span class="co">// Single/Double both allowed</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">let</span> b <span class="op">=</span> <span class="st">"Roshan"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">let</span> c <span class="op">=</span> <span class="vs">`hi </span><span class="sc">${</span>a<span class="sc">}</span><span class="vs"> </span><span class="sc">${</span>b<span class="sc">}</span><span class="vs">`</span>  <span class="co">// String Interpolation</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">let</span> d <span class="op">=</span> <span class="kw">new</span> <span class="bu">String</span>(c)   <span class="co">// String object wrapper</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="kw">typeof</span> a<span class="op">,</span> <span class="kw">typeof</span> b<span class="op">,</span> <span class="kw">typeof</span> c<span class="op">,</span> <span class="kw">typeof</span> d)</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">/* Output</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">string string string object</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">*/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="merge-sort-vs-quick-sort" class="level1">
+<h1>Merge Sort vs Quick Sort</h1>
+<ul>
+<li><strong>Merge Sort</strong>: Divide array into two halves, sort them recursively, then merge the sorted halves.
+<ul>
+<li>Always TimeComplexities -&gt; <code>O(nlogn)</code></li>
+</ul></li>
+<li><strong>Quick Sort</strong>: Choose a pivot, partition array so smaller elements go left and larger go right, then sort partitions recursively.
+<ul>
+<li>Best/Average TimeComplexites -&gt; <code>O(nlogn)</code> but WorstCase is <code>O(n²)</code></li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Merge sort is preferred for stable sorting and linked lists, since merging is efficient and consistent.</p>
+<p>Quick sort is better for in-place sorting and usually faster on average cases, but performance degrades if pivot selection is poor.</p>
+</div>
+</div>
+</div>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<section id="merge-sort" class="level3">
+<h3 class="anchored" data-anchor-id="merge-sort">Merge Sort</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Javascript</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> merge_sort(arr):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(arr)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="cf">if</span> n <span class="op">&lt;=</span> <span class="dv">1</span>: <span class="cf">return</span> arr</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="co"># Break</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>    larr <span class="op">=</span> arr[:n<span class="op">//</span><span class="dv">2</span>]</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    rarr <span class="op">=</span> arr[n<span class="op">//</span><span class="dv">2</span>:]</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    larr <span class="op">=</span> merge_sort(larr)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    rarr <span class="op">=</span> merge_sort(rarr)</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="co"># Merge two sorted array</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>    (n, m) <span class="op">=</span> (<span class="bu">len</span>(larr), <span class="bu">len</span>(rarr))</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    (i, j) <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    new_arr <span class="op">=</span> []    <span class="co"># Not in place sorting</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="cf">while</span>(i<span class="op">&lt;</span>n <span class="kw">and</span> j<span class="op">&lt;</span>m):</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        <span class="cf">if</span> larr[i] <span class="op">&lt;</span> rarr[j]:</span>
+<span id="cb2-18"><a href="#cb2-18"></a>            new_arr.append(larr[i])</span>
+<span id="cb2-19"><a href="#cb2-19"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-21"><a href="#cb2-21"></a>            new_arr.append(rarr[j])</span>
+<span id="cb2-22"><a href="#cb2-22"></a>            j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-23"><a href="#cb2-23"></a>    <span class="cf">while</span>(i<span class="op">&lt;</span>n):</span>
+<span id="cb2-24"><a href="#cb2-24"></a>        new_arr.append(larr[i])</span>
+<span id="cb2-25"><a href="#cb2-25"></a>        i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="cf">while</span>(j<span class="op">&lt;</span>m):</span>
+<span id="cb2-27"><a href="#cb2-27"></a>        new_arr.append(rarr[j])</span>
+<span id="cb2-28"><a href="#cb2-28"></a>        j <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a>    </span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="cf">return</span> new_arr</span>
+<span id="cb2-31"><a href="#cb2-31"></a></span>
+<span id="cb2-32"><a href="#cb2-32"></a></span>
+<span id="cb2-33"><a href="#cb2-33"></a></span>
+<span id="cb2-34"><a href="#cb2-34"></a>arr <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">4</span>]</span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="bu">print</span>(merge_sort(arr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="imp-propertiesmethods" class="level2">
-<h2 class="anchored" data-anchor-id="imp-propertiesmethods">Imp Properties/Methods</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="st">"hello world"</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="at">length</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">charAt</span>(<span class="dv">2</span>))<span class="co">// l</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">at</span>(<span class="op">-</span><span class="dv">2</span>))   <span class="co">// Allow -ve index</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a[<span class="op">-</span><span class="dv">2</span>])      <span class="co">// undefined</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">slice</span>(<span class="op">-</span><span class="dv">5</span><span class="op">,</span> <span class="dv">9</span>))</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">substring</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">5</span>))      <span class="co">// NOT ALlowed -veIndex</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">includes</span>(<span class="st">'ld'</span>))</span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">replace</span>(<span class="st">'ld'</span><span class="op">,</span> <span class="st">'-'</span>))</span>
-<span id="cb2-12"><a href="#cb2-12"></a></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">toUpperCase</span>())</span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">trim</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output</strong></p>
-<pre><code>11
-l
-l
-undefined
-wor
-llo
-true
-hello wor-
-HELLO WORLD
-hello world</code></pre>
-</section></details>
-<details open="">
+<section id="quick-sort" class="level3">
+<h3 class="anchored" data-anchor-id="quick-sort">Quick Sort</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Javascript</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section></section></section></details>
+<details closed="">
 <summary>
 <h1 style="display: inline;">
-Numbers
+Questions
 </h1>
 </summary>
 
-<section id="number" class="level2">
-<h2 class="anchored" data-anchor-id="number">Number</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">let</span> a <span class="op">=</span> <span class="fl">105.678</span>               <span class="co">// number</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">let</span> b <span class="op">=</span> <span class="kw">new</span> <span class="bu">Number</span>(<span class="fl">105.678</span>)   <span class="co">// object</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>))       <span class="co">// return string</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(a<span class="op">.</span><span class="fu">toPrecision</span>(<span class="dv">2</span>))   <span class="co">// Return String</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">round</span>(a<span class="op">,</span> <span class="dv">2</span>))</span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">ceil</span>(a))</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output</strong></p>
-<pre><code>105.68
-1.1e+2
-106
-106
-105</code></pre>
-</section></details>
-<details open="">
-<summary>
-<h1 style="display: inline;">
-Array
-</h1>
-</summary>
 
-<section id="array-create" class="level2">
-<h2 class="anchored" data-anchor-id="array-create">Array Create</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="st">"hi"</span>]</span>
-<span id="cb6-2"><a href="#cb6-2"></a></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr<span class="op">.</span><span class="at">length</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr[<span class="dv">3</span>]<span class="op">,</span> arr[<span class="op">-</span><span class="dv">2</span>]) <span class="co">// -ve index not work</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a></span>
-<span id="cb6-6"><a href="#cb6-6"></a>x <span class="op">=</span> arr<span class="op">.</span><span class="fu">push</span>(<span class="dv">50</span>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a>y <span class="op">=</span> arr<span class="op">.</span><span class="fu">pop</span>()</span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(x<span class="op">,</span>y<span class="op">,</span>arr<span class="op">,</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr<span class="op">.</span><span class="fu">includes</span>(<span class="st">'hi'</span>))</span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(arr<span class="op">.</span><span class="fu">indexOf</span>(<span class="st">'hi'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output</strong></p>
-<pre><code>5
-true undefined
-6 50 [ 1, 2, 3, true, 'hi' ]
 
-true
-4</code></pre>
+<section id="interview-questions-answers" class="level1">
+<h1>Interview Questions &amp; Answers</h1>
+<section id="q1-merge-sort-why-is-merge-sort-preferred-for-linked-lists" class="level3">
+<h3 class="anchored" data-anchor-id="q1-merge-sort-why-is-merge-sort-preferred-for-linked-lists"><strong>Q1 (Merge Sort):</strong> Why is Merge Sort preferred for linked lists?</h3>
+<p><strong>Answer:</strong> Merge Sort does not require random access, works naturally with linked lists, and avoids extra memory allocation for splitting.</p>
 </section>
-<section id="array-more" class="level2">
-<h2 class="anchored" data-anchor-id="array-more">Array More</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Array</span><span class="op">.</span><span class="fu">isArray</span>(<span class="st">'Hitesh'</span>))</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="st">'Hitesh'</span>))   <span class="co">// Create Array from String</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>({<span class="dt">name</span><span class="op">:</span> <span class="st">'hites'</span>}))   <span class="co">// what will happen?</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>()</span>
-<span id="cb8-6"><a href="#cb8-6"></a></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="bu">Array</span><span class="op">.</span><span class="fu">of</span>(<span class="dv">100</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">300</span>))</span>
-<span id="cb8-8"><a href="#cb8-8"></a></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>()</span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="st">"hi"</span>]</span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="kw">const</span> arr2 <span class="op">=</span> [<span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">9</span>]</span>
-<span id="cb8-12"><a href="#cb8-12"></a></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>([<span class="op">...</span>arr<span class="op">,</span> <span class="op">...</span>arr2])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Output</strong></p>
-<pre><code>false
-[ 'H', 'i', 't', 'e', 's', 'h' ]
-[]
+<section id="q2-merge-sort-is-merge-sort-stable" class="level3">
+<h3 class="anchored" data-anchor-id="q2-merge-sort-is-merge-sort-stable"><strong>Q2 (Merge Sort):</strong> Is Merge Sort stable?</h3>
+<p><strong>Answer:</strong> Yes, it preserves the order of equal elements, making it stable.</p>
+</section>
+<section id="q3-merge-sort-can-merge-sort-be-done-in-place" class="level3">
+<h3 class="anchored" data-anchor-id="q3-merge-sort-can-merge-sort-be-done-in-place"><strong>Q3 (Merge Sort):</strong> Can Merge Sort be done in place?</h3>
+<p><strong>Answer:</strong> Not in the conventional implementation, since it requires <span class="math inline">\(O(n)\)</span> auxiliary space.</p>
+<hr>
+</section>
+<section id="q4-quick-sort-why-is-quick-sort-generally-faster-than-merge-sort" class="level3">
+<h3 class="anchored" data-anchor-id="q4-quick-sort-why-is-quick-sort-generally-faster-than-merge-sort"><strong>Q4 (Quick Sort):</strong> Why is Quick Sort generally faster than Merge Sort?</h3>
+<p><strong>Answer:</strong> Quick Sort often has better cache performance since it works in place and reduces memory overhead compared to Merge Sort.</p>
+</section>
+<section id="q5-quick-sort-how-do-you-avoid-worst-case-performance-in-quick-sort" class="level3">
+<h3 class="anchored" data-anchor-id="q5-quick-sort-how-do-you-avoid-worst-case-performance-in-quick-sort"><strong>Q5 (Quick Sort):</strong> How do you avoid worst-case performance in Quick Sort?</h3>
+<p><strong>Answer:</strong> By using strategies like random pivot selection or median-of-three, which help keep partitions balanced.</p>
+</section>
+<section id="q6-quick-sort-is-quick-sort-stable" class="level3">
+<h3 class="anchored" data-anchor-id="q6-quick-sort-is-quick-sort-stable"><strong>Q6 (Quick Sort):</strong> Is Quick Sort stable?</h3>
+<p><strong>Answer:</strong> By default, no. Equal elements may get reordered unless explicitly handled.</p>
+<hr>
+</section>
+<section id="q7-comparison-when-would-you-prefer-merge-sort-over-quick-sort" class="level3">
+<h3 class="anchored" data-anchor-id="q7-comparison-when-would-you-prefer-merge-sort-over-quick-sort"><strong>Q7 (Comparison):</strong> When would you prefer Merge Sort over Quick Sort?</h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>For linked lists (efficient merge operation).</li>
+<li>When stability is required.</li>
+<li>When guaranteed <span class="math inline">\(O(n \log n)\)</span> time is critical.</li>
+</ul>
+</section>
+<section id="q8-comparison-when-would-you-prefer-quick-sort-over-merge-sort" class="level3">
+<h3 class="anchored" data-anchor-id="q8-comparison-when-would-you-prefer-quick-sort-over-merge-sort"><strong>Q8 (Comparison):</strong> When would you prefer Quick Sort over Merge Sort?</h3>
+<p><strong>Answer:</strong></p>
+<ul>
+<li>For arrays with good pivot selection (in-place, less overhead).</li>
+<li>When average-case speed matters more than guaranteed time.</li>
+</ul>
+</section></section></details>
 
-[ 100, 200, 300 ]
-
-[
-  1,    2, 3, true,
-  'hi', 7, 8, 9
-]</code></pre>
-</section></details>
 
 
 

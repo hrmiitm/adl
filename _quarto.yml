@@ -48,8 +48,10 @@ website:
                   href: ./W1/1_basics/BASIC_DSA.qmd
             - section: "**2. Sorting Algorithms**"
               contents:
-                - text: "Selection and Insertion Sort"
+                - text: "Selection & Insertion Sort"
                   href: ./W1/2_sorting/1_sel_ins.qmd
+                - text: "Merge & Quick Sort"
+                  href: ./W1/2_sorting/2_merge_quick.qmd
             
 
 

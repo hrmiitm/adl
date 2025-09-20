@@ -1,0 +1,155 @@
+---
+title: "Merge and Quick Sort"
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    smooth-scroll: true
+
+    # Code formatting
+    code-copy: true
+    code-fold: show
+    code-line-numbers: true
+    highlight-style: dracula
+---
+
+<details closed>
+<summary><h1 style="display: inline;">Merge Sort</h1></summary>
+
+# Merge Sort vs Quick Sort
+
+* **Merge Sort**: Divide array into two halves, sort them recursively, then merge the sorted halves.  
+    - Always TimeComplexities -> `O(nlogn)`
+* **Quick Sort**: Choose a pivot, partition array so smaller elements go left and larger go right, then sort partitions recursively.  
+    - Best/Average TimeComplexites -> `O(nlogn)` but WorstCase is `O(n²)`
+
+::: {.callout-note collapse="false"}
+Merge sort is preferred for stable sorting and linked lists, since merging is efficient and consistent.
+
+Quick sort is better for in-place sorting and usually faster on average cases, but performance degrades if pivot selection is poor.
+:::
+
+## Implementation
+
+### Merge Sort
+
+::: {.panel-tabset group="language"}
+### Javascript
+
+``` {.javascript}
+
+```
+
+### Python
+
+``` {.python}
+def merge_sort(arr):
+    n = len(arr)
+    if n <= 1: return arr
+
+    # Break
+    larr = arr[:n//2]
+    rarr = arr[n//2:]
+
+    larr = merge_sort(larr)
+    rarr = merge_sort(rarr)
+
+    # Merge two sorted array
+    (n, m) = (len(larr), len(rarr))
+    (i, j) = (0, 0)
+    new_arr = []    # Not in place sorting
+    while(i<n and j<m):
+        if larr[i] < rarr[j]:
+            new_arr.append(larr[i])
+            i += 1
+        else:
+            new_arr.append(rarr[j])
+            j += 1
+    while(i<n):
+        new_arr.append(larr[i])
+        i += 1
+    while(j<m):
+        new_arr.append(rarr[j])
+        j += 1
+    
+    return new_arr
+
+
+
+arr = [3, 1, 5, 2, 8, 5, 4]
+print(merge_sort(arr))
+```
+
+:::
+
+### Quick Sort
+
+::: {.panel-tabset group="language"}
+### Javascript
+
+``` {.javascript}
+``` 
+
+### Python
+
+``` {.python}
+```
+
+
+:::
+
+
+
+</details>
+
+<details closed>
+<summary><h1 style="display: inline;">Questions</h1></summary>
+
+# Interview Questions \& Answers
+
+### **Q1 (Merge Sort):** Why is Merge Sort preferred for linked lists?
+
+**Answer:** Merge Sort does not require random access, works naturally with linked lists, and avoids extra memory allocation for splitting.
+
+### **Q2 (Merge Sort):** Is Merge Sort stable?
+
+**Answer:** Yes, it preserves the order of equal elements, making it stable.
+
+### **Q3 (Merge Sort):** Can Merge Sort be done in place?
+
+**Answer:** Not in the conventional implementation, since it requires $O(n)$ auxiliary space.
+
+***
+
+### **Q4 (Quick Sort):** Why is Quick Sort generally faster than Merge Sort?
+
+**Answer:** Quick Sort often has better cache performance since it works in place and reduces memory overhead compared to Merge Sort.
+
+### **Q5 (Quick Sort):** How do you avoid worst-case performance in Quick Sort?
+
+**Answer:** By using strategies like random pivot selection or median-of-three, which help keep partitions balanced.
+
+### **Q6 (Quick Sort):** Is Quick Sort stable?
+
+**Answer:** By default, no. Equal elements may get reordered unless explicitly handled.
+
+***
+
+### **Q7 (Comparison):** When would you prefer Merge Sort over Quick Sort?
+
+**Answer:**
+
+- For linked lists (efficient merge operation).
+- When stability is required.
+- When guaranteed $O(n \log n)$ time is critical.
+
+
+### **Q8 (Comparison):** When would you prefer Quick Sort over Merge Sort?
+
+**Answer:**
+
+- For arrays with good pivot selection (in-place, less overhead).
+- When average-case speed matters more than guaranteed time.
+
+</details>
