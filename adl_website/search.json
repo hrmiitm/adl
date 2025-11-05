@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ADL - Application Development Lab",
+    "section": "",
+    "text": "🚀 Full-Stack Web Development Journey\n(JS/TS • React • Express • PostgreSQL • Docker/Kubernetes • OpenAIAgent)\nThis website documents my learning journey in Full-Stack Web Development, which I started first time in September 2025. It includes notes, hands-on exercises, and practical mini-projects as I grow my skills through consistent practice and real implementation.\n\n🔹 What I’m Learning\n\n⚛️ React.js — Frontend development\n🚀 Express.js — Backend APIs\n🐘 PostgreSQL — Database management\n🐳 Docker & ☸️ Kubernetes — Deployment tools\n🤖 OpenAI SDK (TypeScript) — AI-powered applications",
+    "crumbs": [
+      "**About The Course**"
+    ]
+  },
+  {
+    "objectID": "OpenAiAgentSDK/1_intro.html",
+    "href": "OpenAiAgentSDK/1_intro.html",
+    "title": "OpenAI Agents SDK - Intro",
+    "section": "",
+    "text": "Installation\n\nNormal SDK Official Link\nAgents SDK Official Link\n\nTypeScript\nnpm install openai # OpenAI SDK\nnpm install @openai/agents zod@3 # OpenAI Agents SDK\nPython\npip install openai # OpenAI SDK\npip install openai-agents # OpenAI Agents SDK\nEnvironment Variables\nexport OPENAI_API_KEY=sk-adfjlafaldgjhl # required\n\nexport OPENAI_BASE_URL=https://aipipe.org/openai/v1 # required only if api_key is from some proxy\n# By default: https://api.openai.com/v1\n\n\n\n1️⃣ Using OpenAI SDK (Normal SDK)\n\n\n\nNote: Low level abstraction so need to manage so much things.\nimport OpenAI from \"openai\";\nconst openai = new OpenAI();\n\nconst response = await openai.responses.create({\n    model: \"gpt-4.1\",\n    input: \"Tell me a three sentence bedtime story about a unicorn.\"\n});\n\nconsole.log(response);\n\n\n\n\n2️⃣ Using OpenAI Agentic SDK (Agentic SDK)\n\n\n\nNote: High level abstraction so easy to make highly complex applications.\nimport { Agent, run } from '@openai/agents';\n\nconst agent = new Agent({\n  name: 'Assistant',\n  instructions: 'You are a helpful assistant',\n});\n\n\n\nconst result = await run(\n  agent,\n  'Write a haiku about recursion in programming.',\n);\nconsole.log(result.finalOutput);\n\n\n\n📌 Summary in one line\n\n✅ OpenAI SDK = Just talk to the model, Low level abstraction\n\n🤖 OpenAI Agent SDK / Framework = Model + tools + memory + reasoning → actual autonomous Agent, High level abstraction",
+    "crumbs": [
+      "**OpenAI Agents SDK**",
+      "Intro"
+    ]
+  }
+]

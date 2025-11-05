@@ -1,0 +1,92 @@
+---
+title: "OpenAI Agents SDK - Intro"
+---
+
+
+# Installation 
+
+- [Normal SDK Official Link](https://platform.openai.com/docs/quickstart){target="_blank"}
+- [Agents SDK Official Link](https://platform.openai.com/docs/guides/agents-sdk){target="_blank"}
+
+
+`TypeScript`
+```bash
+npm install openai # OpenAI SDK
+npm install @openai/agents zod@3 # OpenAI Agents SDK
+```
+
+`Python`
+```bash
+pip install openai # OpenAI SDK
+pip install openai-agents # OpenAI Agents SDK
+```
+
+`Environment Variables`
+```bash
+export OPENAI_API_KEY=sk-adfjlafaldgjhl # required
+
+export OPENAI_BASE_URL=https://aipipe.org/openai/v1 # required only if api_key is from some proxy
+# By default: https://api.openai.com/v1
+```
+
+<details open>
+<summary><h2 style="display: inline;">1️⃣ Using **OpenAI SDK** (Normal SDK)</h2></summary>
+
+</br>
+
+**Note**: **Low level abstraction** so need to manage so much things.
+
+```ts
+import OpenAI from "openai";
+const openai = new OpenAI();
+
+const response = await openai.responses.create({
+    model: "gpt-4.1",
+    input: "Tell me a three sentence bedtime story about a unicorn."
+});
+
+console.log(response);
+
+```
+
+</details>
+
+<details open>
+<summary><h2 style="display: inline;">2️⃣ Using **OpenAI Agentic SDK** (Agentic SDK)</h2></summary>
+
+</br>
+
+**Note**: **High level abstraction** so easy to make highly complex applications.
+
+```ts
+import { Agent, run } from '@openai/agents';
+
+const agent = new Agent({
+  name: 'Assistant',
+  instructions: 'You are a helpful assistant',
+});
+
+
+
+const result = await run(
+  agent,
+  'Write a haiku about recursion in programming.',
+);
+console.log(result.finalOutput);
+```
+ 
+</details>
+
+---
+
+
+
+### 📌 Summary in one line
+
+- ✅ **OpenAI SDK** = Just talk to the model, Low level abstraction  
+- 🤖 **OpenAI Agent SDK / Framework** = Model + tools + memory + reasoning → actual autonomous Agent, High level abstraction
+
+
+
+---
+

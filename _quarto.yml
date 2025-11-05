@@ -1,0 +1,59 @@
+project:
+  type: website
+  output-dir: adl_website
+
+website:
+  title: "App Dev Lab by HRM"
+  search: true
+  bread-crumbs: false
+  page-navigation: true
+  reader-mode: true
+  page-footer: "Copyright 2025 Hritik Roshan Maurya. All rights reserved." 
+  navbar:
+    style: "floating"
+    pinned: false
+    tools:
+      - icon: youtube
+        href: https://www.youtube.com/@deepinside333hrm
+        target: _blank
+      - icon: house
+        href: https://hrmiitm.github.io
+        target: _blank
+
+  sidebar:
+      style: "docked"
+      search: false
+      # background: "light"
+      collapse-level: 1
+      contents:
+        - text: "**About The Course**"
+          href: index.qmd
+        - text: "---"
+        - section: "**OpenAI Agents SDK**"
+          contents:
+            - text: "Intro"
+              href: "./OpenAiAgentSDK/1_intro.qmd"
+            
+
+
+format:
+  html:
+    theme:
+      light: zephyr
+      dark: vapor
+    css: styles.css
+    toc: false
+    smooth-scroll: true
+
+      # light: morph
+      # dark: flatly
+
+    # Code formatting
+    code-copy: true
+    code-fold: show
+    code-line-numbers: true
+    # code-overflow: wrap
+    highlight-style: github
+
+      
+
