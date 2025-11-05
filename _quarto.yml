@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: adl_website
+  output-dir: docs
 
 website:
   title: "App Dev Lab by HRM"
